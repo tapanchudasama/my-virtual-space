@@ -2,27 +2,7 @@ import React, { useEffect } from "react";
 import { Heading, Flex, Text, Container, Box } from "@chakra-ui/react";
 import { motion, useAnimation } from "framer-motion";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
-
-const sentence = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const letter = {
-  hidden: { opacity: 0, y: "100%" },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      damping: 5,
-    },
-  },
-};
+import { sentence, letter } from "../components/about";
 
 const MotionHeading = motion(Heading);
 const MotionText = motion(Text);
@@ -34,14 +14,13 @@ const Hero = () => {
   const nameAnimation = useAnimation();
   const descriptionAnimation = useAnimation();
 
-  const sequence = async () => {
-    await nameAnimation.start("visible");
-    await descriptionAnimation.start("visible");
-  };
-
   useEffect(() => {
+    async function sequence() {
+      await nameAnimation.start("visible");
+      await descriptionAnimation.start("visible");
+    }
     sequence();
-  }, []);
+  }, [nameAnimation, descriptionAnimation]);
 
   return (
     <Container maxWidth="6xl" position="relative">

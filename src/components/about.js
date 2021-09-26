@@ -12,6 +12,8 @@ const MotionText = motion(Text);
 const MotionFlex = motion(Flex);
 const MotionBox = motion(Box);
 
+const HEADING = "about me";
+
 const sentence = {
   hidden: { opacity: 1 },
   visible: {
@@ -23,7 +25,7 @@ const sentence = {
 };
 
 const letter = {
-  hidden: { opacity: 0, y: "100%" },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
@@ -37,19 +39,23 @@ const letter = {
 const About = () => {
   const data = useStaticQuery(graphql`
     query AboutQuery {
-      markdownRemark {
-        html
-        frontmatter {
-          about_image {
-            childImageSharp {
-              gatsbyImageData(
-                width: 300
-                layout: CONSTRAINED
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
+      allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/content/sections/about/" } }
+      ) {
+        nodes {
+          frontmatter {
+            about_image {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 300
+                  layout: CONSTRAINED
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
+              }
             }
           }
+          html
         }
       }
     }
@@ -62,15 +68,18 @@ const About = () => {
   const headingAnimation = useAnimation();
   const contentAnimation = useAnimation();
 
-  useEffect(async () => {
-    if (inView) {
-      await headingAnimation.start("visible");
-      await contentAnimation.start("visible");
+  useEffect(() => {
+    async function sequence() {
+      if (inView) {
+        await headingAnimation.start("visible");
+        await contentAnimation.start("visible");
+      }
     }
-  }, [inView]);
+    sequence();
+  }, [inView, contentAnimation, headingAnimation]);
 
-  const { markdownRemark } = data;
-  const { frontmatter, html } = markdownRemark;
+  const { allMarkdownRemark } = data;
+  const { frontmatter, html } = allMarkdownRemark.nodes[0];
   const image = getImage(frontmatter.about_image);
 
   return (
@@ -80,9 +89,10 @@ const About = () => {
         display="flex"
         variants={sentence}
         animate={headingAnimation}
-        fontSize={["3xl", "5xl"]}
+        fontSize={["3xl", "4xl", "5xl"]}
+        py={8}
       >
-        {"about me".split(" ").map((char, index) => {
+        {HEADING.split(" ").map((char, index) => {
           return (
             <MotionText key={char + "-" + index} pr="4" variants={letter}>
               {char}
@@ -103,11 +113,14 @@ const About = () => {
           py="4"
           direction="column"
         >
-          {/* TODO - Add Alt text here */}
           <Box alignSelf="center" w={[170, 250, 300]}>
-            <GatsbyImage image={image} style={{ borderRadius: "50%" }} />
+            <GatsbyImage
+              image={image}
+              style={{ borderRadius: "50%" }}
+              alt="my-picture"
+            />
           </Box>
-          <Box fontSize={["md", "lg"]} pt="8">
+          <Box fontSize={["md", "lg", "xl"]} pt="8">
             <div dangerouslySetInnerHTML={{ __html: html }}></div>
           </Box>
         </MotionFlex>

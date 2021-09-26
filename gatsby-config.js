@@ -33,6 +33,13 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "projects",
+        path: `${__dirname}/content/projects`,
+      },
+    },
+    {
       resolve: `gatsby-source-spotify`,
       options: {
         clientId: `84f322e7f3154b97bd512485e08aec99`,

@@ -17,10 +17,11 @@ const SpotifyRecentlyPlayed = () => {
   const { allSpotifyRecentTrack } = spotifyData;
   return (
     <iframe
+      title="Spotify Recently Played"
       src={`https://open.spotify.com/embed/track/${allSpotifyRecentTrack.nodes[0].track.id}`}
       width="300"
       height="80"
-      frameborder="0"
+      frameBorder="0"
       allowtransparency="true"
       allow="encrypted-media"
     ></iframe>

@@ -4,7 +4,7 @@ import { useColorModeValue } from "@chakra-ui/color-mode";
 import ToggleTheme from "./ToggleTheme";
 
 const Footer = () => {
-  const value = useColorModeValue("teal.200", "gray.700");
+  const value = useColorModeValue("blue.200", "gray.700");
   return (
     <Box backgroundColor={value} p="4">
       <Container maxWidth="6xl">

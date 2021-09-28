@@ -1,21 +1,12 @@
 import React, { useEffect } from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import {
-  Flex,
-  Box,
-  Container,
-  Heading,
-  Text,
-  VStack,
-  Stack,
-} from "@chakra-ui/react";
+import { Flex, Box, Container, Heading, Text, Stack } from "@chakra-ui/react";
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
 import { useColorModeValue } from "@chakra-ui/color-mode";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 import { borderVariants } from "../pages/navigation";
+import Project from "./common/project";
 
 const MotionHeading = motion(Heading);
 const MotionText = motion(Text);
@@ -86,9 +77,8 @@ const Projects = () => {
 
   const headingAnimation = useAnimation();
   const contentAnimation = useAnimation();
-  const projectDescriptionBgColor = useColorModeValue("teal.200", "gray.700");
-  const boxShadow = useColorModeValue("lg", "dark-lg");
-  const borderColor = useColorModeValue("green.800", "yellow.200");
+
+  const borderColor = useColorModeValue("blue.200", "yellow.200");
 
   useEffect(() => {
     async function sequence() {
@@ -135,36 +125,7 @@ const Projects = () => {
         direction={["column", "column", "row"]}
       >
         {allMarkdownRemark.nodes.map((n) => {
-          return (
-            <Stack
-              boxShadow={boxShadow}
-              spacing={2}
-              alignItems="start"
-              direction="column"
-              borderRadius={4}
-              backgroundColor={projectDescriptionBgColor}
-            >
-              <Box p={4}>
-                <Heading fontSize={["xl", "2xl"]} pb={4}>
-                  {n.frontmatter.title}
-                </Heading>
-                <VStack spacing={4}>
-                  <Box>
-                    <GatsbyImage
-                      style={{ borderRadius: "4px" }}
-                      image={getImage(n.frontmatter.cover_image)}
-                      alt={n.title}
-                    />
-                  </Box>
-                  <Box>
-                    <Text fontSize={["sm", "md"]}>
-                      <div dangerouslySetInnerHTML={{ __html: n.html }} />
-                    </Text>
-                  </Box>
-                </VStack>
-              </Box>
-            </Stack>
-          );
+          return <Project node={n} />;
         })}
       </MotionStack>
       <Flex

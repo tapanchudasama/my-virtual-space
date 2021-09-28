@@ -3,7 +3,7 @@ import { Box } from "@chakra-ui/react";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Helmet } from "react-helmet";
 import About from "../components/about";
-import Projects from "../components/projects";
+import Works from "../components/work-section";
 import Header from "../components/header";
 import Hero from "../components/hero";
 import Footer from "../components/footer";
@@ -19,7 +19,7 @@ const Index = () => {
         </Helmet>
         <Header />
         <Hero />
-        <Projects />
+        <Works />
         <About />
         <Footer />
       </Box>

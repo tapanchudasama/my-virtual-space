@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 
-import { borderVariants } from "../pages/navigation";
+import { borderVariants } from "./navigation";
 import Project from "./common/project";
 
 const MotionHeading = motion(Heading);
@@ -55,6 +55,7 @@ const Projects = () => {
             demo_link
             repo_link_backend
             repo_link_frontend
+            techs
             cover_image {
               childImageSharp {
                 gatsbyImageData(

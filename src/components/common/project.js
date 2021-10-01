@@ -4,6 +4,8 @@ import {
   Heading,
   Box,
   Text,
+  Tag,
+  Flex,
   Link as ChakraLink,
 } from "@chakra-ui/react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -11,7 +13,7 @@ import { useColorModeValue } from "@chakra-ui/color-mode";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 const Project = ({ node }) => {
-  const projectDescriptionBgColor = useColorModeValue("blue.200", "gray.700");
+  const projectCardBgColor = useColorModeValue("blue.300", "gray.700");
   const boxShadow = useColorModeValue("lg", "dark-lg");
   return (
     <Stack
@@ -23,7 +25,7 @@ const Project = ({ node }) => {
       alignItems="start"
       direction="column"
       borderRadius={4}
-      backgroundColor={projectDescriptionBgColor}
+      backgroundColor={projectCardBgColor}
     >
       <Heading fontSize={["xl", "2xl"]}>{node.frontmatter.title}</Heading>
       <Box>
@@ -34,9 +36,16 @@ const Project = ({ node }) => {
         />
       </Box>
       <Box flexGrow={1}>
-        <Text fontSize={["sm", "md"]}>
+        <Text fontSize={["xs", "sm"]}>
           <div dangerouslySetInnerHTML={{ __html: node.html }} />
         </Text>
+        <Flex flexWrap="wrap" w="100%" alignItems="center" pt={4}>
+          {node.frontmatter.techs.map((t, index) => (
+            <Tag size="sm" mt={2} ml={index > 0 ? 2 : 0}>
+              {t}
+            </Tag>
+          ))}
+        </Flex>
       </Box>
       <Stack
         direction="row"

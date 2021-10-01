@@ -9,10 +9,17 @@ export const useSiteMetadata = () => {
             siteUrl
             name
             description
+            socialMedia {
+              twitter
+              reddit
+              linkedin
+              github
+              mail
+            }
           }
         }
       }
     `
   );
-  return site.siteMetadata;
+  return site;
 };

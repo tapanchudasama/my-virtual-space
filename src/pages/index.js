@@ -7,23 +7,22 @@ import Works from "../components/work-section";
 import Header from "../components/header";
 import Hero from "../components/hero";
 import Footer from "../components/footer";
+import GithubStats from "../components/github-stats";
 
 const Index = () => {
-  const value = useColorModeValue("gray.100");
   return (
-    <React.Fragment>
-      <Box backgroundColor={value}>
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>tapan chudasama • home</title>
-        </Helmet>
-        <Header />
-        <Hero />
-        <Works />
-        <About />
-        <Footer />
-      </Box>
-    </React.Fragment>
+    <Box overflow="hidden">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>tapan chudasama • home</title>
+      </Helmet>
+      <Header />
+      <Hero />
+      <Works />
+      {/* <GithubStats /> */}
+      <About />
+      <Footer />
+    </Box>
   );
 };
 export default Index;

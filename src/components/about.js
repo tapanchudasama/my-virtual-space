@@ -14,7 +14,7 @@ const MotionBox = motion(Box);
 
 const HEADING = "about me";
 
-const sentence = {
+export const sentence = {
   hidden: { opacity: 1 },
   visible: {
     opacity: 1,
@@ -24,7 +24,7 @@ const sentence = {
   },
 };
 
-const letter = {
+export const letter = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,

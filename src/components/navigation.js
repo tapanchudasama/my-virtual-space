@@ -5,7 +5,6 @@ import { CloseIcon } from "@chakra-ui/icons";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Link } from "gatsby";
 
-const MotionFlex = motion(Flex);
 const MotionBox = motion(Box);
 
 export const borderVariants = {
@@ -13,30 +12,17 @@ export const borderVariants = {
   visible: { opacity: 1, scale: 1 },
 };
 
-const Navigation = () => {
+const Navigation = ({ setShowNavigation }) => {
   const value = useColorModeValue("gray.100");
   const borderColor = useColorModeValue("green.800", "yellow.200");
 
   return (
-    <Box backgroundColor={value}>
-      <Container maxWidth="6xl" overflow="hidden">
-        <MotionFlex
-          direction="column"
-          height="100vh"
-          initial={{ x: "100%", opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: "100%", opacity: 0 }}
-          transition={{
-            mass: 0.35,
-            stiffness: 75,
-            duration: 0.5,
-          }}
-        >
+    <Box backgroundColor={value} overflow="hidden">
+      <Container maxWidth="6xl">
+        <Flex direction="column" height="100vh">
           <Flex alignItems="center" justifyContent="flex-end" py="8">
-            <Box>
-              <Link to="/">
-                <CloseIcon w="8" h="8" cursor="pointer" />
-              </Link>
+            <Box onClick={() => setShowNavigation(false)}>
+              <CloseIcon w={["4", "8"]} h={["4", "8"]} cursor="pointer" />
             </Box>
           </Flex>
           <Flex
@@ -55,7 +41,9 @@ const Navigation = () => {
                   key={label + "-" + index}
                   cursor="pointer"
                 >
-                  <Heading fontSize={["3xl", "4xl", "5xl"]}>{label}</Heading>
+                  <Link to={`${label}`}>
+                    <Heading fontSize={["3xl", "4xl", "5xl"]}>{label}</Heading>
+                  </Link>
                   <MotionBox
                     borderBottom="1px"
                     variants={borderVariants}
@@ -65,7 +53,7 @@ const Navigation = () => {
               ))}
             </VStack>
           </Flex>
-        </MotionFlex>
+        </Flex>
       </Container>
     </Box>
   );

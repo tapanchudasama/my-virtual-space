@@ -1,40 +1,21 @@
 import React, { useEffect } from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
-import { Flex, Box, Container, Heading, Text, Stack } from "@chakra-ui/react";
+import { Flex, Box, Container, Text, Stack } from "@chakra-ui/react";
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 
 import { borderVariants } from "./navigation";
 import Project from "./common/project";
+import SectionHeading from "./common/SectionHeading";
+import { letter, sentence } from "./about";
 
-const MotionHeading = motion(Heading);
+const MotionSectionHeading = motion(SectionHeading);
 const MotionText = motion(Text);
 const MotionStack = motion(Stack);
 const MotionBox = motion(Box);
 
 const HEADING = "some of my work";
-const sentence = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const letter = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      damping: 5,
-      duration: 0.5,
-    },
-  },
-};
 
 const Projects = () => {
   const data = useStaticQuery(graphql`
@@ -95,7 +76,7 @@ const Projects = () => {
 
   return (
     <Container maxWidth="6xl" ref={ref}>
-      <MotionHeading
+      <MotionSectionHeading
         initial="hidden"
         display="flex"
         variants={sentence}
@@ -114,7 +95,7 @@ const Projects = () => {
             </MotionText>
           );
         })}
-      </MotionHeading>
+      </MotionSectionHeading>
       <MotionStack
         initial="hidden"
         animate={contentAnimation}

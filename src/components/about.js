@@ -1,18 +1,35 @@
 import React, { useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { Flex, Box, Container, Heading, Text } from "@chakra-ui/react";
+import {
+  Flex,
+  Box,
+  Container,
+  Text,
+  Stack,
+  Link,
+  Icon,
+  Grid,
+  GridItem,
+} from "@chakra-ui/react";
 import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
+import {
+  FaHeadphones,
+  FaStarOfLife,
+  FaNetworkWired,
+  FaLightbulb,
+} from "react-icons/fa";
 
 import SpotifyRecentlyPlayed from "./spotify-recently-played";
+import SectionHeading from "../components/common/SectionHeading";
 
-const MotionHeading = motion(Heading);
+const MotionSectionHeading = motion(SectionHeading);
 const MotionText = motion(Text);
 const MotionFlex = motion(Flex);
 const MotionBox = motion(Box);
 
-const HEADING = "about me";
+const HEADING = "some things about me";
 
 export const sentence = {
   hidden: { opacity: 1 },
@@ -44,6 +61,8 @@ const About = () => {
       ) {
         nodes {
           frontmatter {
+            mbti_type
+            hobbies
             about_image {
               childImageSharp {
                 gatsbyImageData(
@@ -55,7 +74,6 @@ const About = () => {
               }
             }
           }
-          html
         }
       }
     }
@@ -79,17 +97,16 @@ const About = () => {
   }, [inView, contentAnimation, headingAnimation]);
 
   const { allMarkdownRemark } = data;
-  const { frontmatter, html } = allMarkdownRemark.nodes[0];
+  const { frontmatter } = allMarkdownRemark.nodes[0];
   const image = getImage(frontmatter.about_image);
 
   return (
     <Container maxWidth="6xl" ref={ref}>
-      <MotionHeading
+      <MotionSectionHeading
         initial="hidden"
         display="flex"
         variants={sentence}
         animate={headingAnimation}
-        fontSize={["3xl", "4xl", "5xl"]}
         py={8}
       >
         {HEADING.split(" ").map((char, index) => {
@@ -99,7 +116,7 @@ const About = () => {
             </MotionText>
           );
         })}
-      </MotionHeading>
+      </MotionSectionHeading>
       <MotionBox
         initial="hidden"
         variants={letter}
@@ -120,14 +137,109 @@ const About = () => {
               alt="my-picture"
             />
           </Box>
-          <Box fontSize={["md", "lg", "xl"]} pt="8">
-            <div dangerouslySetInnerHTML={{ __html: html }}></div>
-          </Box>
+          <Grid
+            templateColumns={[
+              "repeat(1,1fr)",
+              "repeat(1,1fr)",
+              "repeat(3,1fr)",
+            ]}
+            justifyItems="center"
+            justifyContent="center"
+            gap={8}
+            fontSize={["xs", "sm", "md"]}
+            pt="8"
+          >
+            <GridItem>
+              <Stack
+                direction="column"
+                alignItems="center"
+                width="100%"
+                justifyContent="stretch"
+                textAlign="center"
+              >
+                <Icon as={FaStarOfLife} w={8} h={8} />
+                <Text>
+                  I enjoy{" "}
+                  {frontmatter.hobbies.map((h, index) => {
+                    return (
+                      <Text display="inline" fontWeight="bold">
+                        {h}
+                        {index === frontmatter.hobbies.length - 1
+                          ? ""
+                          : ","}{" "}
+                      </Text>
+                    );
+                  })}
+                  . Doing a Europe tour is one of the items in my bucket list.
+                </Text>
+              </Stack>
+            </GridItem>
+            <GridItem>
+              <Stack
+                direction="column"
+                alignItems="center"
+                width="100%"
+                justifyContent="center"
+              >
+                <Icon as={FaNetworkWired} w={8} h={8} />
+                <Text textAlign="center">
+                  My{" "}
+                  <Link
+                    fontWeight="bold"
+                    href="https://en.wikipedia.org/wiki/Myers%E2%80%93Briggs_Type_Indicator"
+                  >
+                    Myers-Briggs Type Indicator (MBTI)
+                  </Link>{" "}
+                  is{" "}
+                  <Link
+                    fontWeight="bold"
+                    href="https://www.16personalities.com/intj-personality?utm_source=email&utm_medium=welcome-architect&utm_campaign=description"
+                  >
+                    {frontmatter.mbti_type}.
+                  </Link>{" "}
+                  (introverted, intuitive, thinking, and judging)
+                  <Text>
+                    You also can take the test yourself{" "}
+                    <Link
+                      fontWeight="bold"
+                      href="http://www.16personalities.com/"
+                    >
+                      here
+                    </Link>
+                  </Text>
+                </Text>
+              </Stack>
+            </GridItem>
+            <GridItem>
+              <Stack
+                direction="column"
+                alignItems="center"
+                width="100%"
+                justifyContent="center"
+              >
+                <Icon as={FaHeadphones} w={8} h={8} />
+                <Text textAlign="center">Currently I am listening to:</Text>
+                <SpotifyRecentlyPlayed />
+              </Stack>
+            </GridItem>
+            <GridItem>
+              <Stack
+                direction="column"
+                alignItems="center"
+                width="100%"
+                justifyContent="center"
+              >
+                <Icon as={FaLightbulb} w={8} h={8} />
+                <Text textAlign="center">
+                  I enjoy talking about intellectually stimulating topics, be it
+                  any field. Currently I am trying to learn about{" "}
+                  <strong>stock markets</strong> and <strong>finance</strong>{" "}
+                  along with software engineering, of course.
+                </Text>
+              </Stack>
+            </GridItem>
+          </Grid>
         </MotionFlex>
-        <Heading fontSize={["xl", "2xl"]} py="2">
-          what i am listening recently
-        </Heading>
-        <SpotifyRecentlyPlayed />
       </MotionBox>
     </Container>
   );

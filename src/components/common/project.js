@@ -27,7 +27,7 @@ const Project = ({ node }) => {
       borderRadius={4}
       backgroundColor={projectCardBgColor}
     >
-      <Heading fontSize={["xl", "2xl"]}>{node.frontmatter.title}</Heading>
+      <Heading fontSize={["lg", "xl"]}>{node.frontmatter.title}</Heading>
       <Box>
         <GatsbyImage
           style={{ borderRadius: "4px" }}

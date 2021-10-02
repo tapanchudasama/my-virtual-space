@@ -5,15 +5,12 @@ import {
   Flex,
   Container,
   Heading,
-  Grid,
-  GridItem,
-  Link as ChakraLink,
   Stack,
+  Link,
 } from "@chakra-ui/react";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import { motion, useAnimation } from "framer-motion";
 import { useStaticQuery, graphql } from "gatsby";
-import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import { letter, sentence } from "../components/about";
@@ -104,7 +101,7 @@ const Writings = () => {
                     justifyContent="space-between"
                     width="100%"
                   >
-                    <a
+                    <Link
                       href={`https://blog.tapan.app/${n.slug}`}
                       target="_blank"
                     >
@@ -114,7 +111,7 @@ const Writings = () => {
                       >
                         {n.title}
                       </Heading>
-                    </a>
+                    </Link>
                     <Text fontSize={["xs"]}>{n.dateAdded}</Text>
                   </Flex>
                   <Stack
@@ -122,7 +119,7 @@ const Writings = () => {
                     alignItems={["center", "center", "inherit"]}
                     spacing={4}
                   >
-                    <a
+                    <Link
                       href={`https://blog.tapan.app/${n.slug}`}
                       target="_blank"
                     >
@@ -133,7 +130,7 @@ const Writings = () => {
                           alt={n.title}
                         />
                       </Box>
-                    </a>
+                    </Link>
                     <Box flexGrow={1}>
                       <Text fontSize={["sm"]}>{n.brief}</Text>
                     </Box>

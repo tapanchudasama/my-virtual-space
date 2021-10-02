@@ -2,13 +2,10 @@ import React, { useEffect } from "react";
 import {
   Text,
   Box,
-  Flex,
   Container,
   Heading,
   Grid,
   GridItem,
-  Link as ChakraLink,
-  Stack,
 } from "@chakra-ui/react";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import { motion, useAnimation } from "framer-motion";

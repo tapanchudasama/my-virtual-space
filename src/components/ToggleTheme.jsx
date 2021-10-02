@@ -1,20 +1,13 @@
 import React from "react";
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-import { useColorMode, Box, HStack, IconButton } from "@chakra-ui/react";
-import { useColorModeValue } from "@chakra-ui/color-mode";
+import { useColorMode, Box, HStack, Icon } from "@chakra-ui/react";
+import { ImContrast } from "react-icons/im";
 
 export default function ThemeToggle() {
-  const { toggleColorMode, colorMode } = useColorMode();
-  const iconColor = useColorModeValue("blue.200");
+  const { toggleColorMode } = useColorMode();
   return (
     <HStack space="4">
-      <Box>
-        <IconButton
-          color={iconColor}
-          onClick={toggleColorMode}
-          aria-label="change-theme"
-          icon={colorMode === "dark" ? <SunIcon /> : <MoonIcon />}
-        />
+      <Box cursor="pointer" onClick={toggleColorMode}>
+        <Icon as={ImContrast} />
       </Box>
     </HStack>
   );

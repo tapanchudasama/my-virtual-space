@@ -3,21 +3,18 @@ import {
   Stack,
   Box,
   Container,
-  Modal,
-  ModalOverlay,
-  ModalContent,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
   Heading,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Navigation from "./navigation";
 import { AnimatePresence } from "framer-motion";
 import ToggleTheme from "./ToggleTheme";
-import { useSiteMetadata } from "../hooks/use-site-metadata";
 import { Link } from "gatsby";
 
 const Header = () => {
-  const { name } = useSiteMetadata();
-
   const [showNavigation, setShowNavigation] = React.useState(false);
   return (
     <React.Fragment>
@@ -42,12 +39,12 @@ const Header = () => {
         </Stack>
       </Container>
       <AnimatePresence exitBeforeEnter>
-        <Modal isOpen={showNavigation} size="full">
-          <ModalOverlay />
-          <ModalContent>
+        <Drawer isOpen={showNavigation} size={["md"]}>
+          <DrawerOverlay />
+          <DrawerContent>
             <Navigation setShowNavigation={setShowNavigation} />
-          </ModalContent>
-        </Modal>
+          </DrawerContent>
+        </Drawer>
       </AnimatePresence>
     </React.Fragment>
   );

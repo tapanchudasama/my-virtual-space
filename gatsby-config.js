@@ -6,16 +6,10 @@ module.exports = {
     siteUrl: "https://www.tapan.app",
     name: "tapan chudasama",
     description: "welcome to my virtual space",
-    socialMedia: {
-      mail: "tapan9740@gmail.com",
-      twitter: "https://twitter.com/tapanchudasama7",
-      linkedin: "https://www.linkedin.com/in/tapanchudasama/",
-      github: "https://github.com/tapanchudasama",
-      reddit: "https://www.reddit.com/user/inflame07",
-    },
   },
   plugins: [
     "gatsby-source-hashnode-api",
+    "gatsby-transformer-json",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
@@ -47,6 +41,27 @@ module.exports = {
       options: {
         name: "projects",
         path: `${__dirname}/content/projects`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "readings",
+        path: `${__dirname}/content/readings`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "status-quo",
+        path: `${__dirname}/content/sections/status-quo`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "social-media",
+        path: `${__dirname}/content/sections/hero/social-media.json`,
       },
     },
     {

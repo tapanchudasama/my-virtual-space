@@ -19,12 +19,8 @@ import {
 } from "react-icons/fa";
 import { useStaticQuery, graphql } from "gatsby";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
-import { sentence, letter } from "../components/about";
 
-const MotionHeading = motion(Heading);
-const MotionText = motion(Text);
 const MotionBox = motion(Box);
-const MotionStack = motion(Stack);
 
 const Hero = () => {
   const { allHeroJson } = useStaticQuery(
@@ -47,18 +43,14 @@ const Hero = () => {
   const { siteMetadata } = useSiteMetadata();
   const { name, description } = siteMetadata;
   const { twitter, mail, reddit, github, linkedin } = allHeroJson.edges[0].node;
-  const nameAnimation = useAnimation();
-  const descriptionAnimation = useAnimation();
   const iconsAnimation = useAnimation();
 
   useEffect(() => {
     async function sequence() {
-      await nameAnimation.start("visible");
-      await descriptionAnimation.start("visible");
       await iconsAnimation.start("visible");
     }
     sequence();
-  }, [nameAnimation, descriptionAnimation, iconsAnimation]);
+  }, [iconsAnimation]);
 
   return (
     <Container maxWidth="6xl" position="relative">
@@ -70,36 +62,8 @@ const Hero = () => {
         justifyContent="center"
       >
         <Text fontSize={["lg", "xl", "2xl"]}>hi, i am</Text>
-        <Heading
-          display="flex"
-          // initial="hidden"
-          // animate={nameAnimation}
-          // variants={sentence}
-          fontSize={["4xl", "5xl", "6xl"]}
-        >
-          {name.split(" ").map((char, index) => {
-            return (
-              <Text pr="4" key={char + "-" + index} variants={letter}>
-                {char}
-              </Text>
-            );
-          })}
-        </Heading>
-        <MotionText
-          fontSize={["2xl", "3xl"]}
-          display="flex"
-          // initial="hidden"
-          // animate={descriptionAnimation}
-          // variants={sentence}
-        >
-          {description.split(" ").map((char, index) => {
-            return (
-              <MotionText pr="2" key={char + "-" + index} variants={letter}>
-                {char}
-              </MotionText>
-            );
-          })}
-        </MotionText>
+        <Heading fontSize={["4xl", "5xl", "6xl"]}>{name}</Heading>
+        <Text fontSize={["2xl", "3xl"]}>{description}</Text>
         <Box
           position="absolute"
           display="flex"
@@ -122,23 +86,7 @@ const Hero = () => {
             transition={{ repeat: Infinity, duration: 2 }}
           />
         </Box>
-        <MotionStack
-          pt={["4", "8"]}
-          direction="row"
-          spacing={4}
-          initial="hidden"
-          // animate={iconsAnimation}
-          // variants={{
-          //   hidden: {
-          //     opacity: 0,
-          //     y: 20,
-          //   },
-          //   visible: {
-          //     opacity: 1,
-          //     y: 0,
-          //   },
-          // }}
-        >
+        <Stack pt={["4", "8"]} direction="row" spacing={4}>
           {twitter && (
             <Link key="twitter" href={twitter} target="_blank">
               <Icon as={FaTwitter} w={["6", "8"]} h={["6", "8"]} />
@@ -165,7 +113,7 @@ const Hero = () => {
               <Icon as={FaEnvelope} w={["6", "8"]} h={["6", "8"]} />
             </Link>
           )}
-        </MotionStack>
+        </Stack>
       </Flex>
     </Container>
   );

@@ -199,12 +199,12 @@ const About = () => {
                   </Link>{" "}
                   (introverted, intuitive, thinking, and judging)
                   <Text>
-                    You also can take the test yourself{" "}
+                    You also can take the test yourself at{" "}
                     <Link
                       fontWeight="bold"
                       href="http://www.16personalities.com/"
                     >
-                      here
+                      16personalities.com
                     </Link>
                   </Text>
                 </Text>

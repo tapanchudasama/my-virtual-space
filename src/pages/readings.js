@@ -8,6 +8,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { letter, sentence } from "../components/about";
 import Layout from "../components/layout";
 import SectionHeading from "../components/common/SectionHeading";
+import Seo from "../components/seo";
 
 const MotionSectionHeading = motion(SectionHeading);
 const MotionText = motion(Text);
@@ -60,6 +61,7 @@ const Readings = () => {
     <Box backgroundColor={value}>
       <Layout>
         <Container maxWidth="6xl">
+          <Seo titleTemplate="%s · readings" />
           <MotionSectionHeading
             initial="hidden"
             display="flex"

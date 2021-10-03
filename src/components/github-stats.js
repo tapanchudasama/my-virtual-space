@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import {
   Box,
   Text,
@@ -11,6 +11,7 @@ import {
 import { useStaticQuery, graphql } from "gatsby";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import { GoRepo, GoGitMerge, GoCode } from "react-icons/go";
+
 const GithubStats = () => {
   const [majorityLanguage, setMajorityLanguage] = React.useState("");
   const [majorityLanguagePercent, setMajorityLanguagePercent] =
@@ -57,16 +58,7 @@ const GithubStats = () => {
   const { data } = githubData;
   const { user } = data;
 
-  useEffect(() => {
-    const l = findMajorityLanguage(user.repositories);
-    setMajorityLanguage(l[0]);
-    setMajorityLanguagePercent(l[1]);
-    console.log(l);
-  }, [findMajorityLanguage, user.repositories]);
-
-  const bgColor = useColorModeValue("blue.200", "gray.700");
-
-  const findMajorityLanguage = (repositories) => {
+  const findMajorityLanguage = useCallback(() => {
     let totalLanguages = 0;
     let majorityLanguage = "";
     const map = new Map();
@@ -78,6 +70,7 @@ const GithubStats = () => {
         });
       }
     });
+
     let MIN_VALUE = 0;
     for (const [k, v] of map) {
       if (v > MIN_VALUE) {
@@ -87,7 +80,17 @@ const GithubStats = () => {
     }
 
     return [majorityLanguage, map.get(majorityLanguage) / totalLanguages];
-  };
+  }, [user.repositories.edges]);
+
+  useEffect(() => {
+    const l = findMajorityLanguage();
+    setMajorityLanguage(l[0]);
+    setMajorityLanguagePercent(l[1]);
+    console.log(l);
+  }, [findMajorityLanguage]);
+
+  const bgColor = useColorModeValue("blue.200", "gray.700");
+
   return (
     <Box width="100%" backgroundColor={bgColor} py={8} my={8}>
       <Container maxWidth="6xl">

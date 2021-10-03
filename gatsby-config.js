@@ -3,9 +3,12 @@ require("dotenv").config({
 });
 module.exports = {
   siteMetadata: {
+    title: "tapan chudasama",
     siteUrl: "https://www.tapan.app",
     name: "tapan chudasama",
-    description: "welcome to my virtual space",
+    description: "welcome to my virtual space.",
+    image: "/me.jpg",
+    twitterUsername: "@tapanchudasama7",
   },
   plugins: [
     "gatsby-source-hashnode-api",
@@ -67,9 +70,9 @@ module.exports = {
     {
       resolve: `gatsby-source-spotify`,
       options: {
-        clientId: `84f322e7f3154b97bd512485e08aec99`,
-        clientSecret: `b74dd388bc474cc3ab0a2009825c4358`,
-        refreshToken: `AQAKcAMJbYh2TcNWZIpr__XGNS5zVCK88apQaYPZD8ibXWuhSPv8rEHUYH2EzJl8Vy7ihuFTFGmI5oxkjRULKT58lhNGadN3EIj5FGAlgZieT7GvOlkxNWuhD-cW-f7mdVQ`,
+        clientId: process.env.SPOTIFY_CLIENT_ID,
+        clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
+        refreshToken: process.env.SPOTIFY_REFRESH_TOKEN,
 
         fetchPlaylists: true, // optional. Set to false to disable fetching of your playlists
         fetchRecent: true, // optional. Set to false to disable fetching of your recently played tracks

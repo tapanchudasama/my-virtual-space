@@ -70,27 +70,27 @@ const Hero = () => {
         justifyContent="center"
       >
         <Text fontSize={["lg", "xl", "2xl"]}>hi, i am</Text>
-        <MotionHeading
+        <Heading
           display="flex"
-          initial="hidden"
-          animate={nameAnimation}
-          variants={sentence}
+          // initial="hidden"
+          // animate={nameAnimation}
+          // variants={sentence}
           fontSize={["4xl", "5xl", "6xl"]}
         >
           {name.split(" ").map((char, index) => {
             return (
-              <MotionText pr="4" key={char + "-" + index} variants={letter}>
+              <Text pr="4" key={char + "-" + index} variants={letter}>
                 {char}
-              </MotionText>
+              </Text>
             );
           })}
-        </MotionHeading>
+        </Heading>
         <MotionText
           fontSize={["2xl", "3xl"]}
           display="flex"
-          initial="hidden"
-          animate={descriptionAnimation}
-          variants={sentence}
+          // initial="hidden"
+          // animate={descriptionAnimation}
+          // variants={sentence}
         >
           {description.split(" ").map((char, index) => {
             return (
@@ -127,17 +127,17 @@ const Hero = () => {
           direction="row"
           spacing={4}
           initial="hidden"
-          animate={iconsAnimation}
-          variants={{
-            hidden: {
-              opacity: 0,
-              y: 20,
-            },
-            visible: {
-              opacity: 1,
-              y: 0,
-            },
-          }}
+          // animate={iconsAnimation}
+          // variants={{
+          //   hidden: {
+          //     opacity: 0,
+          //     y: 20,
+          //   },
+          //   visible: {
+          //     opacity: 1,
+          //     y: 0,
+          //   },
+          // }}
         >
           {twitter && (
             <Link key="twitter" href={twitter} target="_blank">

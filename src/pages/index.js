@@ -1,6 +1,5 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
-import { Helmet } from "react-helmet";
 import About from "../components/about";
 import Works from "../components/work-section";
 import Header from "../components/header";
@@ -8,14 +7,12 @@ import Hero from "../components/hero";
 import Footer from "../components/footer";
 import GithubStats from "../components/github-stats";
 import StatusQuo from "../components/StatusQuo";
+import Seo from "../components/seo";
 
 const Index = () => {
   return (
     <Box overflow="hidden">
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>tapan chudasama • home</title>
-      </Helmet>
+      <Seo titleTemplate="%s · home" />
       <Header />
       <Hero />
       <StatusQuo />

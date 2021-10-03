@@ -14,6 +14,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { letter, sentence } from "../components/about";
 import Layout from "../components/layout";
 import Project from "../components/common/project";
+import Seo from "../components/seo";
 
 const MotionHeading = motion(Heading);
 const MotionText = motion(Text);
@@ -70,6 +71,7 @@ const Works = () => {
     <Box backgroundColor={value}>
       <Layout>
         <Container maxWidth="6xl">
+          <Seo titleTemplate="%s · works" />
           <MotionHeading
             initial="hidden"
             display="flex"

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import {
   Heading,
   Flex,
@@ -8,7 +8,7 @@ import {
   Stack,
   Link,
 } from "@chakra-ui/react";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { Icon } from "@chakra-ui/react";
 import {
   FaTwitter,
@@ -43,14 +43,6 @@ const Hero = () => {
   const { siteMetadata } = useSiteMetadata();
   const { name, description } = siteMetadata;
   const { twitter, mail, reddit, github, linkedin } = allHeroJson.edges[0].node;
-  const iconsAnimation = useAnimation();
-
-  useEffect(() => {
-    async function sequence() {
-      await iconsAnimation.start("visible");
-    }
-    sequence();
-  }, [iconsAnimation]);
 
   return (
     <Container maxWidth="6xl" position="relative">
@@ -88,28 +80,38 @@ const Hero = () => {
         </Box>
         <Stack pt={["4", "8"]} direction="row" spacing={4}>
           {twitter && (
-            <Link key="twitter" href={twitter} target="_blank">
+            <Link rel="noreferrer" key="twitter" href={twitter} target="_blank">
               <Icon as={FaTwitter} w={["6", "8"]} h={["6", "8"]} />
             </Link>
           )}
           {linkedin && (
-            <Link key="linkedin" href={linkedin} target="_blank">
+            <Link
+              rel="noreferrer"
+              key="linkedin"
+              href={linkedin}
+              target="_blank"
+            >
               <Icon as={FaLinkedin} w={["6", "8"]} h={["6", "8"]} />
             </Link>
           )}
           {github && (
-            <Link key="github" href={github} target="_blank">
+            <Link rel="noreferrer" key="github" href={github} target="_blank">
               <Icon as={FaGithub} w={["6", "8"]} h={["6", "8"]} />
             </Link>
           )}
           {reddit && (
-            <Link key="reddit" href={reddit} target="_blank">
+            <Link rel="noreferrer" key="reddit" href={reddit} target="_blank">
               <Icon as={FaReddit} w={["6", "8"]} h={["6", "8"]} />
             </Link>
           )}
 
           {mail && (
-            <Link key="mail" href={`mailto:${mail}`} target="_blank">
+            <Link
+              rel="noreferrer"
+              key="mail"
+              href={`mailto:${mail}`}
+              target="_blank"
+            >
               <Icon as={FaEnvelope} w={["6", "8"]} h={["6", "8"]} />
             </Link>
           )}

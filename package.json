@@ -40,5 +40,8 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.2.0",
     "react-intersection-observer": "^8.32.1"
+  },
+  "devDependencies": {
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.25"
   }
 }

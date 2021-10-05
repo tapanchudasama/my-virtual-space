@@ -86,7 +86,6 @@ const GithubStats = () => {
     const l = findMajorityLanguage();
     setMajorityLanguage(l[0]);
     setMajorityLanguagePercent(l[1]);
-    console.log(l);
   }, [findMajorityLanguage]);
 
   const bgColor = useColorModeValue("blue.200", "gray.700");

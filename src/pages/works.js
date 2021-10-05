@@ -88,7 +88,11 @@ const Works = () => {
               );
             })}
           </MotionHeading>
-          <Grid pb={8} templateColumns="repeat(3, 1fr)" gap={4}>
+          <Grid
+            pb={8}
+            templateColumns={["repeat(1, 1fr)", "repeat(3, 1fr)"]}
+            gap={4}
+          >
             {allMarkdownRemark.nodes.map((n) => {
               return (
                 <GridItem>

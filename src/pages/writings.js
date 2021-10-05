@@ -25,13 +25,13 @@ const HEADING = "writings";
 const Writings = () => {
   const data = useStaticQuery(graphql`
     query WritingsQuery {
-      allHashnodePost {
+      allHashNodePost {
         nodes {
           brief
           title
           slug
           cuid
-          dateAdded(formatString: "DD/MMM/YYYY")
+          dateAdded
           coverImage {
             childImageSharp {
               gatsbyImageData(
@@ -64,7 +64,7 @@ const Writings = () => {
     sequence();
   }, [contentAnimation, headingAnimation]);
 
-  const { allHashnodePost } = data;
+  const { allHashNodePost } = data;
 
   return (
     <Box backgroundColor={value}>
@@ -88,7 +88,7 @@ const Writings = () => {
             })}
           </MotionHeading>
           <Stack direction="column" pb={8} spacing={0}>
-            {allHashnodePost.nodes.map((n) => {
+            {allHashNodePost.nodes.map((n) => {
               return (
                 <Stack
                   borderBottomColor={projectDescriptionBgColor}
@@ -114,7 +114,9 @@ const Writings = () => {
                         {n.title}
                       </Heading>
                     </Link>
-                    <Text fontSize={["xs"]}>{n.dateAdded}</Text>
+                    <Text fontSize={["xs"]}>
+                      {new Date(n.dateAdded).toDateString()}
+                    </Text>
                   </Flex>
                   <Stack
                     direction={["column", "column", "row"]}

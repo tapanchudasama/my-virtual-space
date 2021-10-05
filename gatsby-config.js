@@ -11,7 +11,6 @@ module.exports = {
     twitterUsername: "@tapanchudasama7",
   },
   plugins: [
-    "gatsby-source-hashnode-api",
     "gatsby-transformer-json",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
@@ -20,6 +19,12 @@ module.exports = {
     "gatsby-plugin-sitemap",
     "gatsby-transformer-remark",
     "gatsby-plugin-webpack-bundle-analyser-v2",
+    {
+      resolve: "gatsby-source-hashnode",
+      options: {
+        username: "inflame",
+      },
+    },
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -66,18 +71,6 @@ module.exports = {
       options: {
         name: "social-media",
         path: `${__dirname}/content/sections/hero/social-media.json`,
-      },
-    },
-    {
-      resolve: `gatsby-source-spotify`,
-      options: {
-        clientId: process.env.SPOTIFY_CLIENT_ID,
-        clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
-        refreshToken: process.env.SPOTIFY_REFRESH_TOKEN,
-
-        fetchPlaylists: true, // optional. Set to false to disable fetching of your playlists
-        fetchRecent: true, // optional. Set to false to disable fetching of your recently played tracks
-        timeRanges: ["short_term", "medium_term", "long_term"], // optional. Set time ranges to be fetched
       },
     },
     {

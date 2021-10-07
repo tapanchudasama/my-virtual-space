@@ -11,6 +11,7 @@ module.exports = {
     twitterUsername: "@tapanchudasama7",
   },
   plugins: [
+    "gatsby-plugin-webpack-bundle-analyser-v2",
     "gatsby-transformer-json",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
@@ -18,7 +19,6 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     "gatsby-transformer-remark",
-    "gatsby-plugin-webpack-bundle-analyser-v2",
     {
       resolve: "gatsby-source-hashnode",
       options: {
@@ -28,14 +28,18 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/icon.png",
+        name: `tapan chudasama`,
+        start_url: `/`,
+        display: `standalone`,
+        icon: "src/images/me.png",
       },
     },
+    "gatsby-plugin-offline",
     {
       resolve: "@chakra-ui/gatsby-plugin",
       options: {
         resetCSS: true,
-        isUsingColorMode: true,
+        isUsingColorMode: false,
       },
     },
     {

@@ -1,4 +1,4 @@
-import "@fontsource/poppins";
+import "@fontsource/ibm-plex-sans";
 
 import { ChakraProvider } from "@chakra-ui/react";
 import React from "react";

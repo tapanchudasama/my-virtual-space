@@ -146,7 +146,7 @@ const About = () => {
             justifyItems="center"
             justifyContent="center"
             gap={8}
-            fontSize={["xs", "sm", "md"]}
+            fontSize={["sm", "md"]}
             pt="8"
           >
             <GridItem>

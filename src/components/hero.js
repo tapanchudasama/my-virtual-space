@@ -53,12 +53,12 @@ const Hero = () => {
         direction="column"
         justifyContent="center"
       >
-        <Text fontSize={["lg", "xl", "2xl"]}>hi, i am</Text>
-        <Heading fontSize={["4xl", "5xl", "6xl"]}>{name}</Heading>
-        <Text fontSize={["2xl", "3xl"]}>{description}</Text>
+        <Text fontSize={["md", "lg", "2xl"]}>hi, i am</Text>
+        <Heading fontSize={["3xl", "4xl", "6xl"]}>{name}</Heading>
+        <Text fontSize={["lg", "xl", "3xl"]}>{description}</Text>
         <Box
           position="absolute"
-          display="flex"
+          display={["none", "none", "flex"]}
           justifyContent="center"
           alignItems="start"
           left="50%"

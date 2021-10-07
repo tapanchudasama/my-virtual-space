@@ -1,23 +1,23 @@
-import React, { useEffect } from "react";
-import {
-  Text,
-  Box,
-  Flex,
-  Container,
-  Heading,
-  Stack,
-  Link,
-} from "@chakra-ui/react";
 import { useColorModeValue } from "@chakra-ui/color-mode";
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  Link,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import { motion, useAnimation } from "framer-motion";
-import { useStaticQuery, graphql } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-
+import React, { useEffect } from "react";
 import { letter, sentence } from "../components/about";
+import SectionHeading from "../components/common/SectionHeading";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 
-const MotionHeading = motion(Heading);
+const MotionSectionHeading = motion(SectionHeading);
 const MotionText = motion(Text);
 
 const HEADING = "writings";
@@ -71,12 +71,11 @@ const Writings = () => {
       <Layout>
         <Container maxWidth="6xl">
           <Seo titleTemplate="%s · writings" />
-          <MotionHeading
+          <MotionSectionHeading
             initial="hidden"
             display="flex"
             variants={sentence}
             animate={headingAnimation}
-            fontSize={["3xl", "4xl", "5xl"]}
             py={8}
           >
             {HEADING.split(" ").map((char, index) => {
@@ -86,7 +85,7 @@ const Writings = () => {
                 </MotionText>
               );
             })}
-          </MotionHeading>
+          </MotionSectionHeading>
           <Stack direction="column" pb={8} spacing={0}>
             {allHashNodePost.nodes.map((n) => {
               return (
@@ -106,9 +105,10 @@ const Writings = () => {
                     <Link
                       href={`https://blog.tapan.app/${n.slug}`}
                       target="_blank"
+                      width="70%"
                     >
                       <Heading
-                        fontSize={["md", "lg"]}
+                        fontSize={["sm", "md"]}
                         _hover={{ textColor: hoverColor }}
                       >
                         {n.title}
@@ -136,7 +136,7 @@ const Writings = () => {
                       </Box>
                     </Link>
                     <Box flexGrow={1}>
-                      <Text fontSize={["sm"]}>{n.brief}</Text>
+                      <Text fontSize={["xs", "sm"]}>{n.brief}</Text>
                     </Box>
                   </Stack>
                 </Stack>

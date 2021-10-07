@@ -27,7 +27,7 @@ const Project = ({ node }) => {
       borderRadius={4}
       backgroundColor={projectCardBgColor}
     >
-      <Heading fontSize={["lg", "xl"]}>{node.frontmatter.title}</Heading>
+      <Heading fontSize={["md", "lg"]}>{node.frontmatter.title}</Heading>
       <Box>
         <GatsbyImage
           style={{ borderRadius: "4px" }}
@@ -36,7 +36,7 @@ const Project = ({ node }) => {
         />
       </Box>
       <Box flexGrow={1}>
-        <Text fontSize={["xs", "sm"]}>
+        <Text fontSize={["sm", "md"]}>
           <div dangerouslySetInnerHTML={{ __html: node.html }} />
         </Text>
         <Flex flexWrap="wrap" w="100%" alignItems="center" pt={4}>

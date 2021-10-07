@@ -23,7 +23,7 @@
     "@fontsource/poppins": "^4.5.0",
     "framer-motion": "^4.1.17",
     "gatsby": "^3.13.1",
-    "gatsby-plugin-google-analytics": "^3.14.0",
+    "gatsby-plugin-google-gtag": "^3.14.0",
     "gatsby-plugin-image": "^1.14.0",
     "gatsby-plugin-manifest": "^3.14.0",
     "gatsby-plugin-offline": "^4.14.0",

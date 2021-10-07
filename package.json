@@ -20,7 +20,7 @@
     "@chakra-ui/react": "^1.6.8",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
-    "@fontsource/poppins": "^4.5.0",
+    "@fontsource/ibm-plex-sans": "^4.5.1",
     "framer-motion": "^4.1.17",
     "gatsby": "^3.13.1",
     "gatsby-plugin-google-gtag": "^3.14.0",

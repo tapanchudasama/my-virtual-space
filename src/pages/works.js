@@ -1,19 +1,10 @@
-import React, { useEffect } from "react";
-import {
-  Text,
-  Box,
-  Container,
-  Heading,
-  Grid,
-  GridItem,
-} from "@chakra-ui/react";
-import { useColorModeValue } from "@chakra-ui/color-mode";
+import { Container, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
 import { motion, useAnimation } from "framer-motion";
-import { useStaticQuery, graphql } from "gatsby";
-
+import { graphql, useStaticQuery } from "gatsby";
+import React, { useEffect } from "react";
 import { letter, sentence } from "../components/about";
-import Layout from "../components/layout";
 import Project from "../components/common/project";
+import Layout from "../components/layout";
 import Seo from "../components/seo";
 
 const MotionHeading = motion(Heading);
@@ -52,7 +43,6 @@ const Works = () => {
       }
     }
   `);
-  const value = useColorModeValue("gray.100");
 
   const headingAnimation = useAnimation();
   const contentAnimation = useAnimation();
@@ -68,42 +58,44 @@ const Works = () => {
   const { allMarkdownRemark } = data;
 
   return (
-    <Box backgroundColor={value}>
-      <Layout>
-        <Container maxWidth="6xl">
-          <Seo titleTemplate="%s · works" />
-          <MotionHeading
-            initial="hidden"
-            display="flex"
-            variants={sentence}
-            animate={headingAnimation}
-            fontSize={["3xl", "4xl", "5xl"]}
-            py={8}
-          >
-            {HEADING.split(" ").map((char, index) => {
-              return (
-                <MotionText key={char + "-" + index} pr="4" variants={letter}>
-                  {char}
-                </MotionText>
-              );
-            })}
-          </MotionHeading>
-          <Grid
-            pb={8}
-            templateColumns={["repeat(1, 1fr)", "repeat(3, 1fr)"]}
-            gap={4}
-          >
-            {allMarkdownRemark.nodes.map((n) => {
-              return (
-                <GridItem>
-                  <Project node={n} />
-                </GridItem>
-              );
-            })}
-          </Grid>
-        </Container>
-      </Layout>
-    </Box>
+    <Layout>
+      <Container maxWidth="6xl">
+        <Seo titleTemplate="%s · works" />
+        <MotionHeading
+          initial="hidden"
+          display="flex"
+          variants={sentence}
+          animate={headingAnimation}
+          fontSize={["3xl", "4xl", "5xl"]}
+          py={8}
+        >
+          {HEADING.split(" ").map((char, index) => {
+            return (
+              <MotionText key={char + "-" + index} pr="4" variants={letter}>
+                {char}
+              </MotionText>
+            );
+          })}
+        </MotionHeading>
+        <Grid
+          pb={16}
+          templateColumns={[
+            "repeat(1, 1fr)",
+            "repeat(1, 1fr)",
+            "repeat(2, 1fr)",
+          ]}
+          gap={16}
+        >
+          {allMarkdownRemark.nodes.map((n) => {
+            return (
+              <GridItem>
+                <Project node={n} />
+              </GridItem>
+            );
+          })}
+        </Grid>
+      </Container>
+    </Layout>
   );
 };
 

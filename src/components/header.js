@@ -1,18 +1,18 @@
-import React from "react";
+import { HamburgerIcon } from "@chakra-ui/icons";
 import {
-  Stack,
   Box,
   Container,
   Drawer,
-  DrawerOverlay,
   DrawerContent,
+  DrawerOverlay,
   Heading,
+  Stack,
 } from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
-import Navigation from "./navigation";
 import { AnimatePresence } from "framer-motion";
-import ToggleTheme from "./ToggleTheme";
 import { Link } from "gatsby";
+import React from "react";
+import Navigation from "./navigation";
+import ToggleTheme from "./ToggleTheme";
 
 const Header = () => {
   const [showNavigation, setShowNavigation] = React.useState(false);

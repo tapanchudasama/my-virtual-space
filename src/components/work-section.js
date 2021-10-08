@@ -1,18 +1,25 @@
-import React, { useEffect } from "react";
-import { useStaticQuery, graphql, Link } from "gatsby";
-import { Flex, Box, Container, Text, Stack } from "@chakra-ui/react";
-import { useInView } from "react-intersection-observer";
-import { motion, useAnimation } from "framer-motion";
 import { useColorModeValue } from "@chakra-ui/color-mode";
-
-import { borderVariants } from "./navigation";
+import {
+  Box,
+  Container,
+  Flex,
+  Grid,
+  GridItem,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
+import { motion, useAnimation } from "framer-motion";
+import { graphql, Link, useStaticQuery } from "gatsby";
+import React, { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import { letter, sentence } from "./about";
 import Project from "./common/project";
 import SectionHeading from "./common/SectionHeading";
-import { letter, sentence } from "./about";
+import { borderVariants } from "./navigation";
 
 const MotionSectionHeading = motion(SectionHeading);
 const MotionText = motion(Text);
-const MotionStack = motion(Stack);
+const MotionGrid = motion(Grid);
 const MotionBox = motion(Box);
 
 const HEADING = "some of my work";
@@ -37,15 +44,6 @@ const Projects = () => {
             repo_link_backend
             repo_link_frontend
             techs
-            cover_image {
-              childImageSharp {
-                gatsbyImageData(
-                  layout: CONSTRAINED
-                  placeholder: BLURRED
-                  formats: [AUTO, WEBP, AVIF]
-                )
-              }
-            }
           }
           html
         }
@@ -75,14 +73,13 @@ const Projects = () => {
   const { allMarkdownRemark } = data;
 
   return (
-    <Container maxWidth="6xl" ref={ref}>
+    <Container maxWidth="6xl" ref={ref} py={8}>
       <MotionSectionHeading
         initial="hidden"
         display="flex"
         variants={sentence}
         animate={headingAnimation}
         fontSize={["3xl", "4xl", "5xl"]}
-        py={8}
       >
         {HEADING.split(" ").map((char, index) => {
           return (
@@ -96,20 +93,25 @@ const Projects = () => {
           );
         })}
       </MotionSectionHeading>
-      <MotionStack
+      <MotionGrid
+        py={4}
+        templateColumns={["repeat(1,1fr)", "repeat(1,1fr)", "repeat(2,1fr)"]}
+        justifyItems="start"
+        justifyContent="start"
+        gap={16}
         initial="hidden"
         animate={contentAnimation}
         variants={letter}
         spacing={12}
-        alignItems="stretch"
-        justifyContent="space-evenly"
-        flexWrap={true}
-        direction={["column", "column", "row"]}
       >
         {allMarkdownRemark.nodes.map((n) => {
-          return <Project node={n} />;
+          return (
+            <GridItem>
+              <Project node={n} />
+            </GridItem>
+          );
         })}
-      </MotionStack>
+      </MotionGrid>
       <Flex
         alignItems="center"
         justifyContent="center"

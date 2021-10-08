@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import { Flex, Box, Container, Text } from "@chakra-ui/react";
-import { useInView } from "react-intersection-observer";
+import { Box, Container, Flex, Text } from "@chakra-ui/react";
 import { motion, useAnimation } from "framer-motion";
-
+import { graphql, useStaticQuery } from "gatsby";
+import React, { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import { letter, sentence } from "../components/about";
 import SectionHeading from "../components/common/SectionHeading";
-import { sentence, letter } from "../components/about";
 
 const MotionSectionHeading = motion(SectionHeading);
 const MotionText = motion(Text);
@@ -48,7 +47,7 @@ const StatusQuo = () => {
   const { html } = allMarkdownRemark.nodes[0];
 
   return (
-    <Container maxWidth="6xl" ref={ref} py={8}>
+    <Container maxWidth="6xl" ref={ref}>
       <MotionSectionHeading
         initial="hidden"
         display="flex"

@@ -8,8 +8,6 @@ import SectionHeading from "../components/common/SectionHeading";
 
 const MotionSectionHeading = motion(SectionHeading);
 const MotionText = motion(Text);
-const MotionFlex = motion(Flex);
-const MotionBox = motion(Box);
 
 const HEADING = "status quo";
 
@@ -31,17 +29,15 @@ const StatusQuo = () => {
   });
 
   const headingAnimation = useAnimation();
-  const contentAnimation = useAnimation();
 
   useEffect(() => {
     async function sequence() {
       if (inView) {
         await headingAnimation.start("visible");
-        await contentAnimation.start("visible");
       }
     }
     sequence();
-  }, [inView, contentAnimation, headingAnimation]);
+  }, [inView, headingAnimation]);
 
   const { allMarkdownRemark } = data;
   const { html } = allMarkdownRemark.nodes[0];
@@ -62,18 +58,13 @@ const StatusQuo = () => {
           );
         })}
       </MotionSectionHeading>
-      <MotionBox initial="hidden" variants={letter} animate={contentAnimation}>
-        <MotionFlex
-          initial="hidden"
-          variants={letter}
-          animate={contentAnimation}
-          direction="column"
-        >
+      <Box>
+        <Flex direction="column">
           <Box fontSize={["md", "lg"]}>
             <div dangerouslySetInnerHTML={{ __html: html }}></div>
           </Box>
-        </MotionFlex>
-      </MotionBox>
+        </Flex>
+      </Box>
     </Container>
   );
 };

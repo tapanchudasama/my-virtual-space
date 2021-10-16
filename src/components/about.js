@@ -1,33 +1,30 @@
-import React, { useEffect } from "react";
-import { useStaticQuery, graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import {
-  Flex,
   Box,
   Container,
-  Text,
-  Stack,
-  Link,
-  Icon,
+  Flex,
   Grid,
   GridItem,
+  Icon,
+  Link,
+  Stack,
+  Text,
 } from "@chakra-ui/react";
-import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
+import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import React, { useEffect } from "react";
 import {
   FaHeadphones,
-  FaStarOfLife,
-  FaNetworkWired,
   FaLightbulb,
+  FaNetworkWired,
+  FaStarOfLife,
 } from "react-icons/fa";
-
-import SpotifyRecentlyPlayed from "./spotify-recently-played";
+import { useInView } from "react-intersection-observer";
 import SectionHeading from "../components/common/SectionHeading";
+import SpotifyRecentlyPlayed from "./spotify-recently-played";
 
 const MotionSectionHeading = motion(SectionHeading);
 const MotionText = motion(Text);
-const MotionFlex = motion(Flex);
-const MotionBox = motion(Box);
 
 const HEADING = "some things about me";
 
@@ -84,17 +81,15 @@ const About = () => {
   });
 
   const headingAnimation = useAnimation();
-  const contentAnimation = useAnimation();
 
   useEffect(() => {
     async function sequence() {
       if (inView) {
         await headingAnimation.start("visible");
-        await contentAnimation.start("visible");
       }
     }
     sequence();
-  }, [inView, contentAnimation, headingAnimation]);
+  }, [inView, headingAnimation]);
 
   const { allMarkdownRemark } = data;
   const { frontmatter } = allMarkdownRemark.nodes[0];
@@ -117,19 +112,8 @@ const About = () => {
           );
         })}
       </MotionSectionHeading>
-      <MotionBox
-        initial="hidden"
-        variants={letter}
-        animate={contentAnimation}
-        py="4"
-      >
-        <MotionFlex
-          initial="hidden"
-          variants={letter}
-          animate={contentAnimation}
-          py="4"
-          direction="column"
-        >
+      <Box py="4">
+        <Flex py="4" direction="column">
           <Box alignSelf="center" w={[170, 250, 300]}>
             <GatsbyImage
               image={image}
@@ -239,8 +223,8 @@ const About = () => {
               </Stack>
             </GridItem>
           </Grid>
-        </MotionFlex>
-      </MotionBox>
+        </Flex>
+      </Box>
     </Container>
   );
 };

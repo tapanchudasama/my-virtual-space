@@ -1,16 +1,9 @@
-import React, { useEffect, useCallback } from "react";
-import {
-  Box,
-  Text,
-  Stack,
-  Grid,
-  GridItem,
-  Icon,
-  Container,
-} from "@chakra-ui/react";
-import { useStaticQuery, graphql } from "gatsby";
 import { useColorModeValue } from "@chakra-ui/color-mode";
-import { GoRepo, GoGitMerge, GoCode } from "react-icons/go";
+import { Icon } from "@chakra-ui/icons";
+import { Box, Container, Grid, GridItem, Stack, Text } from "@chakra-ui/layout";
+import { graphql, useStaticQuery } from "gatsby";
+import React, { useCallback, useEffect } from "react";
+import { GoCode, GoGitMerge, GoRepo } from "react-icons/go";
 
 const GithubStats = () => {
   const [majorityLanguage, setMajorityLanguage] = React.useState("");

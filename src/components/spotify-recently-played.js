@@ -1,5 +1,5 @@
-import React, { useState, useEffect, Fragment } from "react";
-import { Skeleton } from "@chakra-ui/react";
+import { Skeleton } from "@chakra-ui/skeleton";
+import React, { Fragment, useEffect, useState } from "react";
 
 function fetchRecentlyPlayed(accessToken) {
   return fetch("https://api.spotify.com/v1/me/player/recently-played?limit=1", {

@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Text } from "@chakra-ui/react";
+import { Box, Container, Flex, Text } from "@chakra-ui/layout";
 import { motion, useAnimation } from "framer-motion";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { useEffect } from "react";

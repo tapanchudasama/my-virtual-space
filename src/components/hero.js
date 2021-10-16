@@ -1,23 +1,23 @@
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  Link,
+  Stack,
+  Text,
+} from "@chakra-ui/layout";
+import { Icon } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import {
-  Heading,
-  Flex,
-  Text,
-  Container,
-  Box,
-  Stack,
-  Link,
-} from "@chakra-ui/react";
-import { motion } from "framer-motion";
-import { Icon } from "@chakra-ui/react";
-import {
-  FaTwitter,
-  FaLinkedin,
-  FaGithub,
-  FaReddit,
   FaEnvelope,
+  FaGithub,
+  FaLinkedin,
+  FaReddit,
+  FaTwitter,
 } from "react-icons/fa";
-import { useStaticQuery, graphql } from "gatsby";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 const MotionBox = motion(Box);

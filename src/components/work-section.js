@@ -56,7 +56,6 @@ const Projects = () => {
   });
 
   const headingAnimation = useAnimation();
-  const contentAnimation = useAnimation();
 
   const borderColor = useColorModeValue("blue.200", "yellow.200");
 
@@ -64,11 +63,10 @@ const Projects = () => {
     async function sequence() {
       if (inView) {
         await headingAnimation.start("visible");
-        await contentAnimation.start("visible");
       }
     }
     sequence();
-  }, [inView, contentAnimation, headingAnimation]);
+  }, [inView, headingAnimation]);
 
   const { allMarkdownRemark } = data;
 
@@ -93,15 +91,12 @@ const Projects = () => {
           );
         })}
       </MotionSectionHeading>
-      <MotionGrid
+      <Grid
         py={4}
         templateColumns={["repeat(1,1fr)", "repeat(1,1fr)", "repeat(2,1fr)"]}
         justifyItems="start"
         justifyContent="start"
         gap={16}
-        initial="hidden"
-        animate={contentAnimation}
-        variants={letter}
         spacing={12}
       >
         {allMarkdownRemark.nodes.map((n) => {
@@ -111,7 +106,7 @@ const Projects = () => {
             </GridItem>
           );
         })}
-      </MotionGrid>
+      </Grid>
       <Flex
         alignItems="center"
         justifyContent="center"

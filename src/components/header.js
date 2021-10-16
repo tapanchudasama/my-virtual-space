@@ -1,13 +1,6 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
-import {
-  Box,
-  Container,
-  Drawer,
-  DrawerContent,
-  DrawerOverlay,
-  Heading,
-  Stack,
-} from "@chakra-ui/react";
+import { Box, Container, Heading, Stack } from "@chakra-ui/layout";
+import { Drawer, DrawerContent, DrawerOverlay } from "@chakra-ui/react";
 import { AnimatePresence } from "framer-motion";
 import { Link } from "gatsby";
 import React from "react";

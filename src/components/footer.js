@@ -1,6 +1,7 @@
-import React from "react";
-import { Flex, Box, Text, Container, Icon } from "@chakra-ui/react";
 import { useColorModeValue } from "@chakra-ui/color-mode";
+import { Icon } from "@chakra-ui/icons";
+import { Box, Container, Flex, Text } from "@chakra-ui/layout";
+import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 

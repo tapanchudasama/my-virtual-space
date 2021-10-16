@@ -1,9 +1,9 @@
-import React from "react";
-import { Flex, Heading, Box, Container, VStack } from "@chakra-ui/react";
-import { motion } from "framer-motion";
-import { CloseIcon } from "@chakra-ui/icons";
 import { useColorModeValue } from "@chakra-ui/color-mode";
+import { CloseIcon } from "@chakra-ui/icons";
+import { Box, Container, Flex, Heading, VStack } from "@chakra-ui/layout";
+import { motion } from "framer-motion";
 import { Link } from "gatsby";
+import React from "react";
 
 const MotionBox = motion(Box);
 

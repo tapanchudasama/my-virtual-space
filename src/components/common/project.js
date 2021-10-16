@@ -5,9 +5,9 @@ import {
   Heading,
   Link as ChakraLink,
   Stack,
-  Tag,
   Text,
-} from "@chakra-ui/react";
+} from "@chakra-ui/layout";
+import { Tag } from "@chakra-ui/tag";
 import React from "react";
 import { BiCodeAlt } from "react-icons/bi";
 

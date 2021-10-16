@@ -7,7 +7,7 @@ import {
   GridItem,
   Stack,
   Text,
-} from "@chakra-ui/react";
+} from "@chakra-ui/layout";
 import { motion, useAnimation } from "framer-motion";
 import { graphql, Link, useStaticQuery } from "gatsby";
 import React, { useEffect } from "react";
@@ -19,7 +19,6 @@ import { borderVariants } from "./navigation";
 
 const MotionSectionHeading = motion(SectionHeading);
 const MotionText = motion(Text);
-const MotionGrid = motion(Grid);
 const MotionBox = motion(Box);
 
 const HEADING = "some of my work";

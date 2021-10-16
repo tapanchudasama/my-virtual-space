@@ -1,5 +1,7 @@
+import { useColorMode } from "@chakra-ui/color-mode";
+import { Icon } from "@chakra-ui/icons";
+import { Box, HStack } from "@chakra-ui/layout";
 import React from "react";
-import { useColorMode, Box, HStack, Icon } from "@chakra-ui/react";
 import { ImContrast } from "react-icons/im";
 
 export default function ThemeToggle() {

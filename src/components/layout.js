@@ -1,9 +1,9 @@
-import React from "react";
-import { Box } from "@chakra-ui/react";
-import { motion } from "framer-motion";
 import { useColorModeValue } from "@chakra-ui/color-mode";
-import Header from "../components/header";
+import { Box } from "@chakra-ui/layout";
+import { motion } from "framer-motion";
+import React from "react";
 import Footer from "../components/footer";
+import Header from "../components/header";
 const MotionBox = motion(Box);
 
 const Layout = ({ children }) => {

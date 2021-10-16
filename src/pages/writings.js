@@ -130,7 +130,7 @@ const Writings = () => {
                       <Box>
                         <GatsbyImage
                           style={{ borderRadius: "4px" }}
-                          image={getImage(n.coverImage)}
+                          image={n.coverImage && getImage(n.coverImage)}
                           alt={n.title}
                         />
                       </Box>

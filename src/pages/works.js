@@ -28,15 +28,6 @@ const Works = () => {
             repo_link_backend
             repo_link_frontend
             techs
-            cover_image {
-              childImageSharp {
-                gatsbyImageData(
-                  layout: CONSTRAINED
-                  placeholder: BLURRED
-                  formats: [AUTO, WEBP, AVIF]
-                )
-              }
-            }
           }
           html
         }

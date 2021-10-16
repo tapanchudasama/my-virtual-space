@@ -25,6 +25,8 @@ import SpotifyRecentlyPlayed from "./spotify-recently-played";
 
 const MotionSectionHeading = motion(SectionHeading);
 const MotionText = motion(Text);
+const MotionFlex = motion(Flex);
+const MotionBox = motion(Box);
 
 const HEADING = "some things about me";
 
@@ -81,15 +83,17 @@ const About = () => {
   });
 
   const headingAnimation = useAnimation();
+  const contentAnimation = useAnimation();
 
   useEffect(() => {
     async function sequence() {
       if (inView) {
         await headingAnimation.start("visible");
+        await contentAnimation.start("visible");
       }
     }
     sequence();
-  }, [inView, headingAnimation]);
+  }, [inView, contentAnimation, headingAnimation]);
 
   const { allMarkdownRemark } = data;
   const { frontmatter } = allMarkdownRemark.nodes[0];
@@ -112,8 +116,19 @@ const About = () => {
           );
         })}
       </MotionSectionHeading>
-      <Box py="4">
-        <Flex py="4" direction="column">
+      <MotionBox
+        initial="hidden"
+        variants={letter}
+        animate={contentAnimation}
+        py="4"
+      >
+        <MotionFlex
+          initial="hidden"
+          variants={letter}
+          animate={contentAnimation}
+          py="4"
+          direction="column"
+        >
           <Box alignSelf="center" w={[170, 250, 300]}>
             <GatsbyImage
               image={image}
@@ -223,8 +238,8 @@ const About = () => {
               </Stack>
             </GridItem>
           </Grid>
-        </Flex>
-      </Box>
+        </MotionFlex>
+      </MotionBox>
     </Container>
   );
 };

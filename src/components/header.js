@@ -1,52 +1,58 @@
-import { HamburgerIcon } from "@chakra-ui/icons";
-import {
-  Box,
-  Container,
-  Drawer,
-  DrawerContent,
-  DrawerOverlay,
-  Heading,
-  Stack,
-} from "@chakra-ui/react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "gatsby";
 import React from "react";
+import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import Navigation from "./navigation";
-import ToggleTheme from "./ToggleTheme";
 
 const Header = () => {
   const [showNavigation, setShowNavigation] = React.useState(false);
+  React.useEffect(() => {
+    if (showNavigation) {
+      document.getElementsByTagName("html")[0].style.overflow = "hidden";
+    } else {
+      document.getElementsByTagName("html")[0].style.overflow = "visible";
+    }
+  }, [showNavigation]);
   return (
-    <React.Fragment>
-      <Container maxWidth="6xl">
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent="space-between"
-          pt="6"
-        >
+    <header>
+      <div className="container mx-auto px-4 lg:px-16 ">
+        <div className="flex items-center justify-between py-8">
           <Link to="/">
-            <Heading fontSize={["lg", "xl", "2xl"]}>home</Heading>
+            <p className="text-md lg:text-xl font-bold">home</p>
           </Link>
-          <Stack direction="row" spacing={8} alignItems="center">
-            <Box as="div" justifySelf="end">
+          <div className="flex items-center space-x-8">
+            {/* <div>
               <ToggleTheme />
-            </Box>
-            <Box onClick={() => setShowNavigation(true)}>
-              <HamburgerIcon w={["6", "8"]} h={["6", "8"]} cursor="pointer" />
-            </Box>
-          </Stack>
-        </Stack>
-      </Container>
+            </div> */}
+            <div
+              role="button"
+              aria-label="Toggle Navigation"
+              tabIndex={0}
+              onKeyDown={() => setShowNavigation(true)}
+              onClick={() => setShowNavigation(true)}
+            >
+              <HiOutlineMenuAlt3 className="w-4 h-4 lg:w-6 lg:h-6" />
+            </div>
+          </div>
+        </div>
+      </div>
       <AnimatePresence exitBeforeEnter>
-        <Drawer isOpen={showNavigation} size={["md"]}>
-          <DrawerOverlay />
-          <DrawerContent>
-            <Navigation setShowNavigation={setShowNavigation} />
-          </DrawerContent>
-        </Drawer>
+        {showNavigation && (
+          <motion.div
+            className="fixed w-full h-screen top-0 z-10"
+            initial={{ x: "100%" }}
+            animate={{ x: "0%" }}
+            exit={{ x: "100%" }}
+            transition={{ mass: 1 }}
+          >
+            <div className="bg-black bg-opacity-30" />
+            <div className="w-full h-full">
+              <Navigation setShowNavigation={setShowNavigation} />
+            </div>
+          </motion.div>
+        )}
       </AnimatePresence>
-    </React.Fragment>
+    </header>
   );
 };
 

@@ -1,4 +1,3 @@
-import { Box } from "@chakra-ui/react";
 import React from "react";
 import About from "../components/about";
 import Footer from "../components/footer";
@@ -11,7 +10,7 @@ import Works from "../components/work-section";
 
 const Index = () => {
   return (
-    <Box overflow="hidden">
+    <div className="overflow-hidden bg-gray-800 text-white font-body">
       <Seo titleTemplate="%s · home" />
       <Header />
       <Hero />
@@ -20,7 +19,7 @@ const Index = () => {
       <GithubStats />
       <About />
       <Footer />
-    </Box>
+    </div>
   );
 };
 export default Index;

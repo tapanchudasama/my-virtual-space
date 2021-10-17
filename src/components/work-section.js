@@ -1,8 +1,7 @@
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { graphql, Link, useStaticQuery } from "gatsby";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import { letter, sentence } from "./about";
 import Project from "./common/project";
 import { borderVariants } from "./navigation";
 
@@ -39,18 +38,18 @@ const Projects = () => {
     threshold: 0.2,
   });
 
-  const headingAnimation = useAnimation();
+  // const headingAnimation = useAnimation();
   // const contentAnimation = useAnimation();
 
   useEffect(() => {
     async function sequence() {
       if (inView) {
-        await headingAnimation.start("visible");
+        // await headingAnimation.start("visible");
         // await contentAnimation.start("visible");
       }
     }
     sequence();
-  }, [inView, headingAnimation]);
+  }, [inView]);
 
   const { allMarkdownRemark } = data;
 
@@ -60,15 +59,11 @@ const Projects = () => {
         className="text-2xl md:text-3xl lg:text-4xl py-6 flex space-x-2 leading-tight font-bold"
         initial="hidden"
         display="flex"
-        variants={sentence}
-        animate={headingAnimation}
+        // variants={sentence}
+        // animate={headingAnimation}
       >
         {HEADING.split(" ").map((char, index) => {
-          return (
-            <motion.p key={char + "-" + index} variants={letter}>
-              {char}
-            </motion.p>
-          );
+          return <motion.p key={char + "-" + index}>{char}</motion.p>;
         })}
       </motion.p>
       <motion.div

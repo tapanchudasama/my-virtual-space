@@ -12,7 +12,7 @@ const Header = () => {
     } else {
       document.getElementsByTagName("html")[0].style.overflow = "visible";
     }
-  }, []);
+  }, [showNavigation]);
   return (
     <header>
       <div className="container mx-auto px-4 lg:px-16 ">
@@ -24,9 +24,14 @@ const Header = () => {
             {/* <div>
               <ToggleTheme />
             </div> */}
-            <button onClick={() => setShowNavigation(true)}>
+            <div
+              role="button"
+              tabIndex={0}
+              onKeyDown={() => setShowNavigation(true)}
+              onClick={() => setShowNavigation(true)}
+            >
               <HiOutlineMenuAlt3 className="w-4 h-4 lg:w-6 lg:h-6" />
-            </button>
+            </div>
           </div>
         </div>
       </div>

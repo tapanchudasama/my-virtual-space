@@ -1,3 +1,4 @@
+import { Icon } from "@chakra-ui/icons";
 import {
   Box,
   Container,
@@ -7,7 +8,6 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/layout";
-import { Icon } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";

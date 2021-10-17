@@ -1,13 +1,12 @@
-import React, { useEffect } from "react";
-import { Text, Box, Container, Heading, Stack } from "@chakra-ui/react";
 import { useColorModeValue } from "@chakra-ui/color-mode";
+import { Box, Container, Heading, Stack, Text } from "@chakra-ui/layout";
 import { motion, useAnimation } from "framer-motion";
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-
+import React, { useEffect } from "react";
 import { letter, sentence } from "../components/about";
-import Layout from "../components/layout";
 import SectionHeading from "../components/common/SectionHeading";
+import Layout from "../components/layout";
 import Seo from "../components/seo";
 
 const MotionSectionHeading = motion(SectionHeading);

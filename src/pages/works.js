@@ -1,4 +1,4 @@
-import { Container, Grid, GridItem, Heading, Text } from "@chakra-ui/react";
+import { Container, Grid, GridItem, Heading, Text } from "@chakra-ui/layout";
 import { motion, useAnimation } from "framer-motion";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { useEffect } from "react";

@@ -1,24 +1,14 @@
-import { useColorModeValue } from "@chakra-ui/color-mode";
-import { Box } from "@chakra-ui/layout";
 import { motion } from "framer-motion";
 import React from "react";
 import Footer from "../components/footer";
 import Header from "../components/header";
-const MotionBox = motion(Box);
 
 const Layout = ({ children }) => {
-  const value = useColorModeValue();
-
   return (
-    <Box
-      backgroundColor={value}
-      display="flex"
-      flexDirection="column"
-      minHeight="100vh"
-    >
+    <div className="bg-gray-800 text-white min-h-screen flex flex-col">
       <Header />
-      <MotionBox
-        flexGrow="1"
+      <motion.div
+        className="flex-1"
         initial={{
           opacity: 0,
           y: 20,
@@ -27,9 +17,9 @@ const Layout = ({ children }) => {
         exit={{ opacity: 0, y: 20 }}
       >
         {children}
-      </MotionBox>
+      </motion.div>
       <Footer />
-    </Box>
+    </div>
   );
 };
 

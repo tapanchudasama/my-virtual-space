@@ -1,4 +1,3 @@
-import { Box, Container, Flex, Text } from "@chakra-ui/layout";
 import { motion, useAnimation } from "framer-motion";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { useEffect } from "react";
@@ -7,7 +6,6 @@ import { letter, sentence } from "../components/about";
 import SectionHeading from "../components/common/SectionHeading";
 
 const MotionSectionHeading = motion(SectionHeading);
-const MotionText = motion(Text);
 
 const HEADING = "status quo";
 
@@ -43,7 +41,7 @@ const StatusQuo = () => {
   const { html } = allMarkdownRemark.nodes[0];
 
   return (
-    <Container maxWidth="6xl" ref={ref}>
+    <div className="container px-4 lg:px-16 mx-auto" ref={ref}>
       <MotionSectionHeading
         initial="hidden"
         display="flex"
@@ -52,20 +50,16 @@ const StatusQuo = () => {
       >
         {HEADING.split(" ").map((char, index) => {
           return (
-            <MotionText key={char + "-" + index} pr="4" variants={letter}>
+            <motion.p key={char + "-" + index} variants={letter}>
               {char}
-            </MotionText>
+            </motion.p>
           );
         })}
       </MotionSectionHeading>
-      <Box>
-        <Flex direction="column">
-          <Box fontSize={["md", "lg"]}>
-            <div dangerouslySetInnerHTML={{ __html: html }}></div>
-          </Box>
-        </Flex>
-      </Box>
-    </Container>
+      <div className="text-md lg:text-lg">
+        <div dangerouslySetInnerHTML={{ __html: html }}></div>
+      </div>
+    </div>
   );
 };
 

@@ -1,31 +1,29 @@
-import React from "react";
-import { Heading, Container, Box, Stack } from "@chakra-ui/layout";
 import { graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-
+import React from "react";
 import Layout from "../components/layout";
 
 const ReadingInstance = ({ data }) => {
   const { markdownRemark } = data;
   return (
     <Layout>
-      <Container maxWidth="6xl" height="100%">
-        <Stack spacing={8} py={8}>
-          <Heading>{markdownRemark.frontmatter.title}</Heading>
-          <Box>
+      <div className="container mx-auto px-4 lg:px-16 ">
+        <div className="py-8 space-y-8">
+          <h3>{markdownRemark.frontmatter.title}</h3>
+          <div>
             <GatsbyImage
               style={{ borderRadius: "4px" }}
               image={getImage(markdownRemark.frontmatter.image)}
               alt={markdownRemark.title}
             />
-          </Box>
-          <Box fontSize={["sm", "md", "md"]}>
+          </div>
+          <div className="text-sm mg:text-md" fontSize={["sm", "md", "md"]}>
             <div
               dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
             ></div>
-          </Box>
-        </Stack>
-      </Container>
+          </div>
+        </div>
+      </div>
     </Layout>
   );
 };

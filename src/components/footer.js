@@ -1,30 +1,22 @@
-import { useColorModeValue } from "@chakra-ui/color-mode";
-import { Icon } from "@chakra-ui/icons";
-import { Box, Container, Flex, Text } from "@chakra-ui/layout";
 import React from "react";
 import { FaHeart } from "react-icons/fa";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 const Footer = () => {
-  const value = useColorModeValue("blue.300", "gray.700");
   const { siteMetadata } = useSiteMetadata();
   return (
-    <Box backgroundColor={value} p={4}>
-      <Container maxWidth="6xl">
-        <Flex as="footer" alignItems="center" justifyContent="space-between">
-          <Flex alignItems="baseline">
-            <Text fontSize={["xs", "xs", "sm"]}>
-              Made with <Icon as={FaHeart} color="red.500" /> by{" "}
-              <Text
-                display="inline"
-                textTransform="capitalize"
-                fontWeight="bold"
-              >
-                {siteMetadata.name}
-              </Text>
-            </Text>
-          </Flex>
-          <Box w={200}>
+    <div className="p-4 bg-gray-700" p={4}>
+      <div className="container mx-auto px-4 lg:px-16">
+        <footer className="flex items-center justify-between">
+          <p className="text-xs lg:text-sm flex items-center space-x-1">
+            <p>Made with</p>
+            <FaHeart className="w-2 h-2 lg:w-4 lg:h-4 fill-red-500" />
+            <p>by</p>
+            <p className="capitalize font-semibold inline">
+              {siteMetadata.name}
+            </p>
+          </p>
+          <div className="w-52">
             <a
               href="https://www.buymeacoffee.com/tapanchudasama"
               target="_blank"
@@ -37,10 +29,10 @@ const Footer = () => {
                 height="100%"
               ></img>
             </a>
-          </Box>
-        </Flex>
-      </Container>
-    </Box>
+          </div>
+        </footer>
+      </div>
+    </div>
   );
 };
 export default Footer;

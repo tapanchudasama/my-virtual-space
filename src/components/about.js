@@ -1,14 +1,3 @@
-import { Icon } from "@chakra-ui/icons";
-import {
-  Box,
-  Container,
-  Flex,
-  Grid,
-  GridItem,
-  Link,
-  Stack,
-  Text,
-} from "@chakra-ui/layout";
 import { motion, useAnimation } from "framer-motion";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -24,9 +13,6 @@ import SectionHeading from "../components/common/SectionHeading";
 import SpotifyRecentlyPlayed from "./spotify-recently-played";
 
 const MotionSectionHeading = motion(SectionHeading);
-const MotionText = motion(Text);
-const MotionFlex = motion(Flex);
-const MotionBox = motion(Box);
 
 const HEADING = "some things about me";
 
@@ -100,147 +86,121 @@ const About = () => {
   const image = getImage(frontmatter.about_image);
 
   return (
-    <Container maxWidth="6xl" ref={ref}>
+    <div className="container mx-auto px-4 lg:px-16" ref={ref}>
       <MotionSectionHeading
         initial="hidden"
         display="flex"
         variants={sentence}
         animate={headingAnimation}
-        py={8}
       >
         {HEADING.split(" ").map((char, index) => {
           return (
-            <MotionText key={char + "-" + index} pr="4" variants={letter}>
+            <motion.p key={char + "-" + index} variants={letter}>
               {char}
-            </MotionText>
+            </motion.p>
           );
         })}
       </MotionSectionHeading>
-      <MotionBox
+
+      <motion.div
+        className="flex flex-col py-4"
         initial="hidden"
         variants={letter}
         animate={contentAnimation}
-        py="4"
       >
-        <MotionFlex
-          initial="hidden"
-          variants={letter}
-          animate={contentAnimation}
-          py="4"
-          direction="column"
+        <div className="self-center w-40 md:w-60 lg:w-80">
+          <GatsbyImage
+            image={image}
+            style={{ borderRadius: "50%" }}
+            alt="my-picture"
+          />
+        </div>
+        <div
+          className="grid grid-cols-1 lg:grid-cols-3 pt-8 justify-center items-start gap-8 text-sm lg:text-md"
+          pt="8"
         >
-          <Box alignSelf="center" w={[170, 250, 300]}>
-            <GatsbyImage
-              image={image}
-              style={{ borderRadius: "50%" }}
-              alt="my-picture"
-            />
-          </Box>
-          <Grid
-            templateColumns={[
-              "repeat(1,1fr)",
-              "repeat(1,1fr)",
-              "repeat(3,1fr)",
-            ]}
-            justifyItems="center"
-            justifyContent="center"
-            gap={8}
-            fontSize={["sm", "md"]}
-            pt="8"
-          >
-            <GridItem>
-              <Stack
-                direction="column"
-                alignItems="center"
-                width="100%"
-                justifyContent="stretch"
-                textAlign="center"
-              >
-                <Icon as={FaStarOfLife} w={8} h={8} />
-                <Text>
-                  I enjoy{" "}
-                  {frontmatter.hobbies.map((h, index) => {
-                    return (
-                      <Text display="inline" fontWeight="bold">
-                        {h}
-                        {index === frontmatter.hobbies.length - 1
-                          ? ""
-                          : ","}{" "}
-                      </Text>
-                    );
-                  })}
-                  . Doing a Europe tour is one of the items in my bucket list.
-                </Text>
-              </Stack>
-            </GridItem>
-            <GridItem>
-              <Stack
-                direction="column"
-                alignItems="center"
-                width="100%"
-                justifyContent="center"
-              >
-                <Icon as={FaNetworkWired} w={8} h={8} />
-                <Text textAlign="center">
-                  My{" "}
-                  <Link
-                    fontWeight="bold"
-                    href="https://en.wikipedia.org/wiki/Myers%E2%80%93Briggs_Type_Indicator"
+          <AboutMeta
+            icon={<FaStarOfLife className="w-6 h-6 lg:w-8 lg:h-8" />}
+            meta={
+              <p>
+                I enjoy{" "}
+                {frontmatter.hobbies.map((h, index) => {
+                  return (
+                    <p className="inline font-bold">
+                      {h}
+                      {index === frontmatter.hobbies.length - 1 ? "" : ","}{" "}
+                    </p>
+                  );
+                })}
+                . Doing a Europe tour is one of the items in my bucket list.
+              </p>
+            }
+          />
+          <AboutMeta
+            icon={<FaNetworkWired className="w-6 h-6 lg:w-8 lg:h-8" />}
+            meta={
+              <p className="text-center">
+                My{" "}
+                <a
+                  className="font-bold"
+                  fontWeight="bold"
+                  href="https://en.wikipedia.org/wiki/Myers%E2%80%93Briggs_Type_Indicator"
+                >
+                  Myers-Briggs Type Indicator (MBTI)
+                </a>{" "}
+                is{" "}
+                <a
+                  className="font-bold"
+                  href="https://www.16personalities.com/intj-personality?utm_source=email&utm_medium=welcome-architect&utm_campaign=description"
+                >
+                  {frontmatter.mbti_type}.
+                </a>{" "}
+                (introverted, intuitive, thinking, and judging)
+                <p>
+                  You also can take the test yourself at{" "}
+                  <a
+                    className="font-bold"
+                    href="http://www.16personalities.com/"
                   >
-                    Myers-Briggs Type Indicator (MBTI)
-                  </Link>{" "}
-                  is{" "}
-                  <Link
-                    fontWeight="bold"
-                    href="https://www.16personalities.com/intj-personality?utm_source=email&utm_medium=welcome-architect&utm_campaign=description"
-                  >
-                    {frontmatter.mbti_type}.
-                  </Link>{" "}
-                  (introverted, intuitive, thinking, and judging)
-                  <Text>
-                    You also can take the test yourself at{" "}
-                    <Link
-                      fontWeight="bold"
-                      href="http://www.16personalities.com/"
-                    >
-                      16personalities.com
-                    </Link>
-                  </Text>
-                </Text>
-              </Stack>
-            </GridItem>
-            <GridItem>
-              <Stack
-                direction="column"
-                alignItems="center"
-                width="100%"
-                justifyContent="center"
-              >
-                <Icon as={FaHeadphones} w={8} h={8} />
-                <Text textAlign="center">Currently I am listening to:</Text>
+                    16personalities.com
+                  </a>
+                </p>
+              </p>
+            }
+          />
+
+          <AboutMeta
+            icon={<FaHeadphones className="w-6 h-6 lg:w-8 lg:h-8" />}
+            meta={
+              <>
+                <p className="text-center">Currently I am listening to:</p>
                 <SpotifyRecentlyPlayed />
-              </Stack>
-            </GridItem>
-            <GridItem>
-              <Stack
-                direction="column"
-                alignItems="center"
-                width="100%"
-                justifyContent="center"
-              >
-                <Icon as={FaLightbulb} w={8} h={8} />
-                <Text textAlign="center">
-                  I enjoy talking about intellectually stimulating topics, be it
-                  any field. Currently I am trying to learn about{" "}
-                  <strong>stock markets</strong> and <strong>finance</strong>{" "}
-                  along with software engineering, of course.
-                </Text>
-              </Stack>
-            </GridItem>
-          </Grid>
-        </MotionFlex>
-      </MotionBox>
-    </Container>
+              </>
+            }
+          />
+          <AboutMeta
+            icon={<FaLightbulb className="w-6 h-6 lg:w-8 lg:h-8" />}
+            meta={
+              <p className="text-center">
+                I enjoy talking about intellectually stimulating topics, be it
+                any field. Currently I am trying to learn about{" "}
+                <strong>stock markets</strong> and <strong>finance</strong>{" "}
+                along with software engineering, of course.
+              </p>
+            }
+          />
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+const AboutMeta = ({ icon, meta }) => {
+  return (
+    <div className="flex flex-col items-center w-full justify-center space-y-4">
+      {icon}
+      {meta}
+    </div>
   );
 };
 

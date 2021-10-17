@@ -19,6 +19,7 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     "gatsby-transformer-remark",
+    "gatsby-plugin-postcss",
     {
       resolve: "gatsby-source-hashnode",
       options: {
@@ -37,13 +38,6 @@ module.exports = {
       },
     },
     "gatsby-plugin-offline",
-    {
-      resolve: "@chakra-ui/gatsby-plugin",
-      options: {
-        resetCSS: true,
-        isUsingColorMode: false,
-      },
-    },
     {
       resolve: "gatsby-source-filesystem",
       options: {

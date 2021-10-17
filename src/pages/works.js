@@ -1,14 +1,13 @@
-import { Container, Grid, GridItem, Heading, Text } from "@chakra-ui/layout";
 import { motion, useAnimation } from "framer-motion";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { useEffect } from "react";
 import { letter, sentence } from "../components/about";
 import Project from "../components/common/project";
+import SectionHeading from "../components/common/SectionHeading";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 
-const MotionHeading = motion(Heading);
-const MotionText = motion(Text);
+const MotionSectionHeading = motion(SectionHeading);
 
 const HEADING = "all my works";
 
@@ -50,42 +49,29 @@ const Works = () => {
 
   return (
     <Layout>
-      <Container maxWidth="6xl">
+      <div className="container mx-auto px-4 lg:px-16">
         <Seo titleTemplate="%s · works" />
-        <MotionHeading
+        <MotionSectionHeading
           initial="hidden"
           display="flex"
           variants={sentence}
           animate={headingAnimation}
           fontSize={["3xl", "4xl", "5xl"]}
-          py={8}
         >
           {HEADING.split(" ").map((char, index) => {
             return (
-              <MotionText key={char + "-" + index} pr="4" variants={letter}>
+              <motion.p key={char + "-" + index} variants={letter}>
                 {char}
-              </MotionText>
+              </motion.p>
             );
           })}
-        </MotionHeading>
-        <Grid
-          pb={16}
-          templateColumns={[
-            "repeat(1, 1fr)",
-            "repeat(1, 1fr)",
-            "repeat(2, 1fr)",
-          ]}
-          gap={16}
-        >
+        </MotionSectionHeading>
+        <div className="grid grid-cols-1 lg:grid-cols-2 pb-16 gap-16">
           {allMarkdownRemark.nodes.map((n) => {
-            return (
-              <GridItem>
-                <Project node={n} />
-              </GridItem>
-            );
+            return <Project node={n} />;
           })}
-        </Grid>
-      </Container>
+        </div>
+      </div>
     </Layout>
   );
 };

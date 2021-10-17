@@ -9,10 +9,7 @@ import {
   FaStarOfLife,
 } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
-import SectionHeading from "../components/common/SectionHeading";
 import SpotifyRecentlyPlayed from "./spotify-recently-played";
-
-const MotionSectionHeading = motion(SectionHeading);
 
 const HEADING = "some things about me";
 
@@ -87,7 +84,8 @@ const About = () => {
 
   return (
     <div className="container mx-auto px-4 lg:px-16" ref={ref}>
-      <MotionSectionHeading
+      <motion.p
+        className="text-2xl md:text-3xl lg:text-4xl py-6 flex space-x-2 leading-tight font-bold"
         initial="hidden"
         display="flex"
         variants={sentence}
@@ -100,7 +98,7 @@ const About = () => {
             </motion.p>
           );
         })}
-      </MotionSectionHeading>
+      </motion.p>
 
       <motion.div
         className="flex flex-col py-4"

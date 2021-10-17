@@ -3,11 +3,8 @@ import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React, { useEffect } from "react";
 import { letter, sentence } from "../components/about";
-import SectionHeading from "../components/common/SectionHeading";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-
-const MotionSectionHeading = motion(SectionHeading);
 
 const HEADING = "writings";
 
@@ -53,7 +50,8 @@ const Writings = () => {
       <Layout>
         <div className="container mx-auto px-4 lg:px-16">
           <Seo titleTemplate="%s · writings" />
-          <MotionSectionHeading
+          <motion.p
+            className="text-2xl md:text-3xl lg:text-4xl py-6 flex space-x-2 leading-tight font-bold"
             initial="hidden"
             display="flex"
             variants={sentence}
@@ -66,33 +64,30 @@ const Writings = () => {
                 </motion.p>
               );
             })}
-          </MotionSectionHeading>
-          <div className="flex flex-col pb-8">
+          </motion.p>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-8 pb-16">
             {allHashNodePost.nodes.map((n) => {
               return (
-                <div className="flex flex-col py-4 border-b border-white w-full items-start space-y-4">
-                  <div className="flex items-center justify-between w-full">
-                    <a
-                      rel="noreferrer"
-                      className="w-3/5"
-                      href={`https://blog.tapan.app/${n.slug}`}
-                      target="_blank"
-                    >
-                      <p className="text-sm lg:text-lg font-bold leading-tight hover:text-gray-500">
-                        {n.title}
-                      </p>
-                    </a>
-                    <p className="text-xs">
-                      {new Date(n.dateAdded).toDateString()}
+                <div className="flex flex-col w-full items-start space-y-4 py-2">
+                  <a
+                    rel="noreferrer"
+                    href={`https://blog.tapan.app/${n.slug}`}
+                    target="_blank"
+                  >
+                    <p className="text-sm lg:text-lg font-bold leading-tight hover:text-gray-300">
+                      {n.title}
                     </p>
-                  </div>
-                  <div className="flex flex-col lg:flex-row items-center lg:items-start space-y-8 lg:space-y-0 lg:space-x-8">
+                  </a>
+                  <p className="text-xs">
+                    {new Date(n.dateAdded).toDateString()}
+                  </p>
+                  <div className="flex flex-col space-y-4">
                     <a
                       rel="noreferrer"
                       href={`https://blog.tapan.app/${n.slug}`}
                       target="_blank"
                     >
-                      <div>
+                      <div className="mx-auto">
                         <GatsbyImage
                           style={{ borderRadius: "4px" }}
                           image={n.coverImage && getImage(n.coverImage)}
@@ -100,7 +95,7 @@ const Writings = () => {
                         />
                       </div>
                     </a>
-                    <div className="flex-1">
+                    <div className="w-full">
                       <p className="text-xs lg:text-sm">{n.brief}</p>
                     </div>
                   </div>

@@ -17,9 +17,9 @@ const Navigation = ({ setShowNavigation }) => {
       <div className="container mx-auto px-4 lg:px-16 h-full" maxWidth="6xl">
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-end py-8">
-            <div onClick={() => setShowNavigation(false)}>
+            <button onClick={() => setShowNavigation(false)}>
               <MdClose className="w-6 h-6 lg:w-8 lg:h-8 cursor-pointer" />
-            </div>
+            </button>
           </div>
           <div className="flex flex-col items-center justify-center w-full h-full">
             <div className="space-y-4">
@@ -31,7 +31,7 @@ const Navigation = ({ setShowNavigation }) => {
                   key={label + "-" + index}
                 >
                   <Link to={`/${label}`}>
-                    <p className="text-3xl md:text-4xl lg:text-5xl text-center">
+                    <p className="text-3xl md:text-4xl lg:text-5xl text-center font-bold">
                       {label}
                     </p>
                   </Link>

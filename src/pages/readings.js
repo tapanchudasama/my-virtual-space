@@ -3,11 +3,8 @@ import { graphql, Link, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React, { useEffect } from "react";
 import { letter, sentence } from "../components/about";
-import SectionHeading from "../components/common/SectionHeading";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-
-const MotionSectionHeading = motion(SectionHeading);
 
 const HEADING = "readings";
 
@@ -55,7 +52,8 @@ const Readings = () => {
       <Layout>
         <div className="container mx-auto px-4 lg:px-16">
           <Seo titleTemplate="%s · readings" />
-          <MotionSectionHeading
+          <motion.p
+            className="text-2xl md:text-3xl lg:text-4xl py-6 flex space-x-2 leading-tight font-bold"
             initial="hidden"
             display="flex"
             variants={sentence}
@@ -68,7 +66,7 @@ const Readings = () => {
                 </motion.p>
               );
             })}
-          </MotionSectionHeading>
+          </motion.p>
           <div className="flex pb-8">
             {allMarkdownRemark.nodes.map((n) => {
               return (

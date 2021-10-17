@@ -6,6 +6,11 @@ import Navigation from "./navigation";
 
 const Header = () => {
   const [showNavigation, setShowNavigation] = React.useState(false);
+  if (showNavigation) {
+    document.getElementsByTagName("html")[0].style.overflow = "hidden";
+  } else {
+    document.getElementsByTagName("html")[0].style.overflow = "visible";
+  }
   return (
     <header>
       <div className="container mx-auto px-4 lg:px-16 ">
@@ -17,9 +22,9 @@ const Header = () => {
             {/* <div>
               <ToggleTheme />
             </div> */}
-            <div onClick={() => setShowNavigation(true)}>
+            <button onClick={() => setShowNavigation(true)}>
               <HiOutlineMenuAlt3 className="w-4 h-4 lg:w-6 lg:h-6" />
-            </div>
+            </button>
           </div>
         </div>
       </div>

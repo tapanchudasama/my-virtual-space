@@ -3,11 +3,8 @@ import { graphql, useStaticQuery } from "gatsby";
 import React, { useEffect } from "react";
 import { letter, sentence } from "../components/about";
 import Project from "../components/common/project";
-import SectionHeading from "../components/common/SectionHeading";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-
-const MotionSectionHeading = motion(SectionHeading);
 
 const HEADING = "all my works";
 
@@ -51,7 +48,8 @@ const Works = () => {
     <Layout>
       <div className="container mx-auto px-4 lg:px-16">
         <Seo titleTemplate="%s · works" />
-        <MotionSectionHeading
+        <motion.p
+          className="text-2xl md:text-3xl lg:text-4xl py-6 flex space-x-2 leading-tight font-bold"
           initial="hidden"
           display="flex"
           variants={sentence}
@@ -65,7 +63,7 @@ const Works = () => {
               </motion.p>
             );
           })}
-        </MotionSectionHeading>
+        </motion.p>
         <div className="grid grid-cols-1 lg:grid-cols-2 pb-16 gap-16">
           {allMarkdownRemark.nodes.map((n) => {
             return <Project node={n} />;

@@ -1,7 +1,8 @@
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import { letter, sentence } from "../components/about";
 
 const HEADING = "status quo";
 
@@ -22,18 +23,18 @@ const StatusQuo = () => {
     threshold: 0.2,
   });
 
-  // const headingAnimation = useAnimation();
-  // const contentAnimation = useAnimation();
+  const headingAnimation = useAnimation();
+  const contentAnimation = useAnimation();
 
   useEffect(() => {
     async function sequence() {
       if (inView) {
-        // await headingAnimation.start("visible");
-        // await contentAnimation.start("visible");
+        await headingAnimation.start("visible");
+        await contentAnimation.start("visible");
       }
     }
     sequence();
-  }, [inView]);
+  }, [inView, headingAnimation, contentAnimation]);
 
   const { allMarkdownRemark } = data;
   const { html } = allMarkdownRemark.nodes[0];
@@ -44,15 +45,21 @@ const StatusQuo = () => {
         className="text-2xl md:text-3xl lg:text-4xl py-6 flex space-x-2 leading-tight font-bold"
         initial="hidden"
         display="flex"
+        variants={sentence}
+        animate={headingAnimation}
       >
         {HEADING.split(" ").map((char, index) => {
-          return <motion.p key={char + "-" + index}>{char}</motion.p>;
+          return (
+            <motion.p key={char + "-" + index} variants={letter}>
+              {char}
+            </motion.p>
+          );
         })}
       </motion.p>
       <motion.div
         initial="hidden"
-        // variants={letter}
-        // animate={contentAnimation}
+        variants={letter}
+        animate={contentAnimation}
         className="text-md lg:text-lg"
       >
         <div dangerouslySetInnerHTML={{ __html: html }}></div>

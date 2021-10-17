@@ -1,11 +1,7 @@
-import React from "react";
-import { Flex, Heading, Box, Container, VStack } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { CloseIcon } from "@chakra-ui/icons";
-import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Link } from "gatsby";
-
-const MotionBox = motion(Box);
+import React from "react";
+import { MdClose } from "react-icons/md";
 
 export const borderVariants = {
   hidden: { opacity: 0, scale: 0 },
@@ -13,49 +9,49 @@ export const borderVariants = {
 };
 
 const Navigation = ({ setShowNavigation }) => {
-  const value = useColorModeValue("gray.100");
-  const borderColor = useColorModeValue("green.800", "yellow.200");
-
   return (
-    <Box backgroundColor={value} overflow="hidden">
-      <Container maxWidth="6xl">
-        <Flex direction="column" height="100vh">
-          <Flex alignItems="center" justifyContent="flex-end" py="8">
-            <Box onClick={() => setShowNavigation(false)}>
-              <CloseIcon w={["4", "8"]} h={["4", "8"]} cursor="pointer" />
-            </Box>
-          </Flex>
-          <Flex
-            width="100%"
-            height="100%"
-            alignItems="center"
-            direction="column"
-            justifyContent="center"
-          >
-            <VStack spacing={4}>
+    <div
+      className="bg-gray-800 overflow-hidden w-full h-full"
+      overflow="hidden"
+    >
+      <div className="container mx-auto px-4 lg:px-16 h-full" maxWidth="6xl">
+        <div className="flex flex-col h-full">
+          <div className="flex items-center justify-end py-8">
+            <div
+              role="button"
+              aria-label="Toggle Navigation"
+              tabIndex={0}
+              onKeyDown={() => setShowNavigation(false)}
+              onClick={() => setShowNavigation(false)}
+            >
+              <MdClose className="w-6 h-6 lg:w-8 lg:h-8 cursor-pointer" />
+            </div>
+          </div>
+          <div className="flex flex-col items-center justify-center w-full h-full">
+            <div className="space-y-4">
               {["readings", "writings"].map((label, index) => (
-                <MotionBox
-                  position="relative"
+                <motion.div
+                  className="relative cursor-pointer"
                   initial="hidden"
                   whileHover="visible"
                   key={label + "-" + index}
-                  cursor="pointer"
                 >
                   <Link to={`/${label}`}>
-                    <Heading fontSize={["3xl", "4xl", "5xl"]}>{label}</Heading>
+                    <p className="text-3xl md:text-4xl lg:text-5xl text-center font-bold">
+                      {label}
+                    </p>
                   </Link>
-                  <MotionBox
-                    borderBottom="1px"
+                  <motion.div
+                    className="border border-yellow-600"
                     variants={borderVariants}
-                    borderColor={borderColor}
                   />
-                </MotionBox>
+                </motion.div>
               ))}
-            </VStack>
-          </Flex>
-        </Flex>
-      </Container>
-    </Box>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

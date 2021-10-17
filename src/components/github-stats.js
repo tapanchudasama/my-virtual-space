@@ -1,16 +1,6 @@
-import React, { useEffect, useCallback } from "react";
-import {
-  Box,
-  Text,
-  Stack,
-  Grid,
-  GridItem,
-  Icon,
-  Container,
-} from "@chakra-ui/react";
-import { useStaticQuery, graphql } from "gatsby";
-import { useColorModeValue } from "@chakra-ui/color-mode";
-import { GoRepo, GoGitMerge, GoCode } from "react-icons/go";
+import { graphql, useStaticQuery } from "gatsby";
+import React, { useCallback, useEffect } from "react";
+import { GoCode, GoGitMerge, GoRepo } from "react-icons/go";
 
 const GithubStats = () => {
   const [majorityLanguage, setMajorityLanguage] = React.useState("");
@@ -88,72 +78,42 @@ const GithubStats = () => {
     setMajorityLanguagePercent(l[1]);
   }, [findMajorityLanguage]);
 
-  const bgColor = useColorModeValue("blue.200", "gray.700");
-
   return (
-    <Box width="100%" backgroundColor={bgColor} py={8} my={8}>
-      <Container maxWidth="6xl">
-        <Grid
-          templateColumns={["repeat(1,1fr)", "repeat(1,1fr)", "repeat(3,1fr)"]}
-          justifyItems="center"
-          alignItems="center"
-          gap={4}
-          fontSize={["xs", "xs", "sm"]}
-        >
-          <GridItem>
-            <Stack
-              width="100%"
-              alignItems="center"
-              textAlign="center"
-              spacing={[2, 4]}
-              direction="column"
-            >
-              <Icon as={GoRepo} w={["6", "8"]} h={["6", "8"]} />
-              <Stack justifyContent="space-between" spacing={4} direction="row">
-                <Text>Total Repositories</Text>
-                <Text fontWeight="bold">{user.repositories.totalCount}</Text>
-              </Stack>
-            </Stack>
-          </GridItem>
-          <GridItem>
-            <Stack
-              width="100%"
-              alignItems="center"
-              textAlign="center"
-              spacing={4}
-              direction="column"
-            >
-              <Icon as={GoGitMerge} w={["6", "8"]} h={["6", "8"]} />
-              <Stack justifyContent="space-between" spacing={4} direction="row">
-                <Text>Open Source Contributions</Text>
-                <Text fontWeight="bold">
-                  {user.repositoriesContributedTo.totalCount}
-                </Text>
-              </Stack>
-            </Stack>
-          </GridItem>
-          <GridItem>
-            <Stack
-              width="100%"
-              alignItems="center"
-              textAlign="center"
-              spacing={4}
-              direction="column"
-            >
-              <Icon as={GoCode} w={["6", "8"]} h={["6", "8"]} />
-              <Stack justifyContent="space-between" spacing={4} direction="row">
-                <Text>Most used Language</Text>
-                <Text fontWeight="bold">
-                  {majorityLanguage} (
-                  {Math.round(majorityLanguagePercent * 100)}%)
-                </Text>
-              </Stack>
-            </Stack>
-          </GridItem>
-        </Grid>
-      </Container>
-    </Box>
+    <div className="w-full my-8 py-8 bg-gray-700" width="100%" py={8} my={8}>
+      <div className="container mx-auto px-4 lg:px-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 justify-center items-center text-xs lg:text-sm gap-4">
+          <Stat
+            icon={<GoRepo className="w-6 h-6 lg:w-8 lg:h-8" />}
+            label="Total Repositories"
+            meta={user.repositories.totalCount}
+          />
+          <Stat
+            icon={<GoGitMerge className="w-6 h-6 lg:w-8 lg:h-8" />}
+            label="Open Source Contributions"
+            meta={user.repositoriesContributedTo.totalCount}
+          />
+          <Stat
+            icon={<GoCode className="w-6 h-6 lg:w-8 lg:h-8" />}
+            label="Most used Language"
+            meta={`${majorityLanguage} ${Math.round(
+              majorityLanguagePercent * 100
+            )} %`}
+          />
+        </div>
+      </div>
+    </div>
   );
 };
 
+const Stat = ({ icon, label, meta }) => {
+  return (
+    <div className="flex flex-col w-full items-center text-center space-y-2 lg:space-y-4">
+      {icon}
+      <div className="flex space-between items-center space-x-2">
+        <p>{label}</p>
+        <p className="font-semibold">{meta}</p>
+      </div>
+    </div>
+  );
+};
 export default GithubStats;

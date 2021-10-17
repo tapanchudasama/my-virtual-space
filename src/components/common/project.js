@@ -1,72 +1,47 @@
-import { useColorModeValue } from "@chakra-ui/color-mode";
-import { ExternalLinkIcon, Icon } from "@chakra-ui/icons";
-import {
-  Flex,
-  Heading,
-  Link as ChakraLink,
-  Stack,
-  Tag,
-  Text,
-} from "@chakra-ui/react";
 import React from "react";
-import { BiCodeAlt } from "react-icons/bi";
+import { BiCodeAlt, BiLinkExternal } from "react-icons/bi";
 
 const Project = ({ node }) => {
-  const hoverColor = useColorModeValue("blue.800", "whiteAlpha.600");
-
   return (
-    <Stack width="100%" direction="column">
-      <Heading fontSize={["md", "lg"]}>{node.frontmatter.title}</Heading>
-      <Stack direction="row">
-        <Text fontSize={["sm", "md"]}>
-          <div dangerouslySetInnerHTML={{ __html: node.html }} />
-        </Text>
-      </Stack>
-      <Stack
-        alignItems="baseline"
-        direction="row"
-        justifyContent="space-between"
-        width="100%"
-      >
-        <Flex flexWrap="wrap" alignItems="center">
+    <div className="flex flex-col w-full">
+      <p className="text-md lg:text-lg font-semibold">
+        {node.frontmatter.title}
+      </p>
+      <p className="text-sm lg:text-md" fontSize={["sm", "md"]}>
+        <div dangerouslySetInnerHTML={{ __html: node.html }} />
+      </p>
+      <div className="flex items-center justify-between w-full">
+        <div className="flex flex-wrap items-center">
           {node.frontmatter.techs.map((t, index) => (
-            <Tag size="sm" mt={2} ml={index > 0 ? 2 : 0}>
-              {t}
-            </Tag>
-          ))}
-        </Flex>
-        <Stack direction="row" spacing={4} alignItems="center">
-          {node.frontmatter.repo_link_backend && (
-            <ChakraLink
-              _hover={{ color: hoverColor }}
-              href={node.frontmatter.repo_link_backend}
-              cursor="pointer"
-              isExternal
+            <span
+              className={`px-2 py-0.5 mt-2 text-xs rounded-sm bg-gray-500 ${
+                index > 0 ? "ml-2" : 0
+              }`}
             >
-              <Icon as={BiCodeAlt} w="6" h="6" />
-            </ChakraLink>
+              {t}
+            </span>
+          ))}
+        </div>
+        <div className="flex space-x-4 items-center">
+          {node.frontmatter.repo_link_backend && (
+            <a
+              className="cursor-pointer"
+              href={node.frontmatter.repo_link_backend}
+            >
+              <BiCodeAlt className="w-5 h-5" />
+            </a>
           )}
           {node.frontmatter.repo_link_frontend && (
-            <ChakraLink
-              _hover={{ color: hoverColor }}
-              href={node.frontmatter.repo_link_frontend}
-              cursor="pointer"
-              isExternal
-            >
-              <Icon as={BiCodeAlt} w="6" h="6" />
-            </ChakraLink>
+            <a href={node.frontmatter.repo_link_frontend}>
+              <BiCodeAlt className="w-5 h-5" />
+            </a>
           )}
-          <ChakraLink
-            href={node.frontmatter.demo_link}
-            _hover={{ color: hoverColor }}
-            cursor="pointer"
-            isExternal
-          >
-            <ExternalLinkIcon w={5} h={5} />
-          </ChakraLink>
-        </Stack>
-      </Stack>
-    </Stack>
+          <a className="cursor-pointer" href={node.frontmatter.demo_link}>
+            <BiLinkExternal className="w-5 h-5" />
+          </a>
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -1,15 +1,8 @@
-import { Box, Container, Flex, Text } from "@chakra-ui/react";
 import { motion, useAnimation } from "framer-motion";
 import { graphql, useStaticQuery } from "gatsby";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { letter, sentence } from "../components/about";
-import SectionHeading from "../components/common/SectionHeading";
-
-const MotionSectionHeading = motion(SectionHeading);
-const MotionText = motion(Text);
-const MotionFlex = motion(Flex);
-const MotionBox = motion(Box);
 
 const HEADING = "status quo";
 
@@ -41,14 +34,15 @@ const StatusQuo = () => {
       }
     }
     sequence();
-  }, [inView, contentAnimation, headingAnimation]);
+  }, [inView, headingAnimation, contentAnimation]);
 
   const { allMarkdownRemark } = data;
   const { html } = allMarkdownRemark.nodes[0];
 
   return (
-    <Container maxWidth="6xl" ref={ref}>
-      <MotionSectionHeading
+    <div className="container px-4 lg:px-16 mx-auto" ref={ref}>
+      <motion.p
+        className="text-2xl md:text-3xl lg:text-4xl py-6 flex space-x-2 leading-tight font-bold"
         initial="hidden"
         display="flex"
         variants={sentence}
@@ -56,25 +50,21 @@ const StatusQuo = () => {
       >
         {HEADING.split(" ").map((char, index) => {
           return (
-            <MotionText key={char + "-" + index} pr="4" variants={letter}>
+            <motion.p key={char + "-" + index} variants={letter}>
               {char}
-            </MotionText>
+            </motion.p>
           );
         })}
-      </MotionSectionHeading>
-      <MotionBox initial="hidden" variants={letter} animate={contentAnimation}>
-        <MotionFlex
-          initial="hidden"
-          variants={letter}
-          animate={contentAnimation}
-          direction="column"
-        >
-          <Box fontSize={["md", "lg"]}>
-            <div dangerouslySetInnerHTML={{ __html: html }}></div>
-          </Box>
-        </MotionFlex>
-      </MotionBox>
-    </Container>
+      </motion.p>
+      <motion.div
+        initial="hidden"
+        variants={letter}
+        animate={contentAnimation}
+        className="text-md lg:text-lg"
+      >
+        <div dangerouslySetInnerHTML={{ __html: html }}></div>
+      </motion.div>
+    </div>
   );
 };
 

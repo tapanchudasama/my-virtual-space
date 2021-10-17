@@ -1,26 +1,10 @@
-import { useColorModeValue } from "@chakra-ui/color-mode";
-import {
-  Box,
-  Container,
-  Flex,
-  Grid,
-  GridItem,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
 import { motion, useAnimation } from "framer-motion";
 import { graphql, Link, useStaticQuery } from "gatsby";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { letter, sentence } from "./about";
 import Project from "./common/project";
-import SectionHeading from "./common/SectionHeading";
 import { borderVariants } from "./navigation";
-
-const MotionSectionHeading = motion(SectionHeading);
-const MotionText = motion(Text);
-const MotionGrid = motion(Grid);
-const MotionBox = motion(Box);
 
 const HEADING = "some of my work";
 
@@ -58,8 +42,6 @@ const Projects = () => {
   const headingAnimation = useAnimation();
   const contentAnimation = useAnimation();
 
-  const borderColor = useColorModeValue("blue.200", "yellow.200");
-
   useEffect(() => {
     async function sequence() {
       if (inView) {
@@ -68,79 +50,56 @@ const Projects = () => {
       }
     }
     sequence();
-  }, [inView, contentAnimation, headingAnimation]);
+  }, [inView, headingAnimation, contentAnimation]);
 
   const { allMarkdownRemark } = data;
 
   return (
-    <Container maxWidth="6xl" ref={ref} py={8}>
-      <MotionSectionHeading
+    <div className="container px-4 lg:px-16 mx-auto mt-16" ref={ref}>
+      <motion.p
+        className="text-2xl md:text-3xl lg:text-4xl py-6 flex space-x-2 leading-tight font-bold"
         initial="hidden"
         display="flex"
         variants={sentence}
         animate={headingAnimation}
-        fontSize={["3xl", "4xl", "5xl"]}
       >
         {HEADING.split(" ").map((char, index) => {
           return (
-            <MotionText
-              key={char + "-" + index}
-              pr={[2, 2, 4]}
-              variants={letter}
-            >
+            <motion.p key={char + "-" + index} variants={letter}>
               {char}
-            </MotionText>
+            </motion.p>
           );
         })}
-      </MotionSectionHeading>
-      <MotionGrid
-        py={4}
-        templateColumns={["repeat(1,1fr)", "repeat(1,1fr)", "repeat(2,1fr)"]}
-        justifyItems="start"
-        justifyContent="start"
-        gap={16}
+      </motion.p>
+      <motion.div
         initial="hidden"
         animate={contentAnimation}
         variants={letter}
-        spacing={12}
+        className="grid grid-cols-1 lg:grid-cols-2 gap-16"
+        py={4}
+        justifyItems="start"
+        justifyContent="start"
       >
         {allMarkdownRemark.nodes.map((n) => {
-          return (
-            <GridItem>
-              <Project node={n} />
-            </GridItem>
-          );
+          return <Project node={n} />;
         })}
-      </MotionGrid>
-      <Flex
-        alignItems="center"
-        justifyContent="center"
-        pt={12}
-        // display={allMarkdownRemark.nodes.length > 3 ? "flex" : "none"}
-      >
-        <MotionBox
-          position="relative"
+      </motion.div>
+      <div className="flex items-center justify-center pt-10">
+        <motion.div
           initial="hidden"
           whileHover="visible"
-          cursor="pointer"
+          className="cursor-pointer relative"
         >
-          <Stack
-            direction="row"
-            spacing={2}
-            fontSize={["sm", "md"]}
-            _hover={{ fontWeight: "bold" }}
-            alignItems="center"
-          >
+          <p className="text-sm lg:text-md hover:font-bold">
             <Link to="/works">view my all works</Link>
-          </Stack>
-          <MotionBox
-            borderBottom="1px"
+          </p>
+          <motion.div
+            className="border-b border-yellow-500"
             variants={borderVariants}
-            borderColor={borderColor}
           />
-        </MotionBox>
-      </Flex>
-    </Container>
+        </motion.div>
+      </div>
+    </div>
   );
 };
 

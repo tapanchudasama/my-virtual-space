@@ -1,17 +1,10 @@
-import React, { useEffect } from "react";
-import { Text, Box, Container, Heading, Stack } from "@chakra-ui/react";
-import { useColorModeValue } from "@chakra-ui/color-mode";
 import { motion, useAnimation } from "framer-motion";
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-
+import React, { useEffect } from "react";
 import { letter, sentence } from "../components/about";
 import Layout from "../components/layout";
-import SectionHeading from "../components/common/SectionHeading";
 import Seo from "../components/seo";
-
-const MotionSectionHeading = motion(SectionHeading);
-const MotionText = motion(Text);
 
 const HEADING = "readings";
 
@@ -42,8 +35,6 @@ const Readings = () => {
       }
     }
   `);
-  const value = useColorModeValue();
-  const hoverColor = useColorModeValue("blue.800", "whiteAlpha.600");
   const headingAnimation = useAnimation();
   const contentAnimation = useAnimation();
 
@@ -56,65 +47,55 @@ const Readings = () => {
   }, [contentAnimation, headingAnimation]);
 
   const { allMarkdownRemark } = data;
-  console.log(allMarkdownRemark);
   return (
-    <Box backgroundColor={value}>
+    <div>
       <Layout>
-        <Container maxWidth="6xl">
+        <div className="container mx-auto px-4 lg:px-16">
           <Seo titleTemplate="%s · readings" />
-          <MotionSectionHeading
+          <motion.p
+            className="text-2xl md:text-3xl lg:text-4xl py-6 flex space-x-2 leading-tight font-bold"
             initial="hidden"
             display="flex"
             variants={sentence}
             animate={headingAnimation}
-            py={8}
           >
             {HEADING.split(" ").map((char, index) => {
               return (
-                <MotionText key={char + "-" + index} pr="4" variants={letter}>
+                <motion.p key={char + "-" + index} variants={letter}>
                   {char}
-                </MotionText>
+                </motion.p>
               );
             })}
-          </MotionSectionHeading>
-          <Stack direction="row" pb={8} spacing={0}>
+          </motion.p>
+          <div className="flex pb-8">
             {allMarkdownRemark.nodes.map((n) => {
               return (
                 <Link to={`${n.frontmatter.slug}`}>
-                  <Stack
-                    borderRadius={8}
-                    direction="column"
-                    p={2}
-                    alignItems="start"
-                  >
-                    <Heading
-                      fontSize={["md", "lg"]}
-                      cursor="pointer"
-                      _hover={{ textColor: hoverColor }}
-                    >
+                  <div className="flex flex-col items-start p-2 rounded-8">
+                    <motion.h3 className="text-md lg:text-lg cursor-pointer hover:text-gray-400">
                       {n.frontmatter.title}
-                    </Heading>
-                    <Stack
+                    </motion.h3>
+                    <div
+                      className="flex flex-col space-y-4 items-center lg:items-start"
                       direction="column"
-                      alignItems={["center", "center", "inherit"]}
                       spacing={4}
                     >
-                      <Box>
+                      <div>
                         <GatsbyImage
                           style={{ borderRadius: "4px" }}
                           image={getImage(n.frontmatter.image)}
                           alt={n.title}
                         />
-                      </Box>
-                    </Stack>
-                  </Stack>
+                      </div>
+                    </div>
+                  </div>
                 </Link>
               );
             })}
-          </Stack>
-        </Container>
+          </div>
+        </div>
       </Layout>
-    </Box>
+    </div>
   );
 };
 

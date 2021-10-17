@@ -1,24 +1,10 @@
-import { useColorModeValue } from "@chakra-ui/color-mode";
-import {
-  Box,
-  Container,
-  Flex,
-  Heading,
-  Link,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
 import { motion, useAnimation } from "framer-motion";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React, { useEffect } from "react";
 import { letter, sentence } from "../components/about";
-import SectionHeading from "../components/common/SectionHeading";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
-
-const MotionSectionHeading = motion(SectionHeading);
-const MotionText = motion(Text);
 
 const HEADING = "writings";
 
@@ -46,15 +32,8 @@ const Writings = () => {
       }
     }
   `);
-  const value = useColorModeValue();
-  const hoverColor = useColorModeValue("blue.800", "whiteAlpha.600");
   const headingAnimation = useAnimation();
   const contentAnimation = useAnimation();
-
-  const projectDescriptionBgColor = useColorModeValue(
-    "blackAlpha.300",
-    "whiteAlpha.300"
-  );
 
   useEffect(() => {
     async function sequence() {
@@ -67,85 +46,66 @@ const Writings = () => {
   const { allHashNodePost } = data;
 
   return (
-    <Box backgroundColor={value}>
+    <div>
       <Layout>
-        <Container maxWidth="6xl">
+        <div className="container mx-auto px-4 lg:px-16">
           <Seo titleTemplate="%s · writings" />
-          <MotionSectionHeading
+          <motion.p
+            className="text-2xl md:text-3xl lg:text-4xl py-6 flex space-x-2 leading-tight font-bold"
             initial="hidden"
             display="flex"
             variants={sentence}
             animate={headingAnimation}
-            py={8}
           >
             {HEADING.split(" ").map((char, index) => {
               return (
-                <MotionText key={char + "-" + index} pr="4" variants={letter}>
+                <motion.p key={char + "-" + index} variants={letter}>
                   {char}
-                </MotionText>
+                </motion.p>
               );
             })}
-          </MotionSectionHeading>
-          <Stack direction="column" pb={8} spacing={0}>
+          </motion.p>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-8 pb-16">
             {allHashNodePost.nodes.map((n) => {
               return (
-                <Stack
-                  borderBottomColor={projectDescriptionBgColor}
-                  borderBottomWidth="1px"
-                  p={4}
-                  width="100%"
-                  alignItems="start"
-                  direction="column"
-                >
-                  <Flex
-                    alignItems="baseline"
-                    justifyContent="space-between"
-                    width="100%"
+                <div className="flex flex-col w-full items-start space-y-4 py-2">
+                  <a
+                    rel="noreferrer"
+                    href={`https://blog.tapan.app/${n.slug}`}
+                    target="_blank"
                   >
-                    <Link
-                      href={`https://blog.tapan.app/${n.slug}`}
-                      target="_blank"
-                      width="70%"
-                    >
-                      <Heading
-                        fontSize={["sm", "md"]}
-                        _hover={{ textColor: hoverColor }}
-                      >
-                        {n.title}
-                      </Heading>
-                    </Link>
-                    <Text fontSize={["xs"]}>
-                      {new Date(n.dateAdded).toDateString()}
-                    </Text>
-                  </Flex>
-                  <Stack
-                    direction={["column", "column", "row"]}
-                    alignItems={["center", "center", "inherit"]}
-                    spacing={4}
-                  >
-                    <Link
+                    <p className="text-sm lg:text-lg font-bold leading-tight hover:text-gray-300">
+                      {n.title}
+                    </p>
+                  </a>
+                  <p className="text-xs">
+                    {new Date(n.dateAdded).toDateString()}
+                  </p>
+                  <div className="flex flex-col space-y-4">
+                    <a
+                      rel="noreferrer"
                       href={`https://blog.tapan.app/${n.slug}`}
                       target="_blank"
                     >
-                      <Box>
+                      <div className="mx-auto">
                         <GatsbyImage
                           style={{ borderRadius: "4px" }}
-                          image={getImage(n.coverImage)}
+                          image={n.coverImage && getImage(n.coverImage)}
                           alt={n.title}
                         />
-                      </Box>
-                    </Link>
-                    <Box flexGrow={1}>
-                      <Text fontSize={["xs", "sm"]}>{n.brief}</Text>
-                    </Box>
-                  </Stack>
-                </Stack>
+                      </div>
+                    </a>
+                    <div className="w-full">
+                      <p className="text-xs lg:text-sm">{n.brief}</p>
+                    </div>
+                  </div>
+                </div>
               );
             })}
-          </Stack>
-        </Container>
+          </div>
+        </div>
       </Layout>
-    </Box>
+    </div>
   );
 };
 

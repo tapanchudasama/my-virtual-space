@@ -40,17 +40,17 @@ const Projects = () => {
   });
 
   const headingAnimation = useAnimation();
-  const contentAnimation = useAnimation();
+  // const contentAnimation = useAnimation();
 
   useEffect(() => {
     async function sequence() {
       if (inView) {
         await headingAnimation.start("visible");
-        await contentAnimation.start("visible");
+        // await contentAnimation.start("visible");
       }
     }
     sequence();
-  }, [inView, headingAnimation, contentAnimation]);
+  }, [inView, headingAnimation]);
 
   const { allMarkdownRemark } = data;
 
@@ -73,8 +73,8 @@ const Projects = () => {
       </motion.p>
       <motion.div
         initial="hidden"
-        animate={contentAnimation}
-        variants={letter}
+        // animate={contentAnimation}
+        // variants={letter}
         className="grid grid-cols-1 lg:grid-cols-2 gap-16"
         py={4}
         justifyItems="start"

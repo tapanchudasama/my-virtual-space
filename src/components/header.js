@@ -6,11 +6,13 @@ import Navigation from "./navigation";
 
 const Header = () => {
   const [showNavigation, setShowNavigation] = React.useState(false);
-  if (showNavigation) {
-    document.getElementsByTagName("html")[0].style.overflow = "hidden";
-  } else {
-    document.getElementsByTagName("html")[0].style.overflow = "visible";
-  }
+  React.useEffect(() => {
+    if (showNavigation) {
+      document.getElementsByTagName("html")[0].style.overflow = "hidden";
+    } else {
+      document.getElementsByTagName("html")[0].style.overflow = "visible";
+    }
+  }, []);
   return (
     <header>
       <div className="container mx-auto px-4 lg:px-16 ">

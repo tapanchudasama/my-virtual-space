@@ -3,9 +3,6 @@ import { graphql, useStaticQuery } from "gatsby";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { letter, sentence } from "../components/about";
-import SectionHeading from "../components/common/SectionHeading";
-
-const MotionSectionHeading = motion(SectionHeading);
 
 const HEADING = "status quo";
 
@@ -27,22 +24,25 @@ const StatusQuo = () => {
   });
 
   const headingAnimation = useAnimation();
+  const contentAnimation = useAnimation();
 
   useEffect(() => {
     async function sequence() {
       if (inView) {
         await headingAnimation.start("visible");
+        await contentAnimation.start("visible");
       }
     }
     sequence();
-  }, [inView, headingAnimation]);
+  }, [inView, headingAnimation, contentAnimation]);
 
   const { allMarkdownRemark } = data;
   const { html } = allMarkdownRemark.nodes[0];
 
   return (
     <div className="container px-4 lg:px-16 mx-auto" ref={ref}>
-      <MotionSectionHeading
+      <motion.p
+        className="text-2xl md:text-3xl lg:text-4xl py-6 flex space-x-2 leading-tight font-bold"
         initial="hidden"
         display="flex"
         variants={sentence}
@@ -55,10 +55,15 @@ const StatusQuo = () => {
             </motion.p>
           );
         })}
-      </MotionSectionHeading>
-      <div className="text-md lg:text-lg">
+      </motion.p>
+      <motion.div
+        initial="hidden"
+        variants={letter}
+        animate={contentAnimation}
+        className="text-md lg:text-lg"
+      >
         <div dangerouslySetInnerHTML={{ __html: html }}></div>
-      </div>
+      </motion.div>
     </div>
   );
 };

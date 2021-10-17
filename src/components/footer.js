@@ -16,17 +16,16 @@ const Footer = () => {
               {siteMetadata.name}
             </p>
           </p>
-          <div className="w-52">
+          <div className="w-52 h-14">
             <a
               href="https://www.buymeacoffee.com/tapanchudasama"
               target="_blank"
               rel="noreferrer"
             >
               <img
+                className="w-52 h-14"
                 src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
                 alt="Buy Me A Coffee"
-                width="100%"
-                height="100%"
               ></img>
             </a>
           </div>

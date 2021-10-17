@@ -4,10 +4,7 @@ import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { letter, sentence } from "./about";
 import Project from "./common/project";
-import SectionHeading from "./common/SectionHeading";
 import { borderVariants } from "./navigation";
-
-const MotionSectionHeading = motion(SectionHeading);
 
 const HEADING = "some of my work";
 
@@ -43,21 +40,24 @@ const Projects = () => {
   });
 
   const headingAnimation = useAnimation();
+  const contentAnimation = useAnimation();
 
   useEffect(() => {
     async function sequence() {
       if (inView) {
         await headingAnimation.start("visible");
+        await contentAnimation.start("visible");
       }
     }
     sequence();
-  }, [inView, headingAnimation]);
+  }, [inView, headingAnimation, contentAnimation]);
 
   const { allMarkdownRemark } = data;
 
   return (
     <div className="container px-4 lg:px-16 mx-auto mt-16" ref={ref}>
-      <MotionSectionHeading
+      <motion.p
+        className="text-2xl md:text-3xl lg:text-4xl py-6 flex space-x-2 leading-tight font-bold"
         initial="hidden"
         display="flex"
         variants={sentence}
@@ -70,8 +70,11 @@ const Projects = () => {
             </motion.p>
           );
         })}
-      </MotionSectionHeading>
-      <div
+      </motion.p>
+      <motion.div
+        initial="hidden"
+        animate={contentAnimation}
+        variants={letter}
         className="grid grid-cols-1 lg:grid-cols-2 gap-16"
         py={4}
         justifyItems="start"
@@ -80,22 +83,18 @@ const Projects = () => {
         {allMarkdownRemark.nodes.map((n) => {
           return <Project node={n} />;
         })}
-      </div>
+      </motion.div>
       <div className="flex items-center justify-center pt-10">
         <motion.div
           initial="hidden"
           whileHover="visible"
           className="cursor-pointer relative"
         >
-          <p
-            className="text-sm lg:text-md"
-            _hover={{ fontWeight: "bold" }}
-            alignItems="center"
-          >
+          <p className="text-sm lg:text-md hover:font-bold">
             <Link to="/works">view my all works</Link>
           </p>
           <motion.div
-            className="border-b border-black"
+            className="border-b border-yellow-500"
             variants={borderVariants}
           />
         </motion.div>

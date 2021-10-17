@@ -26,6 +26,7 @@ const Header = () => {
             </div> */}
             <div
               role="button"
+              aria-label="Toggle Navigation"
               tabIndex={0}
               onKeyDown={() => setShowNavigation(true)}
               onClick={() => setShowNavigation(true)}

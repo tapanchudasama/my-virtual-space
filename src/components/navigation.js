@@ -19,6 +19,7 @@ const Navigation = ({ setShowNavigation }) => {
           <div className="flex items-center justify-end py-8">
             <div
               role="button"
+              aria-label="Toggle Navigation"
               tabIndex={0}
               onKeyDown={() => setShowNavigation(false)}
               onClick={() => setShowNavigation(false)}

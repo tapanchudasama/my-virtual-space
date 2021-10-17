@@ -1,13 +1,8 @@
-import { ChakraProvider } from "@chakra-ui/provider";
 import "@fontsource/ibm-plex-sans";
 import { AnimatePresence } from "framer-motion";
 import React from "react";
-import theme from "./@chakraui/gatsby-plugin/theme";
+import "./styles/global.css";
 
 export const wrapPageElement = ({ element }) => {
-  return (
-    <ChakraProvider resetCSS theme={theme}>
-      <AnimatePresence exitBeforeEnter>{element}</AnimatePresence>
-    </ChakraProvider>
-  );
+  return <AnimatePresence exitBeforeEnter>{element}</AnimatePresence>;
 };

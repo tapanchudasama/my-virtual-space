@@ -1,11 +1,10 @@
-import { Heading } from "@chakra-ui/layout";
 import React from "react";
 
 const SectionHeading = ({ children }) => {
   return (
-    <Heading display="flex" fontSize={["2xl", "3xl", "4xl"]} py={8}>
+    <p className="text-2xl md:text-3xl lg:text-4xl py-6 flex space-x-2 font-medium leading-tight font-bold">
       {children}
-    </Heading>
+    </p>
   );
 };
 

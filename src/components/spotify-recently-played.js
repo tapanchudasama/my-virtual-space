@@ -1,4 +1,3 @@
-import { Skeleton } from "@chakra-ui/skeleton";
 import React, { Fragment, useEffect, useState } from "react";
 
 function fetchRecentlyPlayed(accessToken) {
@@ -70,7 +69,6 @@ const SpotifyRecentlyPlayed = () => {
         fetchRefreshedAccessToken().then((token) => fetchRecentlyPlayed(token));
       });
   }, []);
-  console.log(trackId);
   return (
     <Fragment>
       {!isLoading && (
@@ -84,7 +82,9 @@ const SpotifyRecentlyPlayed = () => {
           allow="encrypted-media"
         ></iframe>
       )}
-      {isLoading && <Skeleton height="70px" width="100%" />}
+      {isLoading && (
+        <div className="w-full h-16 animate-pulse bg-white bg-opacity-50 rounded-lg" />
+      )}
     </Fragment>
   );
 };

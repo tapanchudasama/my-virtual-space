@@ -7,7 +7,7 @@ import {
   Link,
   Stack,
   Text,
-} from "@chakra-ui/react";
+} from "@chakra-ui/layout";
 import { motion, useAnimation } from "framer-motion";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";

@@ -20,6 +20,7 @@ module.exports = {
     "gatsby-plugin-sitemap",
     "gatsby-transformer-remark",
     "gatsby-plugin-postcss",
+    "gatsby-plugin-preact",
     {
       resolve: "gatsby-source-hashnode",
       options: {

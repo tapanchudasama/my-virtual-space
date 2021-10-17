@@ -24,17 +24,17 @@ const StatusQuo = () => {
   });
 
   const headingAnimation = useAnimation();
-  const contentAnimation = useAnimation();
+  // const contentAnimation = useAnimation();
 
   useEffect(() => {
     async function sequence() {
       if (inView) {
         await headingAnimation.start("visible");
-        await contentAnimation.start("visible");
+        // await contentAnimation.start("visible");
       }
     }
     sequence();
-  }, [inView, headingAnimation, contentAnimation]);
+  }, [inView, headingAnimation]);
 
   const { allMarkdownRemark } = data;
   const { html } = allMarkdownRemark.nodes[0];
@@ -58,8 +58,8 @@ const StatusQuo = () => {
       </motion.p>
       <motion.div
         initial="hidden"
-        variants={letter}
-        animate={contentAnimation}
+        // variants={letter}
+        // animate={contentAnimation}
         className="text-md lg:text-lg"
       >
         <div dangerouslySetInnerHTML={{ __html: html }}></div>

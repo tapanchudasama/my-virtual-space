@@ -23,7 +23,7 @@ const Footer = () => {
               rel="noreferrer"
             >
               <img
-                className="w-48"
+                className="w-48 h-14"
                 src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
                 alt="Buy Me A Coffee"
               ></img>

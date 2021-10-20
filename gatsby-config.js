@@ -22,6 +22,12 @@ module.exports = {
     "gatsby-plugin-postcss",
     "gatsby-plugin-preact",
     {
+      resolve: "gatsby-plugin-htaccess",
+      options: {
+        https: true,
+      },
+    },
+    {
       resolve: "gatsby-source-hashnode",
       options: {
         username: "inflame",

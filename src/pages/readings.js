@@ -50,7 +50,7 @@ const Readings = () => {
   return (
     <div>
       <Layout>
-        <div className="container mx-auto px-4 lg:px-16">
+        <div className="container mx-auto px-4 lg:px-16 font-ibm-plex-sans">
           <Seo titleTemplate="%s · readings" />
           <motion.p
             className="text-2xl md:text-3xl lg:text-4xl py-6 flex space-x-2 leading-tight font-bold"

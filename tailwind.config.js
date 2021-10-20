@@ -7,7 +7,7 @@ module.exports = {
         "red-500": theme("colors.red.500"),
       }),
       fontFamily: {
-        body: ["IBM Plex Sans"],
+        "ibm-plex-sans": ["IBM Plex Sans"],
       },
     },
   },

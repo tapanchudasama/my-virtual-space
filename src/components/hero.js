@@ -33,7 +33,7 @@ const Hero = () => {
   const { twitter, mail, reddit, github, linkedin } = allHeroJson.edges[0].node;
 
   return (
-    <section className="container relative mx-auto px-4 lg:px-16">
+    <main className="container relative mx-auto px-4 lg:px-16">
       <div className="flex flex-col w-full h-screen flex-1 justify-center">
         <p className="text-base lg:text-lg">hi, i am</p>
         <div className="space-y-2">
@@ -89,7 +89,7 @@ const Hero = () => {
           />
         </div>
       </div>
-    </section>
+    </main>
   );
 };
 

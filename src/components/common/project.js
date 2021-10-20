@@ -25,6 +25,7 @@ const Project = ({ node }) => {
         <div className="flex space-x-4 items-center">
           {node.frontmatter.repo_link_backend && (
             <a
+              aria-label="source-code-backend"
               className="cursor-pointer"
               href={node.frontmatter.repo_link_backend}
             >
@@ -32,11 +33,18 @@ const Project = ({ node }) => {
             </a>
           )}
           {node.frontmatter.repo_link_frontend && (
-            <a href={node.frontmatter.repo_link_frontend}>
+            <a
+              aria-aria-label="source-code-frontend"
+              href={node.frontmatter.repo_link_frontend}
+            >
               <BiCodeAlt className="w-5 h-5" />
             </a>
           )}
-          <a className="cursor-pointer" href={node.frontmatter.demo_link}>
+          <a
+            aria-label="demo"
+            className="cursor-pointer"
+            href={node.frontmatter.demo_link}
+          >
             <BiLinkExternal className="w-5 h-5" />
           </a>
         </div>

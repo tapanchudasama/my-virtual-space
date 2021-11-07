@@ -34,7 +34,7 @@ const Project = ({ node }) => {
           )}
           {node.frontmatter.repo_link_frontend && (
             <a
-              aria-aria-label="source-code-frontend"
+              aria-label="source-code-frontend"
               href={node.frontmatter.repo_link_frontend}
             >
               <BiCodeAlt className="w-5 h-5" />

@@ -33,7 +33,7 @@ const Hero = () => {
   const { twitter, mail, reddit, github, linkedin } = allHeroJson.edges[0].node;
 
   return (
-    <section className="container relative mx-auto px-4 lg:px-16">
+    <main className="container relative mx-auto px-4 lg:px-16">
       <div className="flex flex-col w-full h-screen flex-1 justify-center">
         <p className="text-base lg:text-lg">hi, i am</p>
         <div className="space-y-2">
@@ -43,12 +43,19 @@ const Hero = () => {
           <p className="text-lg md:text-xl lg:text-3xl">{description}</p>
           <div className="flex space-x-4 py-2">
             {twitter && (
-              <a rel="noreferrer" key="twitter" href={twitter} target="_blank">
+              <a
+                aria-label="Twitter"
+                rel="noreferrer"
+                key="twitter"
+                href={twitter}
+                target="_blank"
+              >
                 <FaTwitter className="w-6 h-6 lg:w-8 lg:h-8" />
               </a>
             )}
             {linkedin && (
               <a
+                aria-label="LinkedIn"
                 rel="noreferrer"
                 key="linkedin"
                 href={linkedin}
@@ -58,18 +65,31 @@ const Hero = () => {
               </a>
             )}
             {github && (
-              <a rel="noreferrer" key="github" href={github} target="_blank">
+              <a
+                aria-label="GitHub"
+                rel="noreferrer"
+                key="github"
+                href={github}
+                target="_blank"
+              >
                 <FaGithub className="w-6 h-6 lg:w-8 lg:h-8" />
               </a>
             )}
             {reddit && (
-              <a rel="noreferrer" key="reddit" href={reddit} target="_blank">
+              <a
+                aria-label="Reddit"
+                rel="noreferrer"
+                key="reddit"
+                href={reddit}
+                target="_blank"
+              >
                 <FaReddit className="w-6 h-6 lg:w-8 lg:h-8" />
               </a>
             )}
 
             {mail && (
               <a
+                aria-label="mail"
                 rel="noreferrer"
                 key="mail"
                 href={`mailto:${mail}`}
@@ -89,7 +109,7 @@ const Hero = () => {
           />
         </div>
       </div>
-    </section>
+    </main>
   );
 };
 

@@ -9,8 +9,10 @@ const ReadingInstance = ({ data }) => {
     <Layout>
       <div className="container mx-auto px-4 lg:px-16 ">
         <div className="py-8 space-y-8">
-          <h3>{markdownRemark.frontmatter.title}</h3>
-          <div>
+          <h1 className="text-2xl lg:text-4xl font-bold">
+            {markdownRemark.frontmatter.title}
+          </h1>
+          <div className="flex items-center justify-center">
             <GatsbyImage
               style={{ borderRadius: "4px" }}
               image={getImage(markdownRemark.frontmatter.image)}
@@ -37,7 +39,7 @@ export const query = graphql`
         image {
           childImageSharp {
             gatsbyImageData(
-              width: 150
+              width: 800
               layout: CONSTRAINED
               placeholder: BLURRED
               formats: [AUTO, WEBP, AVIF]

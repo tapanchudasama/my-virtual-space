@@ -1,5 +1,5 @@
 import { motion, useAnimation } from "framer-motion";
-import { graphql, Link, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React, { useEffect } from "react";
 import { letter, sentence } from "../components/about";
@@ -70,26 +70,24 @@ const Readings = () => {
           <div className="flex pb-8">
             {allMarkdownRemark.nodes.map((n) => {
               return (
-                <Link to={`${n.frontmatter.slug}`}>
-                  <div className="flex flex-col items-start p-2 rounded-8">
-                    <motion.h3 className="text-md lg:text-lg cursor-pointer hover:text-gray-400">
-                      {n.frontmatter.title}
-                    </motion.h3>
-                    <div
-                      className="flex flex-col space-y-4 items-center lg:items-start"
-                      direction="column"
-                      spacing={4}
-                    >
-                      <div>
-                        <GatsbyImage
-                          style={{ borderRadius: "4px" }}
-                          image={getImage(n.frontmatter.image)}
-                          alt={n.title}
-                        />
-                      </div>
+                <div className="flex flex-col items-start p-2 rounded-8">
+                  <motion.h3 className="text-md lg:text-lg cursor-pointer hover:text-gray-400">
+                    {n.frontmatter.title}
+                  </motion.h3>
+                  <div
+                    className="flex flex-col space-y-4 items-center lg:items-start"
+                    direction="column"
+                    spacing={4}
+                  >
+                    <div>
+                      <GatsbyImage
+                        style={{ borderRadius: "4px" }}
+                        image={getImage(n.frontmatter.image)}
+                        alt={n.title}
+                      />
                     </div>
                   </div>
-                </Link>
+                </div>
               );
             })}
           </div>

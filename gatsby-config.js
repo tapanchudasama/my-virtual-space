@@ -18,9 +18,35 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
-    "gatsby-transformer-remark",
     "gatsby-plugin-postcss",
     "gatsby-plugin-preact",
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 500,
+            },
+          },
+          {
+            resolve: `gatsby-remark-classes`,
+            options: {
+              classMap: {
+                "heading[depth=1]": "text-2xl lg:text-4xl py-4 font-bold ",
+                "heading[depth=2]": "text-2xl lg:text-3xl py-4 font-bold",
+                "heading[depth=3]": "text-2xl lg:text-2xl py-4 font-bold",
+                listItem: "text-2xl pt-2 pb-4",
+                paragraph: "lg:text-base py-4 text-sm",
+                link: "underline hover:text-blue-600",
+                break: "py-4",
+              },
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: "gatsby-plugin-htaccess",
       options: {
@@ -80,6 +106,13 @@ module.exports = {
       options: {
         name: "readings",
         path: `${__dirname}/content/readings`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "writings",
+        path: `${__dirname}/content/writings`,
       },
     },
     {

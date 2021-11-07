@@ -21,6 +21,7 @@ module.exports = {
     "gatsby-transformer-remark",
     "gatsby-plugin-postcss",
     "gatsby-plugin-preact",
+    "gatsby-plugin-csp",
     {
       resolve: "gatsby-plugin-htaccess",
       options: {

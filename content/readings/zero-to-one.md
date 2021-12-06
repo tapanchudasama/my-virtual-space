@@ -1,8 +1,8 @@
 ---
-title: "Rework"
-slug: "/readings/rework"
-image: "./images/rework.jpeg"
-tags: ["Business", "Productivity"]
+title: "Zero To One"
+slug: "/readings/zero-to-one"
+image: "./images/zero-to-one.jpeg"
+tags: ["Business", "Entrepreneurship"]
 ---
 
 # Summary

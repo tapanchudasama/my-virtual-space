@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <div className="p-4 bg-gray-700" p={4}>
       <div className="container mx-auto px-4 lg:px-16">
-        <footer className="flex items-center justify-between">
+        <footer className="flex flex-col-reverse md:flex-row items-center justify-between">
           <p className="text-xs lg:text-sm flex items-center space-x-1">
             <p>Made with</p>
             <FaHeart className="w-2 h-2 lg:w-4 lg:h-4 fill-red-500" />
@@ -16,14 +16,14 @@ const Footer = () => {
               {siteMetadata.name}
             </p>
           </p>
-          <div>
+          <div className="mb-4 md:mb-0">
             <a
               href="https://www.buymeacoffee.com/tapanchudasama"
               target="_blank"
               rel="noreferrer"
             >
               <img
-                className="w-48"
+                className="w-32 lg:w-48"
                 src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
                 alt="Buy Me A Coffee"
               ></img>

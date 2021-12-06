@@ -14,7 +14,10 @@ const Navigation = ({ setShowNavigation }) => {
       className="bg-gray-800 overflow-hidden w-full h-full"
       overflow="hidden"
     >
-      <div className="container mx-auto px-4 lg:px-16 h-full" maxWidth="6xl">
+      <div
+        className="container mx-auto px-4 lg:px-16 h-full font-ibm-plex-sans"
+        maxWidth="6xl"
+      >
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-end py-8">
             <div

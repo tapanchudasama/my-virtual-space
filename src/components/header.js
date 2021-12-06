@@ -15,7 +15,7 @@ const Header = () => {
   }, [showNavigation]);
   return (
     <header>
-      <div className="container mx-auto px-4 lg:px-16 ">
+      <div className="container mx-auto px-4 lg:px-16 font-ibm-plex-sans">
         <div className="flex items-center justify-between py-8">
           <Link to="/">
             <p className="text-md lg:text-xl font-bold">home</p>

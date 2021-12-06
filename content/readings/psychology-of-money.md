@@ -1,8 +1,8 @@
 ---
-title: "Rework"
-slug: "/readings/rework"
-image: "./images/rework.jpeg"
-tags: ["Business", "Productivity"]
+title: "The Psychology of Money"
+slug: "/readings/the-psychology-of-money"
+image: "./images/psychology-of-money.jpeg"
+tags: ["Personal Finance"]
 ---
 
 # Summary

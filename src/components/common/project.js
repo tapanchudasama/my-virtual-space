@@ -11,12 +11,10 @@ const Project = ({ node }) => {
         <div dangerouslySetInnerHTML={{ __html: node.html }} />
       </p>
       <div className="flex items-center justify-between w-full">
-        <div className="flex flex-wrap items-center">
+        <div className="-ml-2 flex flex-wrap items-center">
           {node.frontmatter.techs.map((t, index) => (
             <span
-              className={`px-2 py-0.5 mt-2 text-xs rounded-sm bg-gray-500 ${
-                index > 0 ? "ml-2" : 0
-              }`}
+              className={`px-2 py-0.5 mt-2 text-xs rounded-sm bg-gray-500 ml-2`}
             >
               {t}
             </span>

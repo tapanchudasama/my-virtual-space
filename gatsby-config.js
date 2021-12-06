@@ -37,7 +37,7 @@ module.exports = {
                 "heading[depth=1]": "text-2xl lg:text-4xl py-4 font-bold ",
                 "heading[depth=2]": "text-2xl lg:text-3xl py-4 font-bold",
                 "heading[depth=3]": "text-2xl lg:text-2xl py-4 font-bold",
-                listItem: "text-2xl pt-2 pb-4",
+                listItem: "text-xl font-bold pt-2 pb-4",
                 paragraph: "lg:text-base py-4 text-sm",
                 link: "underline hover:text-blue-600",
                 break: "py-4",

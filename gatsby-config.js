@@ -51,6 +51,9 @@ module.exports = {
       resolve: "gatsby-plugin-htaccess",
       options: {
         https: true,
+        custom: `
+        cache-control: public, max-age=31536000, immutable
+        `,
       },
     },
     {

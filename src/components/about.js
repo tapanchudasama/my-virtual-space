@@ -85,7 +85,7 @@ const About = () => {
   return (
     <div className="container mx-auto px-4 lg:px-16" ref={ref}>
       <motion.p
-        className="text-3xl md:text-4xl xl:text-5xl py-6 flex space-x-2 leading-tight font-bold"
+        className="text-3xl xl:text-4xl py-6 flex space-x-2 leading-tight font-bold"
         initial="hidden"
         display="flex"
         variants={sentence}
@@ -195,7 +195,7 @@ const About = () => {
 
 const AboutMeta = ({ icon, meta }) => {
   return (
-    <div className="flex flex-col items-center w-full justify-center space-y-4 text-lg lg:text-xl py-8">
+    <div className="flex flex-col items-center w-full justify-center space-y-4 text-base lg:text-lg py-8">
       {icon}
       {meta}
     </div>

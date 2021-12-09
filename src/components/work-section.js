@@ -57,7 +57,7 @@ const Projects = () => {
   return (
     <div className="container px-4 lg:px-16 mx-auto mt-16" ref={ref}>
       <motion.p
-        className="text-3xl md:text-4xl xl:text-5xl py-6 flex space-x-2 leading-tight font-bold"
+        className="text-3xl xl:text-4xl py-6 flex space-x-2 leading-tight font-bold"
         initial="hidden"
         display="flex"
         variants={sentence}

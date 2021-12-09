@@ -37,7 +37,7 @@ const Navigation = ({ setShowNavigation }) => {
                   key={label + "-" + index}
                 >
                   <Link to={`/${label}`}>
-                    <p className="text-5xl md:text-6xl lg:text-7xl text-center font-bold">
+                    <p className="text-4xl md:text-5xl lg:text-6xl text-center font-bold">
                       {label}
                     </p>
                   </Link>

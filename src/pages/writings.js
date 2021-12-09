@@ -75,7 +75,7 @@ const Writings = () => {
         <div className="container mx-auto px-4 lg:px-16 font-oxygen">
           <Seo titleTemplate="%s · writings" />
           <motion.p
-            className="text-4xl md:text-5xl lg:text-6xl py-6 flex space-x-2 leading-tight font-bold"
+            className="text-3xl md:text-4xl lg:text-5xl py-6 flex space-x-2 leading-tight font-bold"
             initial="hidden"
             display="flex"
             variants={sentence}
@@ -94,11 +94,11 @@ const Writings = () => {
               return (
                 <div className="flex flex-col w-full items-start space-y-4 py-10">
                   <Link to={n.frontmatter.slug}>
-                    <p className="text-xl lg:text-2xl font-bold leading-tight hover:text-gray-300">
+                    <p className="text-lg lg:text-xl font-bold leading-tight hover:text-gray-300">
                       {n.frontmatter.title}
                     </p>
                   </Link>
-                  <p className="text-lg">
+                  <p className="text-md">
                     {new Date(n.frontmatter.dateAdded).toDateString()}
                   </p>
                   <div className="flex flex-col space-y-4">
@@ -114,7 +114,7 @@ const Writings = () => {
                       </div>
                     </Link>
                     <div className="w-full">
-                      <p className="text-base lg:text-lg">
+                      <p className="text-base lg:text-md">
                         {n.frontmatter.brief}
                       </p>
                     </div>
@@ -130,11 +130,11 @@ const Writings = () => {
                     href={`https://blog.tapan.app/${n.slug}`}
                     target="_blank"
                   >
-                    <p className="text-xl lg:text-2xl font-bold leading-tight hover:text-gray-300">
+                    <p className="text-lg lg:text-xl font-bold leading-tight hover:text-gray-300">
                       {n.title}
                     </p>
                   </a>
-                  <p className="text-lg">
+                  <p className="text-md">
                     {new Date(n.dateAdded).toDateString()}
                   </p>
                   <div className="flex flex-col space-y-4">
@@ -152,7 +152,7 @@ const Writings = () => {
                       </div>
                     </a>
                     <div className="w-full">
-                      <p className="text-base lg:text-lg">{n.brief}</p>
+                      <p className="text-base lg:text-md">{n.brief}</p>
                     </div>
                   </div>
                 </div>

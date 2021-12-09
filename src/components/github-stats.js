@@ -81,7 +81,7 @@ const GithubStats = () => {
   return (
     <div className="w-full my-8 py-16 bg-gray-700" width="100%">
       <div className="container mx-auto px-4 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 justify-center items-center text-base lg:text-xl gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 justify-center items-center text-base lg:text-lg gap-4">
           <Stat
             icon={<GoRepo className="w-6 h-6 lg:w-8 lg:h-8" />}
             label="Total Repositories"

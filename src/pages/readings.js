@@ -53,7 +53,7 @@ const Readings = () => {
         <div className="container mx-auto px-4 lg:px-16 font-oxygen">
           <Seo titleTemplate="%s · readings" />
           <motion.p
-            className="text-4xl md:text-5xl lg:text-6xl py-6 flex space-x-2 leading-tight font-bold"
+            className="text-3xl md:text-4xl lg:text-5xl py-6 flex space-x-2 leading-tight font-bold"
             initial="hidden"
             variants={sentence}
             animate={headingAnimation}

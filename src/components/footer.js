@@ -8,7 +8,7 @@ const Footer = () => {
     <div className="p-8 bg-gray-700">
       <div className="container mx-auto px-8 lg:px-16">
         <footer className="flex flex-col-reverse md:flex-row items-center justify-between">
-          <p className="text-base lg:text-xl flex items-center space-x-2">
+          <p className="text-base lg:text-lg flex items-center space-x-2">
             <p>Made with</p>
             <FaHeart className="w-4 h-4 lg:w-6 lg:h-6 fill-red-500" />
             <p>by</p>

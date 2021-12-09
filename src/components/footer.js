@@ -5,25 +5,23 @@ import { useSiteMetadata } from "../hooks/use-site-metadata";
 const Footer = () => {
   const { siteMetadata } = useSiteMetadata();
   return (
-    <div className="p-4 bg-gray-700" p={4}>
-      <div className="container mx-auto px-4 lg:px-16">
+    <div className="p-8 bg-gray-700">
+      <div className="container mx-auto px-8 lg:px-16">
         <footer className="flex flex-col-reverse md:flex-row items-center justify-between">
-          <p className="text-xs lg:text-sm flex items-center space-x-1">
+          <p className="text-base lg:text-xl flex items-center space-x-2">
             <p>Made with</p>
-            <FaHeart className="w-2 h-2 lg:w-4 lg:h-4 fill-red-500" />
+            <FaHeart className="w-4 h-4 lg:w-6 lg:h-6 fill-red-500" />
             <p>by</p>
-            <p className="capitalize font-semibold inline">
-              {siteMetadata.name}
-            </p>
+            <p className="capitalize font-bold inline">{siteMetadata.name}</p>
           </p>
-          <div className="mb-4 md:mb-0">
+          <div className="mb-6 md:mb-0">
             <a
               href="https://www.buymeacoffee.com/tapanchudasama"
               target="_blank"
               rel="noreferrer"
             >
               <img
-                className="w-32 lg:w-48"
+                className="w-48 lg:w-64"
                 src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
                 alt="Buy Me A Coffee"
               ></img>

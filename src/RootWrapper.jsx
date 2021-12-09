@@ -1,4 +1,4 @@
-import "@fontsource/ibm-plex-sans";
+import "@fontsource/oxygen";
 import { AnimatePresence } from "framer-motion";
 import React from "react";
 import "./styles/global.css";

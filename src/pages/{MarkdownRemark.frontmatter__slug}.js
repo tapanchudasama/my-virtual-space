@@ -7,9 +7,9 @@ const ReadingInstance = ({ data }) => {
   const { markdownRemark } = data;
   return (
     <Layout>
-      <div className="container mx-auto px-4 lg:px-16 font-ibm-plex-sans">
+      <div className="container mx-auto px-4 lg:px-16 font-oxygen">
         <div className="py-8 space-y-8">
-          <h1 className="text-2xl lg:text-4xl font-bold">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
             {markdownRemark.frontmatter.title}
           </h1>
           <div className="flex items-center justify-center">

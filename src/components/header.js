@@ -15,10 +15,10 @@ const Header = () => {
   }, [showNavigation]);
   return (
     <header>
-      <div className="container mx-auto px-4 lg:px-16 font-ibm-plex-sans">
+      <div className="container mx-auto px-4 lg:px-16 font-oxygen">
         <div className="flex items-center justify-between py-8">
           <Link to="/">
-            <p className="text-md lg:text-xl font-bold">home</p>
+            <p className="text-2xl lg:text-3xl font-bold">home</p>
           </Link>
           <div className="flex items-center space-x-8">
             {/* <div>
@@ -31,7 +31,7 @@ const Header = () => {
               onKeyDown={() => setShowNavigation(true)}
               onClick={() => setShowNavigation(true)}
             >
-              <HiOutlineMenuAlt3 className="w-4 h-4 lg:w-6 lg:h-6" />
+              <HiOutlineMenuAlt3 className="w-8 h-8 lg:w-10 lg:h-10" />
             </div>
           </div>
         </div>

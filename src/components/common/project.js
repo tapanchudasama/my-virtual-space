@@ -4,17 +4,17 @@ import { BiCodeAlt, BiLinkExternal } from "react-icons/bi";
 const Project = ({ node }) => {
   return (
     <div className="flex flex-col w-full">
-      <p className="text-md lg:text-lg font-semibold">
+      <p className="text-xl lg:text-2xl font-semibold">
         {node.frontmatter.title}
       </p>
-      <p className="text-sm lg:text-md" fontSize={["sm", "md"]}>
+      <p>
         <div dangerouslySetInnerHTML={{ __html: node.html }} />
       </p>
       <div className="flex items-center justify-between w-full">
         <div className="-ml-2 flex flex-wrap items-center">
           {node.frontmatter.techs.map((t, index) => (
             <span
-              className={`px-2 py-0.5 mt-2 text-xs rounded-sm bg-gray-500 ml-2`}
+              className={`px-2 py-0.5 mt-2 text-base xl:text-lg rounded-sm bg-gray-500 ml-2`}
             >
               {t}
             </span>
@@ -27,7 +27,7 @@ const Project = ({ node }) => {
               className="cursor-pointer"
               href={node.frontmatter.repo_link_backend}
             >
-              <BiCodeAlt className="w-5 h-5" />
+              <BiCodeAlt className="w-6 h-6 lg:w-8 lg:h-8" />
             </a>
           )}
           {node.frontmatter.repo_link_frontend && (
@@ -35,7 +35,7 @@ const Project = ({ node }) => {
               aria-label="source-code-frontend"
               href={node.frontmatter.repo_link_frontend}
             >
-              <BiCodeAlt className="w-5 h-5" />
+              <BiCodeAlt className="w-6 h-6 lg:w-8 lg:h-8" />
             </a>
           )}
           <a
@@ -43,7 +43,7 @@ const Project = ({ node }) => {
             className="cursor-pointer"
             href={node.frontmatter.demo_link}
           >
-            <BiLinkExternal className="w-5 h-5" />
+            <BiLinkExternal className="w-6 h-6 lg:w-8 lg:h-8" />
           </a>
         </div>
       </div>

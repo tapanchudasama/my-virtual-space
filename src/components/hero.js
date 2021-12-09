@@ -35,13 +35,13 @@ const Hero = () => {
   return (
     <main className="container relative mx-auto px-4 lg:px-16">
       <div className="flex flex-col w-full h-screen flex-1 justify-center">
-        <p className="text-base lg:text-lg">hi, i am</p>
-        <div className="space-y-2">
-          <p className="text-3xl md:text-4xl lg:text-6xl leading-tight font-bold">
+        <p className="text-xl md:text-2xl xl:text-3xl">hi, i am</p>
+        <div className="space-y-3">
+          <p className="text-5xl md:text-7xl xl:text-8xl leading-tight font-bold">
             {name}
           </p>
-          <p className="text-lg md:text-xl lg:text-3xl">{description}</p>
-          <div className="flex space-x-4 py-2">
+          <p className="text-2xl md:text-3xl xl:text-4xl">{description}</p>
+          <div className="flex space-x-6 py-2">
             {twitter && (
               <a
                 aria-label="Twitter"
@@ -50,7 +50,7 @@ const Hero = () => {
                 href={twitter}
                 target="_blank"
               >
-                <FaTwitter className="w-6 h-6 lg:w-8 lg:h-8" />
+                <FaTwitter className="w-8 h-8 xl:w-10 xl:h-10" />
               </a>
             )}
             {linkedin && (
@@ -61,7 +61,10 @@ const Hero = () => {
                 href={linkedin}
                 target="_blank"
               >
-                <FaLinkedin as={FaLinkedin} className="w-6 h-6 lg:w-8 lg:h-8" />
+                <FaLinkedin
+                  as={FaLinkedin}
+                  className="w-8 h-8 xl:w-10 xl:h-10"
+                />
               </a>
             )}
             {github && (
@@ -72,7 +75,7 @@ const Hero = () => {
                 href={github}
                 target="_blank"
               >
-                <FaGithub className="w-6 h-6 lg:w-8 lg:h-8" />
+                <FaGithub className="w-8 h-8 xl:w-10 xl:h-10" />
               </a>
             )}
             {reddit && (
@@ -83,7 +86,7 @@ const Hero = () => {
                 href={reddit}
                 target="_blank"
               >
-                <FaReddit className="w-6 h-6 lg:w-8 lg:h-8" />
+                <FaReddit className="w-8 h-8 xl:w-10 xl:h-10" />
               </a>
             )}
 
@@ -95,12 +98,12 @@ const Hero = () => {
                 href={`mailto:${mail}`}
                 target="_blank"
               >
-                <FaEnvelope className="w-6 h-6 lg:w-8 lg:h-8" />
+                <FaEnvelope className="w-8 h-8 xl:w-10 xl:h-10" />
               </a>
             )}
           </div>
         </div>
-        <div className="absolute hidden lg:flex justify-center items-start left-1/2 bottom-28 border rounded-2xl w-5 h-8 border-white">
+        <div className="absolute hidden lg:flex justify-center items-start left-1/2 bottom-32 border rounded-2xl w-5 h-8 border-white">
           <motion.div
             className="w-1 h-2 rounded-full bg-red-300"
             initial={{ y: 0 }}

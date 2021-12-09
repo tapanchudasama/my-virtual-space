@@ -72,10 +72,10 @@ const Writings = () => {
   return (
     <div>
       <Layout>
-        <div className="container mx-auto px-4 lg:px-16 font-ibm-plex-sans">
+        <div className="container mx-auto px-4 lg:px-16 font-oxygen">
           <Seo titleTemplate="%s · writings" />
           <motion.p
-            className="text-2xl md:text-3xl lg:text-4xl py-6 flex space-x-2 leading-tight font-bold"
+            className="text-4xl md:text-5xl lg:text-6xl py-6 flex space-x-2 leading-tight font-bold"
             initial="hidden"
             display="flex"
             variants={sentence}
@@ -89,16 +89,16 @@ const Writings = () => {
               );
             })}
           </motion.p>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-8 pb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 pb-16">
             {allMarkdownRemark.nodes.map((n) => {
               return (
-                <div className="flex flex-col w-full items-start space-y-4 py-2">
+                <div className="flex flex-col w-full items-start space-y-4 py-10">
                   <Link to={n.frontmatter.slug}>
-                    <p className="text-sm lg:text-lg font-bold leading-tight hover:text-gray-300">
+                    <p className="text-xl lg:text-2xl font-bold leading-tight hover:text-gray-300">
                       {n.frontmatter.title}
                     </p>
                   </Link>
-                  <p className="text-xs">
+                  <p className="text-lg">
                     {new Date(n.frontmatter.dateAdded).toDateString()}
                   </p>
                   <div className="flex flex-col space-y-4">
@@ -114,7 +114,7 @@ const Writings = () => {
                       </div>
                     </Link>
                     <div className="w-full">
-                      <p className="text-xs lg:text-sm">
+                      <p className="text-base lg:text-lg">
                         {n.frontmatter.brief}
                       </p>
                     </div>
@@ -124,17 +124,17 @@ const Writings = () => {
             })}
             {allHashNodePost.nodes.map((n) => {
               return (
-                <div className="flex flex-col w-full items-start space-y-4 py-2">
+                <div className="flex flex-col w-full items-start space-y-4 py-10">
                   <a
                     rel="noreferrer"
                     href={`https://blog.tapan.app/${n.slug}`}
                     target="_blank"
                   >
-                    <p className="text-sm lg:text-lg font-bold leading-tight hover:text-gray-300">
+                    <p className="text-xl lg:text-2xl font-bold leading-tight hover:text-gray-300">
                       {n.title}
                     </p>
                   </a>
-                  <p className="text-xs">
+                  <p className="text-lg">
                     {new Date(n.dateAdded).toDateString()}
                   </p>
                   <div className="flex flex-col space-y-4">
@@ -152,7 +152,7 @@ const Writings = () => {
                       </div>
                     </a>
                     <div className="w-full">
-                      <p className="text-xs lg:text-sm">{n.brief}</p>
+                      <p className="text-base lg:text-lg">{n.brief}</p>
                     </div>
                   </div>
                 </div>

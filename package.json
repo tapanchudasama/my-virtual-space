@@ -15,7 +15,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@fontsource/ibm-plex-sans": "^4.5.1",
+    "@fontsource/oxygen": "^4.5.0",
     "framer-motion": "^4.1.17",
     "gatsby": "^3.13.1",
     "gatsby-plugin-csp": "^1.1.3",

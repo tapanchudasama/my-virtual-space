@@ -10,7 +10,7 @@ import Works from "../components/work-section";
 
 const Index = () => {
   return (
-    <div className="overflow-hidden bg-gray-800 text-white font-ibm-plex-sans">
+    <div className="overflow-hidden bg-gray-800 text-white font-oxygen">
       <Seo titleTemplate="%s · home" />
       <Header />
       <Hero />

@@ -79,9 +79,9 @@ const GithubStats = () => {
   }, [findMajorityLanguage]);
 
   return (
-    <div className="w-full my-8 py-8 bg-gray-700" width="100%" py={8} my={8}>
+    <div className="w-full my-8 py-16 bg-gray-700" width="100%">
       <div className="container mx-auto px-4 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 justify-center items-center text-xs lg:text-sm gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 justify-center items-center text-base lg:text-xl gap-4">
           <Stat
             icon={<GoRepo className="w-6 h-6 lg:w-8 lg:h-8" />}
             label="Total Repositories"
@@ -109,9 +109,9 @@ const Stat = ({ icon, label, meta }) => {
   return (
     <div className="flex flex-col w-full items-center text-center space-y-2 lg:space-y-4">
       {icon}
-      <div className="flex space-between items-center space-x-2">
+      <div className="flex space-between items-center space-x-6">
         <p>{label}</p>
-        <p className="font-semibold">{meta}</p>
+        <p className="font-bold">{meta}</p>
       </div>
     </div>
   );

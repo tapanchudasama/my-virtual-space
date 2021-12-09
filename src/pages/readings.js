@@ -50,12 +50,11 @@ const Readings = () => {
   return (
     <div>
       <Layout>
-        <div className="container mx-auto px-4 lg:px-16 font-ibm-plex-sans">
+        <div className="container mx-auto px-4 lg:px-16 font-oxygen">
           <Seo titleTemplate="%s · readings" />
           <motion.p
-            className="text-2xl md:text-3xl lg:text-4xl py-6 flex space-x-2 leading-tight font-bold"
+            className="text-4xl md:text-5xl lg:text-6xl py-6 flex space-x-2 leading-tight font-bold"
             initial="hidden"
-            display="flex"
             variants={sentence}
             animate={headingAnimation}
           >

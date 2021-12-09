@@ -57,7 +57,7 @@ const Projects = () => {
   return (
     <div className="container px-4 lg:px-16 mx-auto mt-16" ref={ref}>
       <motion.p
-        className="text-2xl md:text-3xl lg:text-4xl py-6 flex space-x-2 leading-tight font-bold"
+        className="text-3xl md:text-4xl xl:text-5xl py-6 flex space-x-2 leading-tight font-bold"
         initial="hidden"
         display="flex"
         variants={sentence}
@@ -75,8 +75,7 @@ const Projects = () => {
         initial="hidden"
         animate={contentAnimation}
         variants={letter}
-        className="grid grid-cols-1 lg:grid-cols-2 gap-16"
-        py={4}
+        className="grid grid-cols-1 lg:grid-cols-2 gap-16 py-4"
         justifyItems="start"
         justifyContent="start"
       >
@@ -84,13 +83,13 @@ const Projects = () => {
           return <Project node={n} />;
         })}
       </motion.div>
-      <div className="flex items-center justify-center pt-10">
+      <div className="flex items-center justify-center pt-16">
         <motion.div
           initial="hidden"
           whileHover="visible"
           className="cursor-pointer relative"
         >
-          <p className="text-sm lg:text-md hover:font-bold">
+          <p className="text-lg lg:text-xl hover:font-bold">
             <Link to="/works">view my all works</Link>
           </p>
           <motion.div

@@ -14,10 +14,7 @@ const Navigation = ({ setShowNavigation }) => {
       className="bg-gray-800 overflow-hidden w-full h-full"
       overflow="hidden"
     >
-      <div
-        className="container mx-auto px-4 lg:px-16 h-full font-ibm-plex-sans"
-        maxWidth="6xl"
-      >
+      <div className="container mx-auto px-4 lg:px-16 h-full font-oxygen">
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-end py-8">
             <div
@@ -27,7 +24,7 @@ const Navigation = ({ setShowNavigation }) => {
               onKeyDown={() => setShowNavigation(false)}
               onClick={() => setShowNavigation(false)}
             >
-              <MdClose className="w-6 h-6 lg:w-8 lg:h-8 cursor-pointer" />
+              <MdClose className="w-8 h-8 lg:w-10 lg:h-10 cursor-pointer" />
             </div>
           </div>
           <div className="flex flex-col items-center justify-center w-full h-full">
@@ -40,7 +37,7 @@ const Navigation = ({ setShowNavigation }) => {
                   key={label + "-" + index}
                 >
                   <Link to={`/${label}`}>
-                    <p className="text-3xl md:text-4xl lg:text-5xl text-center font-bold">
+                    <p className="text-5xl md:text-6xl lg:text-7xl text-center font-bold">
                       {label}
                     </p>
                   </Link>

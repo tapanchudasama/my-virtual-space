@@ -48,15 +48,6 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-htaccess",
-      options: {
-        https: true,
-        custom: `
-        cache-control: public, max-age=31536000, immutable
-        `,
-      },
-    },
-    {
       resolve: "gatsby-source-hashnode",
       options: {
         username: "inflame",
@@ -194,6 +185,12 @@ module.exports = {
           head: true,
           respectDNT: true,
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-gatsby-cloud`,
+      options: {
+        allPageHeaders: ["cache-control: public, max-age=31536000, immutable"],
       },
     },
   ],

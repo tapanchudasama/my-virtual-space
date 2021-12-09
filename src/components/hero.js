@@ -37,7 +37,7 @@ const Hero = () => {
       <div className="flex flex-col w-full h-screen flex-1 justify-center">
         <p className="text-xl md:text-2xl xl:text-3xl">hi, i am</p>
         <div className="space-y-3">
-          <p className="text-5xl md:text-7xl xl:text-8xl leading-tight font-bold">
+          <p className="text-5xl md:text-6xl xl:text-8xl leading-tight font-bold">
             {name}
           </p>
           <p className="text-2xl md:text-3xl xl:text-4xl">{description}</p>

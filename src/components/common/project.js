@@ -4,9 +4,7 @@ import { BiCodeAlt, BiLinkExternal } from "react-icons/bi";
 const Project = ({ node }) => {
   return (
     <div className="flex flex-col w-full">
-      <p className="text-lg lg:text-xl font-semibold">
-        {node.frontmatter.title}
-      </p>
+      <p className="lg:text-lg font-semibold">{node.frontmatter.title}</p>
       <p>
         <div dangerouslySetInnerHTML={{ __html: node.html }} />
       </p>

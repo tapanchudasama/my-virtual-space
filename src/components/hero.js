@@ -35,12 +35,12 @@ const Hero = () => {
   return (
     <main className="container relative mx-auto px-4 lg:px-16">
       <div className="flex flex-col w-full h-screen flex-1 justify-center">
-        <p className="text-xl md:text-2xl xl:text-3xl">hi, i am</p>
+        <p className="text-lg md:text-xl xl:text-2xl">hi, i am</p>
         <div className="space-y-3">
-          <p className="text-5xl md:text-6xl xl:text-7xl leading-tight font-bold">
+          <p className="text-4xl md:text-5xl xl:text-6xl leading-tight font-bold">
             {name}
           </p>
-          <p className="text-xl md:text-2xl xl:text-3xl">{description}</p>
+          <p className="text-lg md:text-xl xl:text-2xl">{description}</p>
           <div className="flex space-x-6 py-2">
             {twitter && (
               <a
@@ -50,7 +50,7 @@ const Hero = () => {
                 href={twitter}
                 target="_blank"
               >
-                <FaTwitter className="w-8 h-8 xl:w-10 xl:h-10" />
+                <FaTwitter className="w-6 h-6 xl:w-8 xl:h-8" />
               </a>
             )}
             {linkedin && (
@@ -61,10 +61,7 @@ const Hero = () => {
                 href={linkedin}
                 target="_blank"
               >
-                <FaLinkedin
-                  as={FaLinkedin}
-                  className="w-8 h-8 xl:w-10 xl:h-10"
-                />
+                <FaLinkedin as={FaLinkedin} className="w-6 h-6 xl:w-8 xl:h-8" />
               </a>
             )}
             {github && (
@@ -75,7 +72,7 @@ const Hero = () => {
                 href={github}
                 target="_blank"
               >
-                <FaGithub className="w-8 h-8 xl:w-10 xl:h-10" />
+                <FaGithub className="w-6 h-6 xl:w-8 xl:h-8" />
               </a>
             )}
             {reddit && (
@@ -86,7 +83,7 @@ const Hero = () => {
                 href={reddit}
                 target="_blank"
               >
-                <FaReddit className="w-8 h-8 xl:w-10 xl:h-10" />
+                <FaReddit className="w-6 h-6 xl:w-8 xl:h-8" />
               </a>
             )}
 
@@ -98,7 +95,7 @@ const Hero = () => {
                 href={`mailto:${mail}`}
                 target="_blank"
               >
-                <FaEnvelope className="w-8 h-8 xl:w-10 xl:h-10" />
+                <FaEnvelope className="w-6 h-6 xl:w-8 xl:h-8" />
               </a>
             )}
           </div>

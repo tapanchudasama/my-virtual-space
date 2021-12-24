@@ -15,7 +15,6 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@fontsource/oxygen": "^4.5.0",
     "framer-motion": "^5.4.5",
     "gatsby": "^4.3.0",
     "gatsby-plugin-csp": "^1.1.3",

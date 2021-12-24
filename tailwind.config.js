@@ -6,7 +6,7 @@ module.exports = {
         "red-500": theme("colors.red.500"),
       }),
       fontFamily: {
-        oxygen: ["Oxygen"],
+        oxygen: ["Oxygen", "sans-serif"],
       },
     },
   },

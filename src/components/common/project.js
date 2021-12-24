@@ -12,7 +12,7 @@ const Project = ({ node }) => {
         <div className="-ml-2 flex flex-wrap items-center">
           {node.frontmatter.techs.map((t, index) => (
             <span
-              className={`px-2 py-0.5 mt-2 text-base xl:text-md rounded-sm bg-gray-500 ml-2`}
+              className={`px-2 py-0.5 mt-2 text-sm xl:text-base rounded-sm bg-gray-500 ml-2`}
             >
               {t}
             </span>

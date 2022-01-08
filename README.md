@@ -4,7 +4,11 @@ My Virtual Space
 </h1>
 A portfolio site made using Gatsby. Unlike other sites which are mere portfolio sites, this is a place for *your identity* in cloud. 
 
+
 [Demo](https://tapan.app)
+
+![Screenshot](https://user-images.githubusercontent.com/76517803/148642416-ef434c29-2867-437f-923f-d3c7396919d6.png)
+
 
 ## ✨ Features
 - Smooth Animations all over the site

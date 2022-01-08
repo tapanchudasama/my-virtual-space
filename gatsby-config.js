@@ -179,7 +179,7 @@ module.exports = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [
-          "G-RETTTMCQHS", // Google Analytics / GA
+          process.env.GATSBY_GA_TRACKING_ID, // Google Analytics / GA
         ],
         pluginConfig: {
           head: true,

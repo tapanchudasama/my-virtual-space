@@ -1,54 +1,50 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
 
+<h1 align="center">
+My Virtual Space
+</h1>
+A portfolio site made using Gatsby. Unlike other sites which are mere portfolio sites, this is a place for *your identity* in cloud. 
+
+[Demo](https://tapan.app)
+
+## ✨ Features
+- Smooth Animations all over the site
+- Support for Google Analytics inbuilt
+- Show your Github stats
+- Write and publish blogs, or pull the blogs from any other blog site (eg. Hashnode)
+- Display your projects/works
+- Spotify integration: Show your currently playing soundtrack
+- More more to be added..
+
+## 🚀 Great Lighthouse Score
+![image](https://user-images.githubusercontent.com/76517803/148642120-eae3f7d6-bf83-433e-a195-82ea6f959579.png)
+
+(Low Performance Score results as we make an fetch request to Spotify's API to get the currently playing, and the extra JS which is introduced due to Google Analytics)
 ## 🚀 Quick start
 
 1.  **Create a Gatsby site.**
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+    Use `git` to clone the site and navigate into it:
 
     ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
+    git clone https://github.com/tapanchudasama/my-virtual-space project-name
+    cd project-name
     ```
 
-2.  **Start developing.**
-
-    Navigate into your new site’s directory and start it up.
+2.  **Install dependencies.**
 
     ```shell
-    cd my-gatsby-site/
-    npm run develop
+    yarn install
     ```
 
 3.  **Open the code and start customizing!**
+	Start the site by running  `yarn start`.
 
-    Your site is now running at http://localhost:8000!
+	Your site is now running at  `http://localhost:8000`!
 
-    Edit `src/pages/index.js` to see your site update in real-time!
-
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+	If you want to learn more about how you can use a Gatsby starter that is configured with a Gatsby theme, you can check out this  [shorter](https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/using-a-gatsby-theme/)  or  [longer](https://www.gatsbyjs.com/tutorial/using-a-theme/)  tutorial. The tutorials don't exactly apply to this starter however the concepts are the same.
 
 ## 🚀 Quick start (Gatsby Cloud)
 
 Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
 
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/tapanchudasama/my-virtual-space)

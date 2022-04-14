@@ -68,7 +68,7 @@ const Writings = () => {
   }, [contentAnimation, headingAnimation]);
 
   const { allHashNodePost, allMarkdownRemark } = data;
-
+  console.log(allHashNodePost);
   return (
     <div>
       <Layout>

@@ -181,9 +181,8 @@ const About = () => {
             meta={
               <p className="text-center">
                 I enjoy talking about intellectually stimulating topics, be it
-                any field. Currently I am trying to learn about{" "}
-                <strong>stock markets</strong> and <strong>finance</strong>{" "}
-                along with software engineering, of course.
+                any field. Also, I am big for sustainibility. Always up for
+                anything related to that issue.
               </p>
             }
           />

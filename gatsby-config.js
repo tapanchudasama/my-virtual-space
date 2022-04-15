@@ -48,12 +48,6 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-hashnode",
-      options: {
-        username: "inflame",
-      },
-    },
-    {
       resolve: "gatsby-plugin-csp",
       options: {
         disableOnDev: true,

@@ -11,21 +11,17 @@ const HEADING = "writings";
 const Writings = () => {
   const data = useStaticQuery(graphql`
     query WritingsQuery {
-      allHashNodePost {
+      allHashnodePost {
         nodes {
+          id
           brief
           title
           slug
           cuid
           dateAdded
-          coverImage {
+          image {
             childImageSharp {
-              gatsbyImageData(
-                width: 300
-                layout: CONSTRAINED
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-              )
+              gatsbyImageData(width: 300, placeholder: BLURRED)
             }
           }
         }
@@ -42,12 +38,7 @@ const Writings = () => {
             image {
               id
               childImageSharp {
-                gatsbyImageData(
-                  width: 300
-                  layout: CONSTRAINED
-                  placeholder: BLURRED
-                  formats: [AUTO, WEBP, AVIF]
-                )
+                gatsbyImageData(width: 300, placeholder: BLURRED)
               }
             }
             dateAdded(formatString: "DD/MM/YY")
@@ -67,8 +58,8 @@ const Writings = () => {
     sequence();
   }, [contentAnimation, headingAnimation]);
 
-  const { allHashNodePost, allMarkdownRemark } = data;
-  console.log(allHashNodePost);
+  const { allHashnodePost, allMarkdownRemark } = data;
+
   return (
     <div>
       <Layout>
@@ -92,7 +83,10 @@ const Writings = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 pb-16">
             {allMarkdownRemark.nodes.map((n) => {
               return (
-                <div className="flex flex-col w-full items-start space-y-4 py-10">
+                <div
+                  key={n.id}
+                  className="flex flex-col w-full items-start space-y-4 py-10"
+                >
                   <Link to={n.frontmatter.slug}>
                     <p className="text-lg lg:text-xl font-bold leading-tight hover:text-gray-300">
                       {n.frontmatter.title}
@@ -122,9 +116,12 @@ const Writings = () => {
                 </div>
               );
             })}
-            {allHashNodePost.nodes.map((n) => {
+            {allHashnodePost.nodes.map((n) => {
               return (
-                <div className="flex flex-col w-full items-start space-y-4 py-10">
+                <div
+                  key={n._id}
+                  className="flex flex-col w-full items-start space-y-4 py-10"
+                >
                   <a
                     rel="noreferrer"
                     href={`https://blog.tapan.app/${n.slug}`}
@@ -146,7 +143,7 @@ const Writings = () => {
                       <div className="mx-auto">
                         <GatsbyImage
                           style={{ borderRadius: "4px" }}
-                          image={n.coverImage && getImage(n.coverImage)}
+                          image={n.image && getImage(n.image)}
                           alt={n.title}
                         />
                       </div>

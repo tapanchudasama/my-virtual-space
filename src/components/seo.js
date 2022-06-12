@@ -26,11 +26,12 @@ const SEO = ({ titleTemplate }) => {
       <meta name="image" content={seo.image} />
       {seo.url && <meta property="og:url" content={seo.url} />}
       {seo.title && <meta property="og:title" content={seo.title} />}
+      {seo.title && <meta property="twitter:title" content={seo.title} />}
       {seo.description && (
         <meta property="og:description" content={seo.description} />
       )}
       {seo.image && <meta property="og:image" content={seo.image} />}
-      <meta name="twitter:card" content="summary_large_image" />
+      {seo.image && <meta property="twitter:image" content={seo.image} />}
       {twitterUsername && (
         <meta name="twitter:creator" content={twitterUsername} />
       )}
@@ -38,7 +39,9 @@ const SEO = ({ titleTemplate }) => {
       {seo.description && (
         <meta name="twitter:description" content={seo.description} />
       )}
+      {seo.image && <meta name="og:image" content={seo.image} />}
       {seo.image && <meta name="twitter:image" content={seo.image} />}
+      {seo.image && <meta name="twitter:card" content={seo.image} />}
     </Helmet>
   );
 };

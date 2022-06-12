@@ -11,19 +11,19 @@ const HEADING = "writings";
 const Writings = () => {
   const data = useStaticQuery(graphql`
     query WritingsQuery {
-      allHashnodePost {
+      allHashnodePost(sort: { order: DESC, fields: dateAdded }) {
         nodes {
           id
           brief
           title
           slug
           cuid
-          dateAdded
           image {
             childImageSharp {
               gatsbyImageData(width: 300, placeholder: BLURRED)
             }
           }
+          dateAdded
         }
       }
       allMarkdownRemark(

@@ -4,9 +4,10 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: "tapan chudasama",
-    siteUrl: "https://www.tapan.app",
+    siteUrl: "https://tapan.app",
     name: "tapan chudasama",
-    description: "welcome to my virtual space.",
+    description:
+      "welcome to my virtual space. this is the place which i use to put things which i feel are shareworthy, or just to document my journey.",
     image: "/me.jpg",
     twitterUsername: "@tapanchudasama7",
   },

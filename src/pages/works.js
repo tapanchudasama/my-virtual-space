@@ -10,9 +10,9 @@ const HEADING = "all my works";
 
 const Works = () => {
   const data = useStaticQuery(graphql`
-    query AllProjectsQuery {
+    query AllWorksQuery {
       allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/projects/" } }
+        filter: { fileAbsolutePath: { regex: "/content/works/" } }
         sort: { fields: frontmatter___date, order: DESC }
       ) {
         nodes {
@@ -64,7 +64,7 @@ const Works = () => {
             );
           })}
         </motion.p>
-        <div className="grid grid-cols-1 lg:grid-cols-2 pb-16 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 py-16 gap-16">
           {allMarkdownRemark.nodes.map((n) => {
             return <Project node={n} />;
           })}

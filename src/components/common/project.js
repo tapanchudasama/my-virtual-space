@@ -25,7 +25,7 @@ const Project = ({ node }) => {
               className="cursor-pointer"
               href={node.frontmatter.repo_link_backend}
             >
-              <BiCodeAlt className="w-6 h-6 lg:w-8 lg:h-8" />
+              <BiCodeAlt className="w-4 h-4 lg:w-6 lg:h-6" />
             </a>
           )}
           {node.frontmatter.repo_link_frontend && (
@@ -33,7 +33,7 @@ const Project = ({ node }) => {
               aria-label="source-code-frontend"
               href={node.frontmatter.repo_link_frontend}
             >
-              <BiCodeAlt className="w-6 h-6 lg:w-8 lg:h-8" />
+              <BiCodeAlt className="w-4 h-4 lg:w-6 lg:h-6" />
             </a>
           )}
           <a
@@ -41,7 +41,7 @@ const Project = ({ node }) => {
             className="cursor-pointer"
             href={node.frontmatter.demo_link}
           >
-            <BiLinkExternal className="w-6 h-6 lg:w-8 lg:h-8" />
+            <BiLinkExternal className="w-4 h-4 lg:w-6 lg:h-6" />
           </a>
         </div>
       </div>

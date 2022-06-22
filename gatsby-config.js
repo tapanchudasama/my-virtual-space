@@ -7,9 +7,10 @@ module.exports = {
     siteUrl: "https://tapan.app",
     name: "tapan chudasama",
     description:
-      "welcome to my virtual space. this is the place which i use to put things which i feel are shareworthy, or just to document my journey.",
+      "welcome to my virtual space.",
     image: "/me.jpg",
     twitterUsername: "@tapanchudasama7",
+    navbarItems: [{ name: 'works', path: '/works' }, { name: 'readings', path: '/readings' }, { name: 'writings', path: '/writings' }]
   },
   plugins: [
     "gatsby-plugin-webpack-bundle-analyser-v2",
@@ -86,8 +87,8 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "projects",
-        path: `${__dirname}/content/projects`,
+        name: "works",
+        path: `${__dirname}/content/works`,
       },
     },
     {

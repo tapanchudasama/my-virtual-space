@@ -8,12 +8,12 @@ import { borderVariants } from "./navigation";
 
 const HEADING = "some of my work";
 
-const Projects = () => {
+const Works = () => {
   const data = useStaticQuery(graphql`
-    query ProjectsQuery {
+    query WorksQuery {
       allMarkdownRemark(
         filter: {
-          fileAbsolutePath: { regex: "/content/projects/" }
+          fileAbsolutePath: { regex: "/content/works/" }
           frontmatter: { featured: { eq: true } }
         }
         sort: { fields: frontmatter___date, order: DESC }
@@ -102,4 +102,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Works;

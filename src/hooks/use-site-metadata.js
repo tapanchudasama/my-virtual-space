@@ -12,6 +12,10 @@ export const useSiteMetadata = () => {
             description
             image
             twitterUsername
+            navbarItems {
+              path
+              name
+            }
           }
         }
       }

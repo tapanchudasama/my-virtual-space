@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "gatsby";
 import React from "react";
 import { MdClose } from "react-icons/md";
+import { useSiteMetadata } from "../hooks/use-site-metadata";
 
 export const borderVariants = {
   hidden: { opacity: 0, scale: 0 },
@@ -9,6 +10,8 @@ export const borderVariants = {
 };
 
 const Navigation = ({ setShowNavigation }) => {
+  const { siteMetadata: { navbarItems } } = useSiteMetadata();
+
   return (
     <div
       className="bg-gray-800 overflow-hidden w-full h-full"
@@ -29,16 +32,16 @@ const Navigation = ({ setShowNavigation }) => {
           </div>
           <div className="flex flex-col items-center justify-center w-full h-full">
             <div className="space-y-4">
-              {["readings", "writings"].map((label, index) => (
+              {navbarItems.map((item, index) => (
                 <motion.div
                   className="relative cursor-pointer"
                   initial="hidden"
                   whileHover="visible"
-                  key={label + "-" + index}
+                  key={item.name + "-" + index}
                 >
-                  <Link to={`/${label}`}>
+                  <Link to={`${item.path}`}>
                     <p className="text-4xl md:text-5xl lg:text-6xl text-center font-bold">
-                      {label}
+                      {item.name}
                     </p>
                   </Link>
                   <motion.div

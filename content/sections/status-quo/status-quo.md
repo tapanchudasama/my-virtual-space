@@ -1,5 +1,6 @@
-I am currently working as a software developer in frontend for a startup called **[eka.care](https://eka.care).**
+I am currently working as a software engineer at **[Postman](https://postman.com)**.
 
+Previously I worked as a frontend engineer at a startup called **[eka.care](https://eka.care)**.
+
+In Postman, I work in version control team. As the name says, we work on creating a version control system similar to git, but extremely user friendly and especially focused keeping APIs in mind.
 <br/>
-
-We are creating a tool for doctor which allows them to completely shift their everyday practice online. The tool allows doctor to create prescriptions, store the medical history of patients, view their lab reports and manage appointments for his clinic among many other things.

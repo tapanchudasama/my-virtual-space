@@ -5,7 +5,7 @@ import { useSiteMetadata } from "../hooks/use-site-metadata";
 const Footer = () => {
   const { siteMetadata } = useSiteMetadata();
   return (
-    <div className="p-8 bg-gray-700">
+    <div className="p-4 bg-gray-700">
       <div className="container mx-auto px-8 lg:px-16">
         <footer className="flex flex-col-reverse md:flex-row items-center justify-between">
           <p className="text-base lg:text-lg flex items-center space-x-2 font-oxygen">

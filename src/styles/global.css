@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body,
+#___gatsby,
+#gatsby-focus-wrapper {
+  height: 100%;
+}
+
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent; /* make scrollbar transparent */

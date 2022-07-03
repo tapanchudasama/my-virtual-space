@@ -50,7 +50,7 @@ const Readings = () => {
   return (
     <div>
       <Layout>
-        <div className="container mx-auto px-4 lg:px-16 font-oxygen">
+        <div className="container mx-auto px-4 mt-28 lg:px-16 font-oxygen">
           <Seo titleTemplate="%s · readings" />
           <motion.p
             className="text-3xl md:text-4xl lg:text-5xl py-6 flex space-x-2 leading-tight font-bold"
@@ -66,7 +66,7 @@ const Readings = () => {
               );
             })}
           </motion.p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pb-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8">
             {allMarkdownRemark.nodes.map((n) => {
               return (
                 <div>

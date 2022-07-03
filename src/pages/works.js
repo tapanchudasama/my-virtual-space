@@ -32,21 +32,19 @@ const Works = () => {
   `);
 
   const headingAnimation = useAnimation();
-  const contentAnimation = useAnimation();
 
   useEffect(() => {
     async function sequence() {
       await headingAnimation.start("visible");
-      await contentAnimation.start("visible");
     }
     sequence();
-  }, [contentAnimation, headingAnimation]);
+  }, [headingAnimation]);
 
   const { allMarkdownRemark } = data;
 
   return (
     <Layout>
-      <div className="container mx-auto px-4 lg:px-16 font-oxygen">
+      <div className="container mx-auto px-4 mt-28 lg:px-16 font-oxygen">
         <Seo titleTemplate="%s · works" />
         <motion.p
           className="text-2xl md:text-3xl lg:text-4xl py-6 flex space-x-2 leading-tight font-bold"

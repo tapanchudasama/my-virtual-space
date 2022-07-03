@@ -34,7 +34,7 @@ const Hero = () => {
 
   return (
     <main className="container relative mx-auto px-4 lg:px-16">
-      <div className="flex flex-col w-full h-screen flex-1 justify-center">
+      <div className="flex flex-col w-full h-screen flex-1 justify-center mt-8">
         <p className="text-lg md:text-xl xl:text-2xl">hi, i am</p>
         <div className="space-y-3">
           <p className="text-4xl md:text-5xl xl:text-6xl leading-tight font-bold">
@@ -100,7 +100,7 @@ const Hero = () => {
             )}
           </div>
         </div>
-        <div className="absolute hidden lg:flex justify-center items-start left-1/2 bottom-32 border rounded-2xl w-5 h-8 border-white">
+        <div className="absolute hidden lg:flex justify-center items-start left-1/2 bottom-16 border rounded-2xl w-5 h-8 border-white">
           <motion.div
             className="w-1 h-2 rounded-full bg-red-300"
             initial={{ y: 0 }}

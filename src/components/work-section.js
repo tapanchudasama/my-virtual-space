@@ -4,9 +4,13 @@ import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { letter, sentence } from "./about";
 import Project from "./common/project";
-import { borderVariants } from "./navigation";
 
 const HEADING = "some of my work";
+
+export const borderVariants = {
+  hidden: { opacity: 0, scale: 0 },
+  visible: { opacity: 1, scale: 1 },
+};
 
 const Works = () => {
   const data = useStaticQuery(graphql`

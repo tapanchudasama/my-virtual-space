@@ -181,8 +181,9 @@ const About = () => {
             meta={
               <p className="text-center">
                 I enjoy talking about intellectually stimulating topics, be it
-                any field. Also, I am big for sustainibility. Always up for
-                anything related to that issue.
+                any field. Also, I am a climate conscious person. 
+                <br/>
+                Sustainibility, Renewable energy are some the topic in which I am very much interested. 
               </p>
             }
           />

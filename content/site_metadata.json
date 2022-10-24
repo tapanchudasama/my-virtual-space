@@ -1,0 +1,13 @@
+{
+  "title": "tapan chudasama",
+  "siteUrl": "https://tapan.app",
+  "name": "tapan chudasama",
+  "description": "welcome to my virtual space.",
+  "image": "/me.jpg",
+  "twitterUsername": "@tapanchudasama7",
+  "navbarItems": [
+    { "name": "works", "path": "/works" },
+    { "name": "readings", "path": "/readings" },
+    { "name": "writings", "path": "/writings" }
+  ]
+}

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React from "react";
-import { FaHeart, FaHeadphones } from "react-icons/fa";
 import { SiJavascript } from "react-icons/si";
 import SideMetadata from "../content/site_metadata.json";
 
@@ -10,7 +9,7 @@ const Footer = () => {
   };
   return (
     <div className="p-4 bg-gray-700">
-      <div className="container mx-auto px-8 lg:px-16">
+      <div className="container">
         <footer className="flex flex-col-reverse md:flex-row items-center justify-between">
           <div className="text-base lg:text-lg flex items-center space-x-2 font-oxygen">
             <span>Made with</span>

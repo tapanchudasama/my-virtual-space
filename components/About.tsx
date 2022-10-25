@@ -83,6 +83,16 @@ const About = ({ about_image, mbti_type, hobbies }: About) => {
               </p>
             }
           />
+          <AboutMeta
+            className="col-span-full"
+            icon={<FaHeadphones className="w-6 h-6 lg:w-8 lg:h-8" />}
+            meta={
+              <>
+                <p className="text-center">Currently I am listening to:</p>
+                <SpotifyRecentlyPlayed />
+              </>
+            }
+          />
         </div>
       </div>
     </div>

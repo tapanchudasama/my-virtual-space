@@ -17,11 +17,11 @@ export type Project = {
 };
 const SideProjects = ({ projects }: { projects: Project[] }) => {
   return (
-    <div className="container mt-52">
-      <p className="text-3xl xl:text-4xl py-6 flex items-center space-x-2 leading-tight font-bold">
+    <div className="container pt-28">
+      <p className="text-3xl md:text-4xl lg:text-5xl py-6 flex space-x-2 leading-tight font-bold">
         {HEADING}
       </p>
-      <div className="grid grid-col-1 grid-cols-2 gap-24 py-4 mt-8">
+      <div className="grid grid-col-1 lg:grid-cols-2 gap-24 py-16">
         {projects.map((p, i) => {
           return <Project key={i} node={p} />;
         })}

@@ -6,3 +6,13 @@ html,
 body {
   height: 100%;
 }
+
+html {
+  overflow: hidden;
+}
+
+body {
+  overflow-y: scroll;
+  box-sizing: border-box;
+  width: calc(100% + 16px);
+}

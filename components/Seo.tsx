@@ -1,11 +1,11 @@
-import Head from 'next/head'
+import Head from "next/head";
+import { useRouter } from "next/router";
+import SiteMetadata from "../content/site_metadata.json";
 
+const SEO = ({ titleTemplate }: { titleTemplate: string }) => {
+  const { pathname } = useRouter();
 
-const SEO = ({ titleTemplate }) => {
-  const { siteMetadata } = useSiteMetadata();
-  const { pathname } = useLocation();
-
-  const { title, description, siteUrl, image, twitterUsername } = siteMetadata;
+  const { title, description, siteUrl, image, twitterUsername } = SiteMetadata;
 
   const seo = {
     title: title,
@@ -15,11 +15,10 @@ const SEO = ({ titleTemplate }) => {
   };
 
   return (
-    <Helmet
-      title={seo.title}
-      titleTemplate={titleTemplate}
-      htmlAttributes={{ lang: "en" }}
-    >
+    <Head>
+      <title>
+        {seo.title} · {titleTemplate}
+      </title>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       {seo.url && <meta property="og:url" content={seo.url} />}
@@ -40,7 +39,7 @@ const SEO = ({ titleTemplate }) => {
       {seo.image && <meta name="og:image" content={seo.image} />}
       {seo.image && <meta name="twitter:image" content={seo.image} />}
       {seo.image && <meta name="twitter:card" content={seo.image} />}
-    </Helmet>
+    </Head>
   );
 };
 

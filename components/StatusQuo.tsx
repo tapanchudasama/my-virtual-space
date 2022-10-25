@@ -1,6 +1,3 @@
-import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-
 const HEADING = "status quo";
 
 const StatusQuo = ({ html }: { html: string }) => {

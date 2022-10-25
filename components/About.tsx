@@ -19,14 +19,20 @@ type About = {
 };
 const About = ({ about_image, mbti_type, hobbies }: About) => {
   return (
-    <div className="container mt-32">
+    <div className="container mt-24">
       <p className="text-3xl xl:text-4xl py-6 flex space-x-2 leading-tight font-bold">
         {HEADING}
       </p>
 
       <div className="flex flex-col py-4 mt-16">
         <div className="self-center w-40 md:w-60 lg:w-80">
-          <Image src={about_image} alt="My Picture" width={500} height={500} />
+          <Image
+            style={{ borderRadius: "100%" }}
+            src={about_image}
+            alt="My Picture"
+            width={500}
+            height={500}
+          />
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 pt-8 justify-center items-start gap-16 text-sm lg:text-md">
           <AboutMeta
@@ -68,45 +74,13 @@ const About = ({ about_image, mbti_type, hobbies }: About) => {
               </div>
             }
           />
-
-          <AboutMeta
-            icon={<FaHeadphones className="w-6 h-6 lg:w-8 lg:h-8" />}
-            meta={
-              <>
-                <p className="text-center">Currently I am listening to:</p>
-                <SpotifyRecentlyPlayed />
-              </>
-            }
-          />
           <AboutMeta
             icon={<FaLightbulb className="w-6 h-6 lg:w-8 lg:h-8" />}
             meta={
               <p className="text-center">
                 I enjoy talking about intellectually stimulating topics, be it
-                any field. Also, I am a climate conscious person.
-                <br />
-                Sustainibility, Renewable energy are some the topics in which I
-                am very much interested.
+                any field.
               </p>
-            }
-          />
-          <AboutMeta
-            className="col-span-2"
-            icon={<FaTwitter className="w-6 h-6 lg:w-8 lg:h-8" />}
-            meta={
-              <>
-                <p className="text-center">My view on life:</p>
-                <blockquote className="twitter-tweet" data-theme="dark">
-                  <p lang="en" dir="ltr">
-                    collect memories, not things. live large, but stay minimal.
-                  </p>
-                  &mdash; Tapan Chudasama (@tapanchudasama7){" "}
-                  <a href="https://twitter.com/tapanchudasama7/status/1577595078696374272?ref_src=twsrc%5Etfw">
-                    October 5, 2022
-                  </a>
-                </blockquote>{" "}
-                <Script src="https://platform.twitter.com/widgets.js" />
-              </>
             }
           />
         </div>

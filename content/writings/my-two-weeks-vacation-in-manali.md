@@ -1,7 +1,7 @@
 ---
 title: "My two weeks vacation in Manali"
-slug: "/writings/my-two-weeks-vacation-in-manali"
-image: "./images/cover-image.jpg"
+slug: "/my-two-weeks-vacation-in-manali"
+coverImage: "./images/cover-image.jpg"
 tags: ["personal", "experiences"]
 dateAdded: "2021-11-07"
 brief: 'Reaching to any of the hill stations is easy from Delhi. You can easily get a cab/bus. We took a overnight bus so we could have some sleep.

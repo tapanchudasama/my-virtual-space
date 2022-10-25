@@ -7,7 +7,6 @@ import html from "remark-html";
 
 import About from "../components/About";
 import Footer from "../components/Footer";
-import { NavItems } from "../components/Navigation";
 import Seo from "../components/Seo";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
@@ -15,7 +14,6 @@ import StatusQuo from "../components/StatusQuo";
 import SideProjects, { Project } from "../components/SideProjects";
 
 type Props = {
-  headerProps: { navbarItems: NavItems };
   statusQuoProps: {
     html: string;
   };

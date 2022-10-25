@@ -2,12 +2,14 @@ import Link from "next/link";
 import { useState } from "react";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import Navigation from "./Navigation";
-import { navbarItems } from "../content/navitems.json";
+import NavbarItems from "../content/navitems.json";
 import { useRouter } from "next/router";
 
 const Header = () => {
   const { pathname } = useRouter();
 
+  // @ts-ignore
+  const navItems: { name: string; path: string }[] = NavbarItems.navbarItems;
   return (
     <header className="bg-gray-700 fixed z-10 w-full shadow-md">
       <div className="container font-oxygen">
@@ -21,7 +23,7 @@ const Header = () => {
               home
             </p>
           </Link>
-          {navbarItems.map((item, index) => (
+          {navItems.map((item, index) => (
             <div
               className="relative cursor-pointer"
               key={item.name + "-" + index}

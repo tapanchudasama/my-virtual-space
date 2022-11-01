@@ -2,7 +2,7 @@
 featured: true
 date: '2020-12-19'
 title: 'Shrinkerr'
-cover_image: './images/shrinkerr.png'
+cover_image: '.../../public/images/shrinkerr.png'
 repo_link_backend: 'https://github.com/tapanchudasama/url-shrinker-frontend'
 repo_link_frontend: 'https://github.com/tapanchudasama/url-shrinker-backend'
 demo_link: 'https://shrinkerr.netlify.app/'

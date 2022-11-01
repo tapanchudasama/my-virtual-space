@@ -19,7 +19,7 @@ const Header = () => {
             <p
               className={`${
                 pathname === "/" ? "text-gray-700 bg-white" : ""
-              } px-4 cursor-pointer text-2xl lg:text-3xl font-bold`}
+              } px-4 cursor-pointer text-xl font-bold`}
             >
               home
             </p>
@@ -48,7 +48,7 @@ const Header = () => {
                       pathname === "/" + item.path
                         ? "text-gray-700 bg-white"
                         : ""
-                    } px-4 text-2xl lg:text-3xl font-bold`}
+                    } px-4 text-xl font-bold`}
                   >
                     {item.name}
                   </span>
@@ -57,12 +57,12 @@ const Header = () => {
             ))}
           </div>
         )}
-        <div className="hidden md:flex items-center justify-around py-6">
+        <div className="hidden md:flex items-center justify-around py-5">
           <Link href="/">
             <p
               className={`${
                 pathname === "/" ? "text-gray-700 bg-white" : ""
-              } px-4 cursor-pointer text-2xl lg:text-3xl font-bold`}
+              } px-4 cursor-pointer text-2xl font-bold`}
             >
               home
             </p>
@@ -76,7 +76,7 @@ const Header = () => {
                 <p
                   className={`${
                     pathname === "/" + item.path ? "text-gray-700 bg-white" : ""
-                  } px-4 text-2xl lg:text-3xl font-bold`}
+                  } px-4 text-2xl font-bold`}
                 >
                   {item.name}
                 </p>

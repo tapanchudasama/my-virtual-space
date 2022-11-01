@@ -60,11 +60,7 @@ const Writings = ({
                 key={post.frontmatter._id}
                 className="flex flex-col w-full items-start space-y-4"
               >
-                <a
-                  rel="noreferrer"
-                  href={`https://blog.tapan.app/${post.frontmatter.slug}`}
-                  target="_blank"
-                >
+                <a rel="noreferrer" href={`writings/${post.frontmatter.slug}`}>
                   <p className="text-lg lg:text-xl font-bold leading-tight hover:text-blue-300">
                     {post.frontmatter.title}
                   </p>
@@ -75,8 +71,7 @@ const Writings = ({
                 <div className="flex flex-col space-y-4">
                   <a
                     rel="noreferrer"
-                    href={`https://blog.tapan.app/${post.frontmatter.slug}`}
-                    target="_blank"
+                    href={`writings/${post.frontmatter.slug}`}
                   >
                     <div className="mx-auto relative w-80 h-64">
                       <Image

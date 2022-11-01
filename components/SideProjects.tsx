@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Project from "./common/ProjectItem";
 
-const HEADING = "some of my work";
+const HEADING = "some of my side projects";
 
 export type Project = {
   html: string;
@@ -18,7 +18,7 @@ export type Project = {
 const SideProjects = ({ projects }: { projects: Project[] }) => {
   return (
     <div className="container pt-28">
-      <p className="text-3xl md:text-4xl lg:text-5xl py-6 flex space-x-2 leading-tight font-bold">
+      <p className="text-3xl xl:text-4xl py-6 flex space-x-2 leading-tight font-bold">
         {HEADING}
       </p>
       <div className="grid grid-col-1 lg:grid-cols-2 gap-24 py-16">

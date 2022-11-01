@@ -2,7 +2,7 @@
 featured: true
 date: '2020-08-07'
 title: 'Google Drive UI'
-cover_image: './images/google-drive-ui.png'
+cover_image: '../../public/images/google-drive-ui.png'
 repo_link_frontend: 'https://github.com/tapanchudasama/Google-Drive-UI'
 demo_link: 'https://googledriveui.netlify.app/'
 techs: ['React', 'MaterialUI']

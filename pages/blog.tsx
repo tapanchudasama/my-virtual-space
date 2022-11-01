@@ -1,18 +1,17 @@
 import { GetServerSideProps } from "next";
-import Link from "next/link";
-import Image from "next/image";
 import React, { useEffect } from "react";
 import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 import { promises as fs } from "fs";
+import readingTime from "reading-time";
 
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Seo from "../components/Seo";
 
-const HEADING = "writings";
+const HEADING = "blog";
 
 const Writings = ({
   hashnodePosts,
@@ -27,6 +26,7 @@ const Writings = ({
       coverImage: string;
       slug: string;
       dateAdded: string;
+      readingTime: { text: string };
     }[];
   };
   localPosts: {
@@ -38,52 +38,41 @@ const Writings = ({
       slug: string;
       dateAdded: string;
     };
+    readingTime: { text: string };
     html: string;
   }[];
 }) => {
-  const myLoader = ({ src }: { src: string }) => {
-    return src;
-  };
-
   return (
-    <div className="bg-gray-800 text-white font-oxygen">
+    <div className="bg-gray-800 text-white font-merriweather">
       <Header />
       <div className="container pt-28">
-        <Seo titleTemplate="writings" />
+        <Seo titleTemplate="blog" />
         <p className="text-3xl md:text-4xl lg:text-5xl py-6 flex space-x-2 leading-tight font-bold">
           {HEADING}
         </p>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 py-16">
+        <p className="text-md lg:text-lg">
+          all the things that i have written till now and will write in future
+          will be visible here.
+        </p>
+        <div className="flex flex-col space-y-12 py-16">
           {localPosts.map((post) => {
             return (
-              <div
-                key={post.frontmatter._id}
-                className="flex flex-col w-full items-start space-y-4"
-              >
-                <a rel="noreferrer" href={`writings/${post.frontmatter.slug}`}>
+              <div key={post.frontmatter._id} className="flex flex-col">
+                <a rel="noreferrer" href={`blog/${post.frontmatter.slug}`}>
                   <p className="text-lg lg:text-xl font-bold leading-tight hover:text-blue-300">
                     {post.frontmatter.title}
                   </p>
                 </a>
-                <p className="text-md">
-                  {new Date(post.frontmatter.dateAdded).toDateString()}
-                </p>
-                <div className="flex flex-col space-y-4">
-                  <a
-                    rel="noreferrer"
-                    href={`writings/${post.frontmatter.slug}`}
-                  >
-                    <div className="mx-auto relative w-80 h-64">
-                      <Image
-                        layout="fill"
-                        objectFit="contain"
-                        loader={myLoader}
-                        style={{ borderRadius: "4px" }}
-                        src={post.frontmatter.coverImage}
-                        alt={post.frontmatter.title}
-                      />
-                    </div>
-                  </a>
+                <div className="flex items-center mt-2 space-x-2">
+                  <p className="text-md text-gray-400">
+                    {post.frontmatter.dateAdded}
+                  </p>
+                  <p className="bg-gray-400 w-1 h-1 rounded-full"></p>
+                  <p className="text-md text-gray-400">
+                    {post.readingTime.text}
+                  </p>
+                </div>
+                <div className="flex flex-col mt-4">
                   <div className="w-full">
                     <p className="text-base lg:text-md">
                       {post.frontmatter.brief}
@@ -95,10 +84,7 @@ const Writings = ({
           })}
           {hashnodePosts.posts.map((post) => {
             return (
-              <div
-                key={post._id}
-                className="flex flex-col w-full items-start space-y-4"
-              >
+              <div key={post._id} className="flex flex-col">
                 <a
                   rel="noreferrer"
                   href={`https://blog.tapan.app/${post.slug}`}
@@ -108,30 +94,14 @@ const Writings = ({
                     {post.title}
                   </p>
                 </a>
-                <p className="text-md">
-                  {new Date(post.dateAdded).toDateString()}
-                </p>
-                <div className="flex flex-col space-y-4">
-                  <a
-                    rel="noreferrer"
-                    href={`https://blog.tapan.app/${post.slug}`}
-                    target="_blank"
-                  >
-                    <div className="mx-auto relative w-80 h-48">
-                      <Image
-                        layout="fill"
-                        objectFit="contain"
-                        loader={myLoader}
-                        style={{ borderRadius: "4px" }}
-                        src={post.coverImage}
-                        alt={post.title}
-                      />
-                    </div>
-                  </a>
-                  <div className="w-full">
-                    <p className="text-base lg:text-md">{post.brief}</p>
-                  </div>
+                <div className="flex items-center mt-2 space-x-2">
+                  <p className="text-md text-gray-400">{post.dateAdded}</p>
+                  <p className="bg-gray-400 w-1 h-1 rounded-full"></p>
+                  <p className="text-md text-gray-400">
+                    {post.readingTime.text}
+                  </p>
                 </div>
+                <p className="text-base lg:text-md mt-4">{post.brief}</p>
               </div>
             );
           })}
@@ -155,22 +125,31 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             slug
             coverImage
             dateAdded
+            contentMarkdown
           }
         }
       }
     }`;
 
   const postsData = await hashnodeGql(GET_USER_ARTICLES)
-    .then((result) => ({
-      success: true,
-      posts: result.data.user.publication.posts,
-    }))
+    .then((result) => {
+      const posts = result.data.user.publication.posts.map((p: any) => ({
+        ...p,
+        dateAdded: new Date(p.dateAdded).toLocaleDateString(),
+        readingTime: readingTime(p.contentMarkdown.toString()),
+      }));
+
+      return {
+        success: true,
+        posts,
+      };
+    })
     .catch(() => ({ success: false, posts: [] }));
 
-  const writingsDir = path.join(process.cwd(), "content/writings");
+  const writingsDir = path.join(process.cwd(), "content/blog");
   const writingsData = await fs.readdir(writingsDir);
 
-  const writings = writingsData.map(async (filename) => {
+  const blogs = writingsData.map(async (filename) => {
     const filePath = path.join(writingsDir, filename);
     const fileContents = matter(await fs.readFile(filePath, "utf8"));
 
@@ -181,17 +160,20 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       .use(html)
       .process(fileContents.content || "");
 
-    console.log(fileContents);
     return {
-      frontmatter: fileContents.data,
+      frontmatter: {
+        ...fileContents.data,
+        dateAdded: new Date(fileContents.data.dateAdded).toLocaleDateString(),
+      },
       html: markdown.toString(),
+      readingTime: readingTime(markdown.toString()),
     };
   });
 
   return {
     props: {
       hashnodePosts: await postsData,
-      localPosts: await Promise.all(writings),
+      localPosts: await Promise.all(blogs),
     },
   };
 };

@@ -11,7 +11,7 @@ const Footer = () => {
     <div className="p-4 bg-gray-700">
       <div className="container">
         <footer className="flex flex-col-reverse md:flex-row items-center justify-between">
-          <div className="text-base lg:text-lg flex items-center space-x-2 font-oxygen">
+          <div className="text-base lg:text-lg flex items-center space-x-2 font-merriweather">
             <span>Made with</span>
             <SiJavascript
               key="tb-js"

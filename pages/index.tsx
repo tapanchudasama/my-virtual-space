@@ -27,12 +27,11 @@ const Home: NextPage<Props> = ({
   aboutData,
 }) => {
   return (
-    <div className="overflow-hidden bg-gray-800 text-white font-oxygen">
+    <div className="overflow-hidden bg-gray-800 text-white font-merriweather">
       <Seo titleTemplate="home" />
       <Header />
       <Hero />
       <StatusQuo {...statusQuoProps} />
-      <SideProjects projects={sideProjectsProps} />
       {/* <GithubStats /> */}
       <About {...aboutData} />
       <Footer />
@@ -57,23 +56,6 @@ export const getStaticProps: GetStaticProps = async () => {
   const sideProjectsDir = path.join(process.cwd(), "content/works");
   const sideProjects = await fs.readdir(sideProjectsDir);
 
-  const projects = sideProjects.map(async (filename) => {
-    const filePath = path.join(sideProjectsDir, filename);
-    const fileContents = matter(await fs.readFile(filePath, "utf8"));
-
-    // Generally you would parse/transform the contents
-    // For example you can transform markdown to HTML here
-
-    const markdown = await remark()
-      .use(html)
-      .process(fileContents.content || "");
-
-    return {
-      frontmatter: fileContents.data,
-      html: markdown.toString(),
-    };
-  });
-
   const aboutData = JSON.parse(
     await fs.readFile(path.join(process.cwd(), "content", "about.json"), "utf8")
   );
@@ -83,7 +65,6 @@ export const getStaticProps: GetStaticProps = async () => {
       statusQuoProps: {
         html: statusQuoMarkdown.toString(),
       },
-      sideProjectsProps: await Promise.all(projects),
       aboutData: aboutData,
     },
   };

@@ -19,12 +19,12 @@ type About = {
 };
 const About = ({ about_image, mbti_type, hobbies }: About) => {
   return (
-    <div className="container mt-24">
+    <div className="container mt-32">
       <p className="text-3xl xl:text-4xl py-6 flex space-x-2 leading-tight font-bold">
         {HEADING}
       </p>
 
-      <div className="flex flex-col py-4 mt-16">
+      <div className="flex flex-col py-4 mt-4">
         <div className="self-center w-40 md:w-60 lg:w-80">
           <Image
             style={{ borderRadius: "100%" }}

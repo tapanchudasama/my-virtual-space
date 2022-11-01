@@ -13,7 +13,7 @@ const Header = () => {
   const navItems: { name: string; path: string }[] = NavbarItems.navbarItems;
   return (
     <header className="bg-gray-700 fixed z-10 w-full shadow-md">
-      <div className="container font-oxygen">
+      <div className="container font-merriweather">
         <div className="flex md:hidden justify-between items-center py-6">
           <Link href="/">
             <p

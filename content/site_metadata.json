@@ -4,10 +4,5 @@
   "name": "tapan chudasama",
   "description": "this is my virtual space.",
   "image": "/me.jpg",
-  "twitterUsername": "@tapanchudasama7",
-  "navbarItems": [
-    { "name": "works", "path": "/works" },
-    { "name": "readings", "path": "/readings" },
-    { "name": "writings", "path": "/writings" }
-  ]
+  "twitterUsername": "@tapanchudasama7"
 }

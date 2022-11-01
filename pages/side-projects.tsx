@@ -18,7 +18,7 @@ const Works: NextPage<{ projects: Project[] }> = ({ projects }) => {
   console.log(projects);
 
   return (
-    <div className="bg-gray-800 text-white font-oxygen h-full">
+    <div className="bg-gray-800 text-white font-merriweather h-full">
       <Header />
       <div className="container pt-28">
         <Seo titleTemplate="side projects" />

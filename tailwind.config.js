@@ -17,17 +17,17 @@ module.exports = {
       padding: {
         DEFAULT: "1rem",
         sm: "2rem",
-        lg: "3rem",
-        xl: "6rem",
-        "2xl": "8rem",
+        lg: "8rem",
+        xl: "10rem",
+        "2xl": "14rem",
       },
     },
     extend: {
       fill: (theme) => ({
-        "red-500": theme("colors.red.500"),
+        ...theme.colors,
       }),
       fontFamily: {
-        oxygen: ["Merriweather", "serif"],
+        merriweather: ["Merriweather", "serif"],
       },
       typography: ({ theme }) => ({
         DEFAULT: {

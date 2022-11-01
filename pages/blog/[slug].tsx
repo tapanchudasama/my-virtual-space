@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
 import { NextPage } from "next";
+import readingTime from "reading-time";
 import Header from "../../components/Header";
 import Image from "next/image";
 import Footer from "../../components/Footer";
@@ -14,18 +15,25 @@ type Post = {
     dateAdded: string;
     coverImage: string;
   };
+  readingTime: { text: string };
   markdown: string;
 };
 
-const Post: NextPage<Post> = ({ markdown, frontmatter }) => {
+const Post: NextPage<Post> = ({ markdown, frontmatter, readingTime }) => {
   return (
-    <div className="bg-gray-800 text-white font-oxygen h-full">
+    <div className="bg-gray-800 text-white font-merriweather h-full">
       <Header />
       <div className="container pt-28 lg:px-64">
-        <p className="font-bold text-md">{frontmatter.dateAdded}</p>
-        <p className="flex text-3xl xl:text-4xl py-6 flex space-x-2 leading-tight font-bold">
-          {frontmatter.title}
-        </p>
+        <div className="py-6 space-y-2">
+          <p className="flex text-3xl xl:text-4xl flex space-x-2 leading-tight font-bold">
+            {frontmatter.title}
+          </p>
+          <div className="flex items-center space-x-2">
+            <p className="text-md text-gray-400">{frontmatter.dateAdded}</p>
+            <p className="bg-gray-400 w-1 h-1 rounded-full"></p>
+            <p className="text-md text-gray-400">{readingTime.text}</p>
+          </div>
+        </div>
         <Image
           src={"/" + frontmatter.coverImage}
           alt="Image of Manali"
@@ -48,7 +56,7 @@ export const getStaticPaths = async (): Promise<{
   paths: { params: { slug: string } }[];
   fallback: boolean;
 }> => {
-  const dir = path.join(process.cwd(), "content/writings");
+  const dir = path.join(process.cwd(), "content/blog");
   const files = await fs.readdir(dir);
   const paths = files.map((filename) => ({
     params: {
@@ -69,7 +77,7 @@ export const getStaticProps = async ({
 }) => {
   const { data: frontmatter, content } = matter(
     await fs.readFile(
-      path.join(process.cwd(), "content/writings", slug + ".md"),
+      path.join(process.cwd(), "content/blog", slug + ".md"),
       "utf8"
     )
   );
@@ -86,6 +94,7 @@ export const getStaticProps = async ({
       },
       slug,
       markdown: markdown.toString(),
+      readingTime: readingTime(markdown.toString()),
     },
   };
 };

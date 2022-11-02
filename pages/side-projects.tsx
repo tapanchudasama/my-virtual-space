@@ -9,8 +9,6 @@ import { remark } from "remark";
 import Seo from "../components/Seo";
 import ProjectItem from "../components/common/ProjectItem";
 import { Project } from "../components/SideProjects";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 const HEADING = "side projects";
 
@@ -18,12 +16,15 @@ const Works: NextPage<{ projects: Project[] }> = ({ projects }) => {
   console.log(projects);
 
   return (
-    <div className="bg-gray-800 text-white font-merriweather h-full">
-      <Header />
+    <div className="bg-gray-800 text-white font-serif h-full">
       <div className="container pt-28">
         <Seo titleTemplate="side projects" />
-        <p className="text-2xl md:text-3xl lg:text-4xl py-6 flex space-x-2 leading-tight font-bold">
+        <p className="text-3xl md:text-4xl lg:text-5xl py-6 flex space-x-2 leading-tight font-bold">
           {HEADING}
+        </p>
+        <p className="text-md lg:text-lg">
+          stuff that i have built in my free time, either to learn some new tech
+          or scratch my own itch. this includes this website also.
         </p>
         <div className="grid grid-cols-1 lg:grid-cols-2 py-16 gap-16">
           {projects.map((n) => {
@@ -31,7 +32,6 @@ const Works: NextPage<{ projects: Project[] }> = ({ projects }) => {
           })}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

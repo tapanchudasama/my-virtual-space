@@ -10,7 +10,7 @@ const Navigation = ({
 }) => {
   return (
     <div className="bg-gray-800 overflow-hidden w-full h-full">
-      <div className="container h-full font-merriweather">
+      <div className="container h-full font-serif">
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-end py-8">
             <div

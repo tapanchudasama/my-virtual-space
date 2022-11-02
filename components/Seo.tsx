@@ -14,11 +14,11 @@ const SEO = ({ titleTemplate }: { titleTemplate: string }) => {
     url: `${siteUrl}${pathname}`,
   };
 
+  const siteTitle = `${seo.title} · ${titleTemplate}`;
+
   return (
     <Head>
-      <title>
-        {seo.title} · {titleTemplate}
-      </title>
+      <title>{siteTitle}</title>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       {seo.url && <meta property="og:url" content={seo.url} />}

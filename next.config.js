@@ -11,12 +11,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "cdn.buymeacoffee.com",
-        pathname: "buttons/v2/default-yellow.png",
-      },
-      {
-        protocol: "https",
-        hostname: "cdn.hashnode.com",
+        hostname: "covers.openlibrary.org",
       },
     ],
   },

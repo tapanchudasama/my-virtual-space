@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   FaEnvelope,
   FaGithub,
@@ -10,13 +11,25 @@ import SocialMediaLinks from "../content/social_media.json";
 
 const Hero = () => {
   return (
-    <main className="container relative">
-      <div className="flex flex-col w-full h-screen flex-1 justify-center items-center space-y-4">
-        <p className="text-lg md:text-xl xl:text-2xl text-left">hey, i am</p>
-        <p className="text-4xl md:text-5xl xl:text-6xl leading-tight font-bold">
-          {SideMetadata.name}
-        </p>
-        <p className="text-lg md:text-xl xl:text-2xl">
+    <main className="container mt-16">
+      <div className="flex w-full flex-1 items-center space-x-8">
+        <div>
+          <Image
+            width="200"
+            height="200"
+            alt="my picture"
+            src="/images/me.png"
+          />
+        </div>
+        <div className="flex flex-col space-y-4">
+          <p className="text-4xl md:text-5xl xl:text-6xl leading-tight font-bold">
+            tapan chudasama
+          </p>
+          <p className="font-sans text-lg md:text-md xl:text-xl">
+            amore. inquisitive.
+          </p>
+        </div>
+        {/* <p className="text-lg md:text-xl xl:text-2xl">
           {SideMetadata.description}
         </p>
         <div className="flex space-x-6 py-2">
@@ -76,7 +89,7 @@ const Hero = () => {
               <FaEnvelope className="w-6 h-6 xl:w-8 xl:h-8" />
             </a>
           )}
-        </div>
+        </div> */}
       </div>
     </main>
   );

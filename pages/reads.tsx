@@ -7,8 +7,6 @@ import html from "remark-html";
 import { promises as fs } from "fs";
 import readingTime from "reading-time";
 
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Seo from "../components/Seo";
 
 const HEADING = "reads";
@@ -30,9 +28,8 @@ const Reads = ({
   };
 }) => {
   return (
-    <div className="min-h-screen bg-gray-800 text-white font-merriweather">
-      <div className="h-screen bg-gray-800 text-white font-merriweather">
-        <Header />
+    <div className="min-h-screen bg-gray-800 text-white font-serif">
+      <div className="h-screen bg-gray-800 text-white font-serif">
         <div className="container pt-28">
           <Seo titleTemplate="blog" />
           <div className="py-6 space-y-2">
@@ -59,7 +56,6 @@ const Reads = ({
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

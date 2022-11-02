@@ -1,16 +1,16 @@
-const HEADING = "status quo";
+const HEADING = "employment";
 
-const StatusQuo = ({ html }: { html: string }) => {
+const PreviousWorks = ({ html }: { html: string }) => {
   return (
-    <div className="container">
+    <div className="container mt-16">
       <p className="flex text-3xl xl:text-4xl py-6 flex space-x-2 leading-tight font-bold">
         {HEADING}
       </p>
-      <div className="text-md lg:text-lg prose">
+      <div className="sm:prose-sm prose lg:prose-lg">
         <div dangerouslySetInnerHTML={{ __html: html }}></div>
       </div>
     </div>
   );
 };
 
-export default StatusQuo;
+export default PreviousWorks;

@@ -25,7 +25,7 @@ const Post: NextPage<Post> = ({ markdown, frontmatter, readingTime }) => {
       <div className="container">
         <Header />
         <div className="py-6 space-y-2 max-w-prose">
-          <p className="flex text-3xl xl:text-4xl flex space-x-2 leading-tight font-bold font-serif">
+          <p className="text-5xl lg:text-6xl flex space-x-2 leading-tight font-bold font-serif">
             {frontmatter.title}
           </p>
           <div className="flex items-center space-x-2">

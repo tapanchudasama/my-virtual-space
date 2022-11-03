@@ -1,16 +1,12 @@
 import { GetServerSideProps } from "next";
 import React, { Fragment, useEffect } from "react";
-import path from "path";
-import matter from "gray-matter";
-import { remark } from "remark";
-import html from "remark-html";
-import { promises as fs } from "fs";
-import readingTime from "reading-time";
 
 import Seo from "../components/Seo";
 import SpotifyRecentlyPlayed from "../components/SpotifyRecentlyPlayed";
-import Image from "next/image";
 import Header from "../components/Header";
+import Tweets from "../components/Tweets";
+import Script from "next/script";
+import CurrentlyReading from "../components/CurrentlyReading";
 
 const HEADING = "now";
 
@@ -21,28 +17,33 @@ const Now = () => {
         <div className="container">
           <Header />
           <Seo titleTemplate="blog" />
-          <div className="py-6 space-y-2">
-            <p className="text-3xl md:text-4xl lg:text-5xl flex space-x-2 leading-tight font-bold font-serif">
-              {HEADING}
-            </p>
-          </div>
-          <p className="text-md lg:text-lg">
+          <p className="heading">{HEADING}</p>
+          <p className="sub-heading">
             everything which i am listening/reading/watching recently.
           </p>
-          <div className="grid grid-cols-3 gap-16 py-16">
-            <div className="flex flex-col items-center space-y-4 font-sans">
-              <p className="font-bold sm:text-md lg:text-xl">listening to</p>
-              <SpotifyRecentlyPlayed />
+          <div className="grid grid-cols-1 lg:grid-cols-3 justify-items-center py-16 gap-32">
+            <div className="flex flex-col items-center font-sans space-y-8">
+              <p className="font-bold text-3xl lg:text-4xl font-serif">
+                tweeting:
+              </p>
+              <div className="flex justify-center">
+                <Tweets />
+              </div>
             </div>
-            <div className="flex flex-col items-center space-y-4 font-sans">
-              <p className="font-bold sm:text-md lg:text-xl">reading</p>
-              <div>
-                <Image
-                  width={200}
-                  height={300}
-                  alt="book i am currently reading"
-                  src="https://covers.openlibrary.org/b/isbn/9781509848997-L.jpg?default=false"
-                />
+            <div className="flex flex-col items-center font-sans space-y-8">
+              <p className="font-bold text-3xl lg:text-4xl font-serif">
+                reading:
+              </p>
+              <div className="flex justify-center">
+                <CurrentlyReading />
+              </div>
+            </div>
+            <div className="flex flex-col items-center font-sans space-y-8">
+              <p className="font-bold text-3xl lg:text-4xl font-serif">
+                listening:
+              </p>
+              <div className="flex justify-center">
+                <SpotifyRecentlyPlayed />
               </div>
             </div>
           </div>

@@ -8,7 +8,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Fragment>
       <Script
         async
-        defer
         data-website-id="ca8e6d6c-2f31-413b-b650-43f21855ee8b"
         src="https://analytics.tapan.app/umami.js"
       />

@@ -46,11 +46,9 @@ const Writings = ({
       <div className="container">
         <Seo titleTemplate="blog" />
         <Header />
-        <div className="pt-4 pb-16">
-          <p className="font-serif text-3xl md:text-4xl lg:text-5xl py-6 flex space-x-2 leading-tight font-bold">
-            {HEADING}
-          </p>
-          <p className="text-md lg:text-lg max-w-prose">
+        <div className="pb-16">
+          <p className="heading">{HEADING}</p>
+          <p className="sub-heading">
             all the things that i have written till now and will write in future
             will be visible here.
           </p>
@@ -59,7 +57,7 @@ const Writings = ({
               return (
                 <div key={post.frontmatter._id} className="flex flex-col">
                   <a rel="noreferrer" href={`blog/${post.frontmatter.slug}`}>
-                    <p className="text-lg lg:text-xl font-bold leading-tight hover:text-blue-300">
+                    <p className="text-lg lg:text-3xl font-bold leading-tight hover:text-blue-300 inline">
                       {post.frontmatter.title}
                     </p>
                   </a>
@@ -90,7 +88,7 @@ const Writings = ({
                     href={`https://blog.tapan.app/${post.slug}`}
                     target="_blank"
                   >
-                    <p className="text-lg lg:text-xl font-bold leading-tight hover:text-blue-300">
+                    <p className="text-lg lg:text-3xl font-bold leading-tight hover:text-blue-300 inline">
                       {post.title}
                     </p>
                   </a>

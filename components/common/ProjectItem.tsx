@@ -4,7 +4,7 @@ import { Project as ProjectType } from "../SideProjects";
 const Project = ({ node }: { node: ProjectType }) => {
   return (
     <div className="prose flex flex-col w-full">
-      <p className="text-lg lg:text-xl font-semibold">
+      <p className="text-xl lg:text-2xl font-semibold">
         {node.frontmatter.title}
       </p>
       <div>

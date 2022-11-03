@@ -81,6 +81,19 @@ module.exports = {
             },
           },
         },
+        lg: {
+          css: {
+            h2: {
+              fontSize: rem(40),
+            },
+            h3: {
+              fontSize: rem(32),
+            },
+            h4: {
+              fontSize: rem(26),
+            },
+          },
+        },
       }),
     },
   },

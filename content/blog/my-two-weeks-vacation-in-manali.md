@@ -10,7 +10,7 @@ Also, during our entire trip, we did not stay in any hotels, but only Hostels...
 
 I graduated from college in 2020. We (Me and my college friends) had planned to visit Goa after graduation. But who knew that a global pandemic would happen forcing us to sit in our homes.
 
-So now, after around 2 years, as the situation is coming back to normal, we decided to visit Manali, and a few planes nearby it.\
+So now, after around 2 years, as the situation is coming back to normal, we decided to visit Manali, and a few places nearby it.\
 This blog is a note of my experiences which could be helpful if you are planning to visit any of the places I did.
 
 ## Manali
@@ -21,7 +21,7 @@ Also, during our entire trip, we did not stay in any hotels, but only Hostels. B
 
 ### Places to visit
 
-- **Jogni Falls**
+- #### **Jogni Falls**
 
 ![jogni-falls](../images/blog/jogni-falls.jpg)
 
@@ -33,7 +33,7 @@ Also, for moviebuffs, this is the same river where Bunny and his team starts the
 
 There is a temple also on the way to Jogni Falls, of Rishi Vashisht. Inside the temple, there are hot water springs where you can have a warm bath also.
 
-- **Hampta Valley**
+- #### **Hampta Valley**
 
 All those who do the Hampta Pass trek, start their trek from this valley. This is located about **20kms from Old Manali**. You can take a cab which will take you to the mountain and from mountain, its will take approximately 3 hours to reach valley. Within **6 hours**, you can be back.
 
@@ -41,7 +41,7 @@ All those who do the Hampta Pass trek, start their trek from this valley. This i
 
 Very serene atmosphere here. Those who have a habit of listening to white noise should definitely visit this place and experience the *"natural"* white noise of the river flowing. 
 
-- **Sissu**
+- #### **Sissu**
 
 Sissu is sort of a snow point which I visited. Initially, we had planned to visit **Rohtang**, but due to excessive snowfall and bad weather conditions, all the places on top including Rohtang were closed. Sissu is approximately 20kms from Rohtang and about **40-45kms from Old Manali.** You can easily get a private cab which costs about ₹2000-3000 from Old Manali.
 
@@ -49,11 +49,11 @@ Sissu is sort of a snow point which I visited. Initially, we had planned to visi
 
 Here, you can also do some adventure sports like Zipline or ride an ATV. Both costs around ₹500-1000.
 
-Enroute to Sissu, you get to see the amazing **Atal Tunnal**. The locals say that with this tunnel, approximately 70-80kms distance which previously took 5-6hrs to cross, now takes only 9.6kms and 15-20mins. Truly as they say it is called, it is an *engineering marvel*.
+Enroute to Sissu, you get to see the amazing **Atal Tunnal**. The locals say that with this tunnel, approximately 70-80kms distance which previously took 5-6hrs to cross, now takes only 9.6kms and 15-20mins. Truly as they say it is called, it is an engineering marvel.
 
 ![atal-tunnel](../images/blog//atal-tunnel.jpg)
 
-- **Naggar village**
+- #### **Naggar village**
 
 This is located 40kms from Old Manali.
 The main attraction here are two things: a cafe that serves delicious local food thali which has red rice, siddu, a local dish of manali, ghee, makki ki roti, curd, jaggrey powder and pickle. Another is a zipline that is about 500mts long.

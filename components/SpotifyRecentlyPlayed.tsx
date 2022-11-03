@@ -76,9 +76,10 @@ const SpotifyRecentlyPlayed = () => {
           title="Spotify Recently Played"
           src={`https://open.spotify.com/embed/track/${trackId}`}
           width="300"
-          height="80"
+          height="400"
           frameBorder="0"
           allow="encrypted-media"
+          loading="lazy"
         ></iframe>
       )}
       {isLoading && (

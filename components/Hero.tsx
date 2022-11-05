@@ -6,8 +6,6 @@ import {
   FaReddit,
   FaTwitter,
 } from "react-icons/fa";
-import SideMetadata from "../content/site_metadata.json";
-import SocialMediaLinks from "../content/social_media.json";
 
 const Hero = () => {
   return (

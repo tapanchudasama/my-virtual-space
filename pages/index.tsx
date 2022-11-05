@@ -8,26 +8,26 @@ import html from "remark-html";
 import Seo from "../components/Seo";
 import Hero from "../components/Hero";
 import About from "../components/About";
-import Employment from "../components/Work";
+import Work from "../components/Work";
 import Contact from "../components/Contact";
 
 type Props = {
   aboutProps: {
     html: string;
   };
-  employmentDataProps: {
+  workDataProps: {
     html: string;
   };
 };
 
-const Home: NextPage<Props> = ({ aboutProps, employmentDataProps }) => {
+const Home: NextPage<Props> = ({ aboutProps, workDataProps }) => {
   return (
     <div className="overflow-hidden bg-gray-800 text-white font-serif">
       <Seo titleTemplate="home" />
       <Hero />
       <div className="container space-y-16 py-16">
         <About {...aboutProps} />
-        <Employment {...employmentDataProps} />
+        <Work {...workDataProps} />
         <Contact />
       </div>
     </div>
@@ -58,7 +58,7 @@ export const getStaticProps: GetStaticProps = async () => {
       aboutProps: {
         html: statusQuoMarkdown.toString(),
       },
-      employmentDataProps: {
+      workDataProps: {
         html: employmentMarkdown.toString(),
       },
     },

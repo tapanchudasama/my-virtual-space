@@ -8,7 +8,8 @@ import html from "remark-html";
 import Seo from "../components/Seo";
 import Hero from "../components/Hero";
 import About from "../components/About";
-import Employment from "../components/Employment";
+import Employment from "../components/Work";
+import Contact from "../components/Contact";
 
 type Props = {
   aboutProps: {
@@ -24,8 +25,11 @@ const Home: NextPage<Props> = ({ aboutProps, employmentDataProps }) => {
     <div className="overflow-hidden bg-gray-800 text-white font-serif">
       <Seo titleTemplate="home" />
       <Hero />
-      <About {...aboutProps} />
-      <Employment {...employmentDataProps} />
+      <div className="container space-y-16 py-16">
+        <About {...aboutProps} />
+        <Employment {...employmentDataProps} />
+        <Contact />
+      </div>
     </div>
   );
 };
@@ -42,10 +46,7 @@ export const getStaticProps: GetStaticProps = async () => {
     .process(statusQuo.content || "");
 
   const employmentData = matter(
-    await fs.readFile(
-      path.join(process.cwd(), "content", "employment.md"),
-      "utf-8"
-    )
+    await fs.readFile(path.join(process.cwd(), "content", "work.md"), "utf-8")
   );
 
   const employmentMarkdown = await remark()

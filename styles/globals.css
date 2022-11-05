@@ -14,3 +14,7 @@ body {
 .sub-heading {
   @apply text-lg lg:text-xl max-w-prose mt-8;
 }
+
+.index-heading {
+  @apply text-4xl lg:text-5xl py-6 font-bold;
+}

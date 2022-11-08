@@ -7,6 +7,7 @@ import { NextPage } from "next";
 import readingTime from "reading-time";
 import Image from "next/image";
 import Header from "../../components/Header";
+import Seo from "../../components/Seo";
 
 type Post = {
   frontmatter: {
@@ -23,6 +24,7 @@ type Post = {
 const Post: NextPage<Post> = ({ markdown, frontmatter, readingTime }) => {
   return (
     <div className="bg-gray-800 text-white h-full">
+      <Seo titleTemplate={frontmatter.title} />
       <div className="px-6"></div>
       <div className="container">
         <Header />

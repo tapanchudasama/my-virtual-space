@@ -20,7 +20,7 @@ const Hero = () => {
           />
         </div>
         <div className="flex flex-col space-y-4">
-          <p className="text-4xl md:text-5xl xl:text-6xl leading-tight font-bold">
+          <p className="text-5xl lg:text-6xl leading-tight font-bold">
             tapan chudasama
           </p>
           <p className="font-sans text-lg md:text-md xl:text-xl">

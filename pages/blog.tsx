@@ -34,6 +34,8 @@ const Writings = ({
       title: string;
       brief: string;
       coverImage: string;
+      coverImageWidth: number;
+      coverImageHeight: number;
       slug: string;
       dateAdded: string;
     };
@@ -41,6 +43,13 @@ const Writings = ({
     html: string;
   }[];
 }) => {
+  const localPostsSorted = localPosts.sort((p1, p2) =>
+    new Date(p1.frontmatter.dateAdded).getTime() >=
+    new Date(p2.frontmatter.dateAdded).getTime()
+      ? 1
+      : -1
+  );
+
   return (
     <div className="bg-gray-800 text-white">
       <div className="container">
@@ -53,7 +62,7 @@ const Writings = ({
             will be visible here.
           </p>
           <div className="flex flex-col space-y-12 pt-16 max-w-prose">
-            {localPosts.map((post) => {
+            {localPostsSorted.map((post) => {
               return (
                 <div key={post.frontmatter._id} className="flex flex-col">
                   <a rel="noreferrer" href={`blog/${post.frontmatter.slug}`}>

@@ -38,7 +38,7 @@ const Contact = () => {
         {Object.keys(SocialMedia).map((k: string) => (
           <div
             key={k}
-            className="text-lg flex items-center space-x-4 font-sans"
+            className="text-md lg:text-lg flex items-center space-x-4 font-sans"
           >
             <p className="w-32">{toTitleCase(k)}:</p>
             <Link target="_blank" href={SocialMedia[k].value}>

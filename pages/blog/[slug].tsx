@@ -13,6 +13,8 @@ type Post = {
     title: string;
     dateAdded: string;
     coverImage: string;
+    coverImageWidth: number;
+    coverImageHeight: number;
   };
   readingTime: { text: string };
   markdown: string;
@@ -36,10 +38,9 @@ const Post: NextPage<Post> = ({ markdown, frontmatter, readingTime }) => {
         </div>
         <Image
           src={"/" + frontmatter.coverImage}
-          alt="Image of Manali"
-          layout="responsive"
-          width={500}
-          height={300}
+          alt={frontmatter.title}
+          width={frontmatter.coverImageWidth}
+          height={frontmatter.coverImageHeight}
         />
         <div className="prose sm:prose-sm lg:prose-lg pb-8">
           <div dangerouslySetInnerHTML={{ __html: markdown }}></div>

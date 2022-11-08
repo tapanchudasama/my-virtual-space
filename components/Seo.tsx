@@ -7,21 +7,12 @@ const SEO = ({ titleTemplate }: { titleTemplate: string }) => {
 
   const { title, description, siteUrl, image, twitterUsername } = SiteMetadata;
 
-  let seo = {
-    title: "",
-    description: "",
-    image: "",
-    url: "",
+  const seo = {
+    title: title,
+    description: description,
+    image: `${siteUrl}/${image}`,
+    url: `${siteUrl}${pathname}`,
   };
-
-  if (typeof window !== "undefined") {
-    seo = {
-      title: title,
-      description: description,
-      image: `${window.location.host}/${image}`,
-      url: `${siteUrl}${pathname}`,
-    };
-  }
 
   const siteTitle = `${seo.title} · ${titleTemplate}`;
 

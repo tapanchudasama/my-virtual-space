@@ -52,9 +52,9 @@ const Writings = ({
 
   return (
     <div className="bg-gray-800 text-white">
+      <Header />
       <div className="container">
         <Seo titleTemplate="blog" />
-        <Header />
         <div className="pb-16">
           <p className="heading">{HEADING}</p>
           <p className="sub-heading">

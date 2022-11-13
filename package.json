@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.1.0",
     "autoprefixer": "^10.4.12",
     "gray-matter": "^4.0.3",
     "next": "12.3.1",

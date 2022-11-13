@@ -18,9 +18,9 @@ const Works: NextPage<{ projects: Project[] }> = ({ projects }) => {
 
   return (
     <div className="bg-gray-800 text-white h-full">
+      <Header />
       <div className="container">
         <Seo titleTemplate="side projects" />
-        <Header />
         <p className="heading">{HEADING}</p>
         <p className="sub-heading">
           stuff that i have built in my free time, either to learn some new tech

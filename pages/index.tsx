@@ -10,6 +10,9 @@ import Hero from "../components/Hero";
 import About from "../components/About";
 import Work from "../components/Work";
 import Contact from "../components/Contact";
+import Layout from "../components/Layout";
+import PageViews from "../components/PageViews";
+import Header from "../components/Header";
 
 type Props = {
   aboutProps: {
@@ -22,15 +25,19 @@ type Props = {
 
 const Home: NextPage<Props> = ({ aboutProps, workDataProps }) => {
   return (
-    <div className="overflow-hidden bg-gray-800 text-white font-serif">
-      <Seo titleTemplate="home" />
-      <Hero />
-      <div className="container space-y-16 py-16">
-        <About {...aboutProps} />
-        <Work {...workDataProps} />
-        <Contact />
+    <Layout slug="index">
+      <div className="overflow-hidden bg-gray-800 text-white font-serif">
+        <Seo titleTemplate="home" />
+        <Header />
+        <Hero />
+        <div className="container space-y-16 py-16">
+          <About {...aboutProps} />
+          <Work {...workDataProps} />
+          <Contact />
+        </div>
+        <PageViews slug="index" />
       </div>
-    </div>
+    </Layout>
   );
 };
 

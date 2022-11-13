@@ -13,9 +13,9 @@ const HEADING = "now";
 const Now = () => {
   return (
     <div className="min-h-screen bg-gray-800 text-white">
+      <Header />
       <div className="bg-gray-800 text-white">
         <div className="container">
-          <Header />
           <Seo titleTemplate="blog" />
           <p className="heading">{HEADING}</p>
           <p className="sub-heading">

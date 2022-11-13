@@ -30,9 +30,9 @@ const Reads = ({
 }) => {
   return (
     <div className="min-h-screen bg-gray-800 text-white">
+      <Header />
       <div className="container">
         <Seo titleTemplate="blog" />
-        <Header />
         <p className="heading">{HEADING}</p>
         <div className="pt-2 space-y-2">
           <div className="flex items-center space-x-2">

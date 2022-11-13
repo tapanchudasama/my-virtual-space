@@ -10,6 +10,7 @@ import Seo from "../components/Seo";
 import ProjectItem from "../components/common/ProjectItem";
 import { Project } from "../components/SideProjects";
 import Header from "../components/Header";
+import Layout from "../components/Layout";
 
 const HEADING = "side projects";
 
@@ -17,22 +18,24 @@ const Works: NextPage<{ projects: Project[] }> = ({ projects }) => {
   console.log(projects);
 
   return (
-    <div className="bg-gray-800 text-white h-full">
-      <Header />
-      <div className="container">
-        <Seo titleTemplate="side projects" />
-        <p className="heading">{HEADING}</p>
-        <p className="sub-heading">
-          stuff that i have built in my free time, either to learn some new tech
-          or scratch my own itch. this includes this website also.
-        </p>
-        <div className="grid grid-cols-1 lg:grid-cols-2 py-16 gap-16">
-          {projects.map((n) => {
-            return <ProjectItem key={n.frontmatter.title} node={n} />;
-          })}
+    <Layout slug="side-projects">
+      <div className="bg-gray-800 text-white h-full">
+        <Header />
+        <div className="container">
+          <Seo titleTemplate="side projects" />
+          <p className="heading">{HEADING}</p>
+          <p className="sub-heading">
+            stuff that i have built in my free time, either to learn some new
+            tech or scratch my own itch. this includes this website also.
+          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 py-16 gap-16">
+            {projects.map((n) => {
+              return <ProjectItem key={n.frontmatter.title} node={n} />;
+            })}
+          </div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 

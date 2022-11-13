@@ -9,6 +9,7 @@ import readingTime from "reading-time";
 
 import Seo from "../components/Seo";
 import Header from "../components/Header";
+import Layout from "../components/Layout";
 
 const HEADING = "reads";
 
@@ -29,32 +30,34 @@ const Reads = ({
   };
 }) => {
   return (
-    <div className="min-h-screen bg-gray-800 text-white">
-      <Header />
-      <div className="container">
-        <Seo titleTemplate="blog" />
-        <p className="heading">{HEADING}</p>
-        <div className="pt-2 space-y-2">
-          <div className="flex items-center space-x-2">
-            <p className="text-gray-400 text-lg">
-              updated on {reads.frontmatter.lastUpdated}
-            </p>
-            <p className="bg-gray-400 w-1 h-1 rounded-full"></p>
-            <p className="text-gray-400 text-lg">
-              added on {reads.frontmatter.dateAdded}
-            </p>
+    <Layout slug="reads">
+      <div className="min-h-screen bg-gray-800 text-white">
+        <Header />
+        <div className="container">
+          <Seo titleTemplate="blog" />
+          <p className="heading">{HEADING}</p>
+          <div className="pt-2 space-y-2">
+            <div className="flex items-center space-x-2">
+              <p className="text-gray-400 text-lg">
+                updated on {reads.frontmatter.lastUpdated}
+              </p>
+              <p className="bg-gray-400 w-1 h-1 rounded-full"></p>
+              <p className="text-gray-400 text-lg">
+                added on {reads.frontmatter.dateAdded}
+              </p>
+            </div>
+          </div>
+          <p className="sub-heading">
+            all the things which i feel are good, intellectually stimulating
+            reads will be dumped here. they can be from newsletter articles,
+            essays or even comment on reddit.
+          </p>
+          <div className="prose sm:prose-sm lg:prose-lg py-8">
+            <div dangerouslySetInnerHTML={{ __html: reads.html }}></div>
           </div>
         </div>
-        <p className="sub-heading">
-          all the things which i feel are good, intellectually stimulating reads
-          will be dumped here. they can be from newsletter articles, essays or
-          even comment on reddit.
-        </p>
-        <div className="prose sm:prose-sm lg:prose-lg py-8">
-          <div dangerouslySetInnerHTML={{ __html: reads.html }}></div>
-        </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 

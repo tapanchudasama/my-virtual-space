@@ -9,6 +9,7 @@ import readingTime from "reading-time";
 
 import Seo from "../components/Seo";
 import Header from "../components/Header";
+import Layout from "../components/Layout";
 
 const HEADING = "blog";
 
@@ -51,71 +52,73 @@ const Writings = ({
   );
 
   return (
-    <div className="bg-gray-800 text-white">
-      <Header />
-      <div className="container">
-        <Seo titleTemplate="blog" />
-        <div className="pb-16">
-          <p className="heading">{HEADING}</p>
-          <p className="sub-heading">
-            all the things that i have written till now and will write in future
-            will be visible here.
-          </p>
-          <div className="flex flex-col space-y-12 pt-16 max-w-prose">
-            {localPostsSorted.map((post) => {
-              return (
-                <div key={post.frontmatter._id} className="flex flex-col">
-                  <a rel="noreferrer" href={`blog/${post.frontmatter.slug}`}>
-                    <p className="text-lg lg:text-3xl font-bold leading-tight hover:text-blue-300 inline">
-                      {post.frontmatter.title}
-                    </p>
-                  </a>
-                  <div className="flex items-center mt-2 space-x-2">
-                    <p className="text-md text-gray-400">
-                      {post.frontmatter.dateAdded}
-                    </p>
-                    <p className="bg-gray-400 w-1 h-1 rounded-full"></p>
-                    <p className="text-md text-gray-400">
-                      {post.readingTime.text}
-                    </p>
-                  </div>
-                  <div className="flex flex-col mt-4">
-                    <div className="w-full">
-                      <p className="text-base lg:text-md">
-                        {post.frontmatter.brief}
+    <Layout slug="blog">
+      <div className="bg-gray-800 text-white">
+        <Header />
+        <div className="container">
+          <Seo titleTemplate="blog" />
+          <div className="pb-16">
+            <p className="heading">{HEADING}</p>
+            <p className="sub-heading">
+              all the things that i have written till now and will write in
+              future will be visible here.
+            </p>
+            <div className="flex flex-col space-y-12 pt-16 max-w-prose">
+              {localPostsSorted.map((post) => {
+                return (
+                  <div key={post.frontmatter._id} className="flex flex-col">
+                    <a rel="noreferrer" href={`blog/${post.frontmatter.slug}`}>
+                      <p className="text-lg lg:text-3xl font-bold leading-tight hover:text-blue-300 inline">
+                        {post.frontmatter.title}
+                      </p>
+                    </a>
+                    <div className="flex items-center mt-2 space-x-2">
+                      <p className="text-md text-gray-400">
+                        {post.frontmatter.dateAdded}
+                      </p>
+                      <p className="bg-gray-400 w-1 h-1 rounded-full"></p>
+                      <p className="text-md text-gray-400">
+                        {post.readingTime.text}
                       </p>
                     </div>
+                    <div className="flex flex-col mt-4">
+                      <div className="w-full">
+                        <p className="text-base lg:text-md">
+                          {post.frontmatter.brief}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-            {hashnodePosts.posts.map((post) => {
-              return (
-                <div key={post._id} className="flex flex-col">
-                  <a
-                    rel="noreferrer"
-                    href={`https://blog.tapan.app/${post.slug}`}
-                    target="_blank"
-                  >
-                    <p className="text-lg lg:text-3xl font-bold leading-tight hover:text-blue-300 inline">
-                      {post.title}
-                    </p>
-                  </a>
-                  <div className="flex items-center mt-2 space-x-2">
-                    <p className="text-md text-gray-400">{post.dateAdded}</p>
-                    <p className="bg-gray-400 w-1 h-1 rounded-full"></p>
-                    <p className="text-md text-gray-400">
-                      {post.readingTime.text}
-                    </p>
+                );
+              })}
+              {hashnodePosts.posts.map((post) => {
+                return (
+                  <div key={post._id} className="flex flex-col">
+                    <a
+                      rel="noreferrer"
+                      href={`https://blog.tapan.app/${post.slug}`}
+                      target="_blank"
+                    >
+                      <p className="text-lg lg:text-3xl font-bold leading-tight hover:text-blue-300 inline">
+                        {post.title}
+                      </p>
+                    </a>
+                    <div className="flex items-center mt-2 space-x-2">
+                      <p className="text-md text-gray-400">{post.dateAdded}</p>
+                      <p className="bg-gray-400 w-1 h-1 rounded-full"></p>
+                      <p className="text-md text-gray-400">
+                        {post.readingTime.text}
+                      </p>
+                    </div>
+                    <p className="text-base lg:text-md mt-4">{post.brief}</p>
                   </div>
-                  <p className="text-base lg:text-md mt-4">{post.brief}</p>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 

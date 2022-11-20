@@ -30,7 +30,7 @@ const Home: NextPage<Props> = ({ aboutProps, workDataProps }) => {
         <Seo titleTemplate="home" />
         <Header />
         <Hero />
-        <div className="container space-y-16 py-16">
+        <div className="container space-y-16 md:py-16">
           <About {...aboutProps} />
           <Work {...workDataProps} />
           <Contact />

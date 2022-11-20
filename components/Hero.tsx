@@ -9,7 +9,7 @@ import {
 
 const Hero = () => {
   return (
-    <main className="container mt-16">
+    <main className="hidden md:block container mt-16">
       <div className="flex w-full flex-1 items-center space-x-8">
         <div>
           <Image

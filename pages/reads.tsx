@@ -38,11 +38,11 @@ const Reads = ({
           <p className="heading">{HEADING}</p>
           <div className="pt-2 space-y-2">
             <div className="flex items-center space-x-2">
-              <p className="text-gray-400 text-lg">
+              <p className="text-gray-400 text-md md:text-lg">
                 updated on {reads.frontmatter.lastUpdated}
               </p>
               <p className="bg-gray-400 w-1 h-1 rounded-full"></p>
-              <p className="text-gray-400 text-lg">
+              <p className="text-gray-400 text-md md:text-lg">
                 added on {reads.frontmatter.dateAdded}
               </p>
             </div>

@@ -16,5 +16,5 @@ body {
 }
 
 .index-heading {
-  @apply text-4xl lg:text-5xl py-6 font-bold;
+  @apply text-3xl lg:text-5xl py-6 font-bold;
 }

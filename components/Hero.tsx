@@ -6,6 +6,7 @@ import {
   FaReddit,
   FaTwitter,
 } from "react-icons/fa";
+import SiteMetadata from "../content/site_metadata.json";
 
 const Hero = () => {
   return (
@@ -24,70 +25,9 @@ const Hero = () => {
             tapan chudasama
           </p>
           <p className="font-sans text-lg md:text-md xl:text-xl">
-            amore. inquisitive.
+            {SiteMetadata.description}
           </p>
         </div>
-        {/* <p className="text-lg md:text-xl xl:text-2xl">
-          {SideMetadata.description}
-        </p>
-        <div className="flex space-x-6 py-2">
-          {SocialMediaLinks.twitter && (
-            <a
-              aria-label="Twitter"
-              rel="noreferrer"
-              key="twitter"
-              href={SocialMediaLinks.twitter}
-              target="_blank"
-            >
-              <FaTwitter className="w-6 h-6 xl:w-8 xl:h-8" />
-            </a>
-          )}
-          {SocialMediaLinks.linkedin && (
-            <a
-              aria-label="LinkedIn"
-              rel="noreferrer"
-              key="linkedin"
-              href={SocialMediaLinks.linkedin}
-              target="_blank"
-            >
-              <FaLinkedin className="w-6 h-6 xl:w-8 xl:h-8" />
-            </a>
-          )}
-          {SocialMediaLinks.github && (
-            <a
-              aria-label="GitHub"
-              rel="noreferrer"
-              key="github"
-              href={SocialMediaLinks.github}
-              target="_blank"
-            >
-              <FaGithub className="w-6 h-6 xl:w-8 xl:h-8" />
-            </a>
-          )}
-          {SocialMediaLinks.reddit && (
-            <a
-              aria-label="Reddit"
-              rel="noreferrer"
-              key="reddit"
-              href={SocialMediaLinks.reddit}
-              target="_blank"
-            >
-              <FaReddit className="w-6 h-6 xl:w-8 xl:h-8" />
-            </a>
-          )}
-
-          {SocialMediaLinks.mail && (
-            <a
-              aria-label="mail"
-              rel="noreferrer"
-              key="mail"
-              href={`mailto:${SocialMediaLinks.mail}`}
-              target="_blank"
-            >
-              <FaEnvelope className="w-6 h-6 xl:w-8 xl:h-8" />
-            </a>
-          )}
-        </div> */}
       </div>
     </main>
   );

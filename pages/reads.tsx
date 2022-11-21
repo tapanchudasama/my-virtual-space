@@ -1,4 +1,4 @@
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetStaticProps } from "next";
 import React, { Fragment, useEffect } from "react";
 import path from "path";
 import matter from "gray-matter";
@@ -63,7 +63,7 @@ const Reads = ({
 
 export default Reads;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const dir = path.join(process.cwd(), "content/reads/links.md");
 
   const fileContents = matter(await fs.readFile(dir, "utf8"));

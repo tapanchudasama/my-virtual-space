@@ -10,6 +10,7 @@ import readingTime from "reading-time";
 import Seo from "../components/Seo";
 import Header from "../components/Header";
 import Layout from "../components/Layout";
+import PageViews from "../components/PageViews";
 
 const HEADING = "blog";
 
@@ -117,6 +118,7 @@ const Writings = ({
             </div>
           </div>
         </div>
+        <PageViews slug="blog" />
       </div>
     </Layout>
   );

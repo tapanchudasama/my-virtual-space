@@ -10,6 +10,7 @@ import readingTime from "reading-time";
 import Seo from "../components/Seo";
 import Header from "../components/Header";
 import Layout from "../components/Layout";
+import PageViews from "../components/PageViews";
 
 const HEADING = "reads";
 
@@ -56,6 +57,7 @@ const Reads = ({
             <div dangerouslySetInnerHTML={{ __html: reads.html }}></div>
           </div>
         </div>
+        <PageViews slug="reads" />
       </div>
     </Layout>
   );

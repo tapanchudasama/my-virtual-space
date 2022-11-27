@@ -8,6 +8,7 @@ import Tweets from "../components/Tweets";
 import Script from "next/script";
 import CurrentlyReading from "../components/CurrentlyReading";
 import Layout from "../components/Layout";
+import PageViews from "../components/PageViews";
 
 const HEADING = "now";
 
@@ -51,6 +52,7 @@ const Now = () => {
             </div>
           </div>
         </div>
+        <PageViews slug="now" />
       </div>
     </Layout>
   );

@@ -2,11 +2,13 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { SupabaseAdmin } from "../../../lib/supabase-admin";
 
 const API = async (req: NextApiRequest, res: NextApiResponse) => {
-  if (process.env.NODE_ENV === "development") {
+  if (process.env.NODE_ENV !== "production") {
     return res.status(200).json({
       total: null,
     });
   }
+
+  console.log('NODE_ENV',process.env.NODE_ENV)
 
   if (req.method === "POST") {
     // Call our stored procedure with the page_slug set by the request params slug

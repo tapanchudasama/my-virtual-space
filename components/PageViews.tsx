@@ -42,7 +42,7 @@ const PageViews: FC<PageViewsProps> = ({ slug }) => {
   return (
     <div className="flex items-right justify-center space-x-1 w-full font-sans p-6 italic text-sm text-gray-400">
       {expression && <p>{expression},</p>}
-      <p>this page has been viewed {data?.total ? data.total : 100} times!</p>
+      {data?.total && <p>this page has been viewed {data.total} times!</p>}
     </div>
   );
 };

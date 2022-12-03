@@ -15,8 +15,6 @@ import Layout from "../components/Layout";
 const HEADING = "side projects";
 
 const Works: NextPage<{ projects: Project[] }> = ({ projects }) => {
-  console.log(projects);
-
   return (
     <Layout slug="side-projects">
       <div className="bg-gray-800 text-white h-full">
@@ -28,7 +26,7 @@ const Works: NextPage<{ projects: Project[] }> = ({ projects }) => {
             stuff that i have built in my free time, either to learn some new
             tech or scratch my own itch. this includes this website also.
           </p>
-          <div className="grid grid-cols-1 lg:grid-cols-2 py-16 gap-16">
+          <div className="flex flex-col w-full py-16 gap-16">
             {projects.map((n) => {
               return <ProjectItem key={n.frontmatter.title} node={n} />;
             })}

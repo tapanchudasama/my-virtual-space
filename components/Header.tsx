@@ -29,21 +29,18 @@ const Header = () => {
           </div>
         </div>
         <div className="flex flex-row space-x-8">
-          <Link href="/blog">
-            <p className="font-bold text-xl border-b border-white cursor-pointer hover:text-blue-400 hover:border-blue-400">
-              blog
-            </p>
-          </Link>
-          <Link href="/reads">
-            <p className="font-bold text-xl border-b border-white cursor-pointer hover:text-blue-400 hover:border-blue-400">
-              reads
-            </p>
-          </Link>
-          <Link href="/now">
-            <p className="font-bold text-xl border-b border-white cursor-pointer hover:text-blue-400 hover:border-blue-400">
-              now
-            </p>
-          </Link>
+          <p className="font-bold text-xl border-b border-white cursor-pointer hover:text-blue-400 hover:border-blue-400">
+            <Link href="/blog">blog</Link>
+          </p>
+          <p className="font-bold text-xl border-b border-white cursor-pointer hover:text-blue-400 hover:border-blue-400">
+            <Link href="/reads">reads</Link>
+          </p>
+          <p className="font-bold text-xl border-b border-white cursor-pointer hover:text-blue-400 hover:border-blue-400">
+            <Link href="/side-projects">side projects</Link>
+          </p>
+          <p className="font-bold text-xl border-b border-white cursor-pointer hover:text-blue-400 hover:border-blue-400">
+            <Link href="/now">now</Link>
+          </p>
         </div>
       </div>
     </header>

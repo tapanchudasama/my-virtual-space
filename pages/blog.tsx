@@ -48,8 +48,8 @@ const Writings = ({
   const localPostsSorted = localPosts.sort((p1, p2) =>
     new Date(p1.frontmatter.dateAdded).getTime() >=
     new Date(p2.frontmatter.dateAdded).getTime()
-      ? 1
-      : -1
+      ? -1
+      : 1
   );
 
   return (

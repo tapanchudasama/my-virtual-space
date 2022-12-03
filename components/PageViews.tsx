@@ -1,10 +1,11 @@
-import { FC, useEffect, useState } from "react";
+import { FC, Fragment, useEffect, useState } from "react";
 
 interface PageViewsProps {
   slug: string;
 }
 
 const PageViews: FC<PageViewsProps> = ({ slug }) => {
+  const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState<{ total: number } | undefined>({
     total: 100,
   });
@@ -13,7 +14,8 @@ const PageViews: FC<PageViewsProps> = ({ slug }) => {
     fetch(`/api/views/${slug}`)
       .then((response) => response.json())
       .then((json) => setData(json))
-      .catch(() => setData(undefined));
+      .catch(() => setData(undefined))
+      .finally(() => setIsLoading(false));
   }, [slug]);
 
   const expressionList = [
@@ -41,8 +43,12 @@ const PageViews: FC<PageViewsProps> = ({ slug }) => {
 
   return (
     <div className="flex items-right justify-center space-x-1 w-full font-sans p-6 italic text-sm text-gray-400">
-      {expression && <p>{expression},</p>}
-      {data?.total && <p>this page has been viewed {data.total} times!</p>}
+      {isLoading && <p className="w-72 h-4 animate-pulse bg-slate-200"></p>}
+      {!isLoading && data?.total && (
+        <p>
+          {expression}, this page has been viewed {data.total} times!
+        </p>
+      )}
     </div>
   );
 };

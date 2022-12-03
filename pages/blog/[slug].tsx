@@ -5,27 +5,34 @@ import { remark } from "remark";
 import html from "remark-html";
 import { NextPage } from "next";
 import readingTime from "reading-time";
-import Header from "../../components/Header";
 import Image from "next/image";
-import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import Seo from "../../components/Seo";
+import PageViews from "../../components/PageViews";
+import { useRouter } from "next/router";
 
 type Post = {
   frontmatter: {
     title: string;
     dateAdded: string;
     coverImage: string;
+    coverImageWidth: number;
+    coverImageHeight: number;
   };
   readingTime: { text: string };
   markdown: string;
 };
 
 const Post: NextPage<Post> = ({ markdown, frontmatter, readingTime }) => {
+  const { query } = useRouter();
+
   return (
-    <div className="bg-gray-800 text-white font-merriweather h-full">
+    <div className="bg-gray-800 text-white h-full">
+      <Seo titleTemplate={frontmatter.title} />
       <Header />
-      <div className="container pt-28 lg:px-64">
-        <div className="py-6 space-y-2">
-          <p className="flex text-3xl xl:text-4xl flex space-x-2 leading-tight font-bold">
+      <div className="container">
+        <div className="py-6 space-y-2 max-w-prose">
+          <p className="text-5xl lg:text-6xl flex space-x-2 leading-tight font-bold font-serif">
             {frontmatter.title}
           </p>
           <div className="flex items-center space-x-2">
@@ -36,16 +43,15 @@ const Post: NextPage<Post> = ({ markdown, frontmatter, readingTime }) => {
         </div>
         <Image
           src={"/" + frontmatter.coverImage}
-          alt="Image of Manali"
-          layout="responsive"
-          width={500}
-          height={300}
+          alt={frontmatter.title}
+          width={frontmatter.coverImageWidth}
+          height={frontmatter.coverImageHeight}
         />
-        <div className="prose sm:prose-sm lg:prose-lg">
+        <div className="prose sm:prose-sm lg:prose-lg pb-8">
           <div dangerouslySetInnerHTML={{ __html: markdown }}></div>
         </div>
+        <PageViews slug={query.slug as string} />
       </div>
-      <Footer />
     </div>
   );
 };

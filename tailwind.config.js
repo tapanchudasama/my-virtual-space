@@ -16,10 +16,8 @@ module.exports = {
       center: true,
       padding: {
         DEFAULT: "1rem",
-        sm: "2rem",
-        lg: "8rem",
-        xl: "10rem",
-        "2xl": "14rem",
+        xl: "6rem",
+        "2xl": "8rem",
       },
     },
     extend: {
@@ -27,7 +25,8 @@ module.exports = {
         ...theme.colors,
       }),
       fontFamily: {
-        merriweather: ["Merriweather", "serif"],
+        sans: ["Work Sans", "sans-serif"],
+        serif: ["Playfair Display", "serif"],
       },
       typography: ({ theme }) => ({
         DEFAULT: {
@@ -35,23 +34,63 @@ module.exports = {
             color: theme("colors.white"),
             "--tw-prose-headings": theme("colors.white"),
             a: {
-              color: theme("colors.blue[100]"),
+              borderBottom: "1px solid white",
+              color: theme("colors.white"),
               fontWeight: "bold",
+              paddingLeft: rem(1),
+              paddingRight: rem(1),
+              textDecoration: "none",
               "&:hover": {
-                color: theme("colors.blue[500]"),
+                borderBottomColor: theme("colors.blue.400"),
+                color: theme("colors.blue.400"),
               },
             },
             strong: {
               color: theme("colors.white"),
             },
-            maxWidth: "100ch",
+            em: {
+              fontSize: rem(16),
+              fontStyle: "normal",
+              fontWeight: "normal",
+              color: theme("colors.gray.400"),
+            },
+            ul: {
+              listStyleType: "square",
+              fontFamily: "Work Sans",
+            },
+            h1: {
+              fontFamily: "Playfair Display",
+            },
+            h2: {
+              fontFamily: "Playfair Display",
+            },
+            h3: {
+              fontFamily: "Playfair Display",
+            },
+            h4: {
+              fontFamily: "Playfair Display",
+            },
+            h5: {
+              fontFamily: "Playfair Display",
+            },
+            h6: {
+              fontFamily: "Playfair Display",
+            },
+            p: {
+              fontFamily: "Work Sans",
+            },
           },
         },
         lg: {
           css: {
-            fontSize: rem(18),
+            h2: {
+              fontSize: rem(40),
+            },
+            h3: {
+              fontSize: rem(32),
+            },
             h4: {
-              fontSize: rem(20),
+              fontSize: rem(26),
             },
           },
         },

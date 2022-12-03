@@ -6,3 +6,15 @@ html,
 body {
   height: 100%;
 }
+
+.heading {
+  @apply text-5xl md:text-6xl lg:text-7xl flex space-x-2 leading-tight font-bold font-serif pt-8;
+}
+
+.sub-heading {
+  @apply text-lg lg:text-xl max-w-prose mt-8;
+}
+
+.index-heading {
+  @apply text-3xl lg:text-5xl py-6 font-bold;
+}

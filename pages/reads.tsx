@@ -1,4 +1,4 @@
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetStaticProps } from "next";
 import React, { Fragment, useEffect } from "react";
 import path from "path";
 import matter from "gray-matter";
@@ -7,9 +7,10 @@ import html from "remark-html";
 import { promises as fs } from "fs";
 import readingTime from "reading-time";
 
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Seo from "../components/Seo";
+import Header from "../components/Header";
+import Layout from "../components/Layout";
+import PageViews from "../components/PageViews";
 
 const HEADING = "reads";
 
@@ -30,43 +31,41 @@ const Reads = ({
   };
 }) => {
   return (
-    <div className="min-h-screen bg-gray-800 text-white font-merriweather">
-      <div className="h-screen bg-gray-800 text-white font-merriweather">
+    <Layout slug="reads">
+      <div className="min-h-screen bg-gray-800 text-white">
         <Header />
-        <div className="container pt-28">
+        <div className="container">
           <Seo titleTemplate="blog" />
-          <div className="py-6 space-y-2">
-            <p className="text-3xl md:text-4xl lg:text-5xl flex space-x-2 leading-tight font-bold">
-              {HEADING}
-            </p>
+          <p className="heading">{HEADING}</p>
+          <div className="pt-2 space-y-2">
             <div className="flex items-center space-x-2">
-              <p className="text-md text-gray-400">
-                {reads.frontmatter.dateAdded}
+              <p className="text-gray-400 text-md md:text-lg">
+                updated on {reads.frontmatter.lastUpdated}
               </p>
               <p className="bg-gray-400 w-1 h-1 rounded-full"></p>
-              <p className="text-md text-gray-400">
-                {reads.frontmatter.lastUpdated}
+              <p className="text-gray-400 text-md md:text-lg">
+                added on {reads.frontmatter.dateAdded}
               </p>
             </div>
           </div>
-          <p className="text-md lg:text-lg">
+          <p className="sub-heading">
             all the things which i feel are good, intellectually stimulating
             reads will be dumped here. they can be from newsletter articles,
             essays or even comment on reddit.
           </p>
-          <div className="prose sm:prose-sm lg:prose-lg">
+          <div className="prose sm:prose-sm lg:prose-lg py-8">
             <div dangerouslySetInnerHTML={{ __html: reads.html }}></div>
           </div>
         </div>
+        <PageViews slug="reads" />
       </div>
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 
 export default Reads;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticProps: GetStaticProps = async () => {
   const dir = path.join(process.cwd(), "content/reads/links.md");
 
   const fileContents = matter(await fs.readFile(dir, "utf8"));

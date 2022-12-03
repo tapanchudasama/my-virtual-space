@@ -1,6 +1,6 @@
-const HEADING = "about me";
+const HEADING = "work";
 
-const AboutMe = ({ html }: { html: string }) => {
+const Work = ({ html }: { html: string }) => {
   return (
     <div>
       <p className="index-heading">{HEADING}</p>
@@ -11,4 +11,4 @@ const AboutMe = ({ html }: { html: string }) => {
   );
 };
 
-export default AboutMe;
+export default Work;

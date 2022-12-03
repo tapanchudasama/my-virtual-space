@@ -1,7 +1,0 @@
-{
-  "navbarItems": [
-    { "name": "reads", "path": "reads" },
-    { "name": "blog", "path": "blog" },
-    { "name": "side projects", "path": "side-projects" }
-  ]
-}

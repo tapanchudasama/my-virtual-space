@@ -1,10 +1,10 @@
-import { BiCodeAlt, BiLinkExternal } from "react-icons/bi";
+import { FaCodeBranch, FaLink } from "react-icons/fa";
 import { Project as ProjectType } from "../SideProjects";
 
 const Project = ({ node }: { node: ProjectType }) => {
   return (
     <div className="prose flex flex-col w-full">
-      <p className="text-lg lg:text-xl font-semibold">
+      <p className="text-xl lg:text-2xl font-semibold">
         {node.frontmatter.title}
       </p>
       <div>
@@ -25,26 +25,27 @@ const Project = ({ node }: { node: ProjectType }) => {
           {node.frontmatter.repo_link_backend && (
             <a
               aria-label="source-code-backend"
-              className="cursor-pointer"
+              className="cursor-pointer border-none"
               href={node.frontmatter.repo_link_backend}
             >
-              <BiCodeAlt className="w-4 h-4 lg:w-6 lg:h-6" />
+              <FaCodeBranch className="w-4 h-4 lg:w-6 lg:h-6" />
             </a>
           )}
           {node.frontmatter.repo_link_frontend && (
             <a
               aria-label="source-code-frontend"
+              className="cursor-pointer border-none"
               href={node.frontmatter.repo_link_frontend}
             >
-              <BiCodeAlt className="w-4 h-4 lg:w-6 lg:h-6" />
+              <FaCodeBranch className="w-4 h-4 lg:w-6 lg:h-6" />
             </a>
           )}
           <a
             aria-label="demo"
-            className="cursor-pointer"
+            className="cursor-pointer border-none"
             href={node.frontmatter.demo_link}
           >
-            <BiLinkExternal className="w-4 h-4 lg:w-6 lg:h-6" />
+            <FaLink className="w-4 h-4 lg:w-6 lg:h-6" />
           </a>
         </div>
       </div>

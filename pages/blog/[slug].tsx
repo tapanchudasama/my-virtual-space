@@ -8,6 +8,8 @@ import readingTime from "reading-time";
 import Image from "next/image";
 import Header from "../../components/Header";
 import Seo from "../../components/Seo";
+import PageViews from "../../components/PageViews";
+import { useRouter } from "next/router";
 
 type Post = {
   frontmatter: {
@@ -22,12 +24,13 @@ type Post = {
 };
 
 const Post: NextPage<Post> = ({ markdown, frontmatter, readingTime }) => {
+  const { query } = useRouter();
+
   return (
     <div className="bg-gray-800 text-white h-full">
       <Seo titleTemplate={frontmatter.title} />
-      <div className="px-6"></div>
+      <Header />
       <div className="container">
-        <Header />
         <div className="py-6 space-y-2 max-w-prose">
           <p className="text-5xl lg:text-6xl flex space-x-2 leading-tight font-bold font-serif">
             {frontmatter.title}
@@ -47,6 +50,7 @@ const Post: NextPage<Post> = ({ markdown, frontmatter, readingTime }) => {
         <div className="prose sm:prose-sm lg:prose-lg pb-8">
           <div dangerouslySetInnerHTML={{ __html: markdown }}></div>
         </div>
+        <PageViews slug={query.slug as string} />
       </div>
     </div>
   );

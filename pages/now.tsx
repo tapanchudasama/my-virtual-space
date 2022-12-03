@@ -21,9 +21,7 @@ const Now = () => {
           <div className="container">
             <Seo titleTemplate="blog" />
             <p className="heading">{HEADING}</p>
-            <p className="sub-heading">
-              everything which i am listening/reading/watching recently.
-            </p>
+            <p className="sub-heading">everything which i am doing now.</p>
             <div className="grid grid-cols-1 lg:grid-cols-3 justify-items-center py-16 gap-32">
               <div className="flex flex-col items-center font-sans space-y-8">
                 <p className="font-bold text-3xl lg:text-4xl font-serif">

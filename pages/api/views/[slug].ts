@@ -8,7 +8,6 @@ const API = async (req: NextApiRequest, res: NextApiResponse) => {
     });
   }
 
-  console.log('NODE_ENV',process.env.NODE_ENV)
 
   if (req.method === "POST") {
     // Call our stored procedure with the page_slug set by the request params slug

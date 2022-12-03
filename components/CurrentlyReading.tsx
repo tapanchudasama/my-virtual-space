@@ -7,7 +7,7 @@ const CurrentlyReading = () => {
     <Fragment>
       <Image
         alt="image of book i am currently reading"
-        src="https://m.media-amazon.com/images/I/913OBy2drCL.jpg"
+        src="https://m.media-amazon.com/images/I/91EplUQBYFS.jpg"
         width="300"
         height="450"
       />

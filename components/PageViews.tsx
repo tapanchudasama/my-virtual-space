@@ -20,7 +20,7 @@ const PageViews: FC<PageViewsProps> = ({ slug }) => {
 
   const expressionList = [
     {
-      limit: 10,
+      limit: 0,
       expression: "wow",
     },
     {
@@ -46,7 +46,7 @@ const PageViews: FC<PageViewsProps> = ({ slug }) => {
       {isLoading && <p className="w-72 h-4 animate-pulse bg-slate-200"></p>}
       {!isLoading && data?.total && (
         <p>
-          {expression}, this page has been viewed {data.total} times!
+          {expression} this page has been viewed {data.total} times!
         </p>
       )}
     </div>

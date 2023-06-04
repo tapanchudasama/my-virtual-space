@@ -9,4 +9,3 @@ lastUpdated: "2022-12-26"
 3. **Spotlight**: [Raycast](https://www.raycast.com/). At this point in time, if you are not using this, you are truly missing out on some great experience.
 4. **Fonts**: [Recursive](https://www.recursive.design/). Found this fonts when a guy posted about these on Twitter. Immediately liked it. Also [tweeted](https://twitter.com/tapanchudasama7/status/1603757501467348997?s=20&t=AAbM0imH4SBCr5uYSPWs9A) about my liking for this.
 5. **Code Editor**: VSCode. Shouldn't be a question now. Github Dark is the theme I use.
-6. **Calendar**: [Cron](https://cron.com/). Great UI, amazing keyboard shortcuts and overall super enjoyable.

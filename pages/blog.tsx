@@ -1,4 +1,4 @@
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetStaticProps } from "next";
 import React, { useEffect } from "react";
 import path from "path";
 import matter from "gray-matter";
@@ -126,7 +126,7 @@ const Writings = ({
 
 export default Writings;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const GET_USER_ARTICLES = `
     query GetUserArticles($page: Int) {
       user(username: "inflame") {
@@ -187,6 +187,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       hashnodePosts: await postsData,
       localPosts: await Promise.all(blogs),
     },
+    revalidate: 10,
   };
 };
 

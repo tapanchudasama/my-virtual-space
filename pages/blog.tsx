@@ -187,7 +187,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       hashnodePosts: await postsData,
       localPosts: await Promise.all(blogs),
     },
-    revalidate: 10,
   };
 };
 

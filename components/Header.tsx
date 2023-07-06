@@ -22,8 +22,8 @@ const Header = () => {
           <div className="mt-4">
             <Image
               onClick={() => router.push("/")}
-              width="36px"
-              height="36px"
+              width="36"
+              height="36"
               layout="fixed"
               alt="my picture"
               className="cursor-pointer"

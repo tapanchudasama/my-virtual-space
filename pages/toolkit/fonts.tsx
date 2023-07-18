@@ -31,11 +31,11 @@ const Fonts = ({
   };
 }) => {
   return (
-    <Layout slug="toolkit">
+    <Layout slug="fonts">
       <div className="min-h-screen bg-gray-800 text-white">
         <Header />
         <div className="container">
-          <Seo titleTemplate="setup" />
+          <Seo titleTemplate="fonts" />
           <p className="heading">{HEADING}</p>
           <div className="pt-2 space-y-2">
             <div className="flex flex-wrap items-center space-x-2">

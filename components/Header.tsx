@@ -5,11 +5,11 @@ import SiteMetadata from "../content/site_metadata.json";
 import PageViews from "./PageViews";
 
 const NAV_ITEMS = [
-  { label: "blog", path: "blog" },
-  { label: "reads", path: "reads" },
-  { label: "side projects", path: "side-projects" },
-  { label: "toolkit", path: "toolkit" },
-  { label: "now", path: "now" },
+  { label: "blog", path: "/blog" },
+  { label: "reads", path: "/reads" },
+  { label: "side projects", path: "/side-projects" },
+  { label: "toolkit", path: "/toolkit" },
+  { label: "now", path: "/now" },
 ];
 
 const Header = () => {

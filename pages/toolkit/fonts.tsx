@@ -52,7 +52,7 @@ const Fonts = ({
             <div dangerouslySetInnerHTML={{ __html: toolkit.html }}></div>
           </div>
         </div>
-        <PageViews slug="toolkit" />
+        <PageViews slug="fonts" />
       </div>
     </Layout>
   );

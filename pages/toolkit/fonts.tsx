@@ -7,14 +7,14 @@ import html from "remark-html";
 import { promises as fs } from "fs";
 import readingTime from "reading-time";
 
-import Seo from "../components/Seo";
-import Header from "../components/Header";
-import Layout from "../components/Layout";
-import PageViews from "../components/PageViews";
+import Seo from "../../components/Seo";
+import Header from "../../components/Header";
+import Layout from "../../components/Layout";
+import PageViews from "../../components/PageViews";
 
-const HEADING = "toolkit";
+const HEADING = "fonts";
 
-const Setup = ({
+const Fonts = ({
   toolkit,
 }: {
   toolkit: {
@@ -48,12 +48,6 @@ const Setup = ({
               </p>
             </div>
           </div>
-          <p className="sub-heading">
-            tools that i use in my everyday life. everyday there is a new
-            product in the market which tries to make us developers lives
-            better. this is a list of all those products which i have tried and
-            liked.
-          </p>
           <div className="prose sm:prose-sm lg:prose-lg py-8">
             <div dangerouslySetInnerHTML={{ __html: toolkit.html }}></div>
           </div>
@@ -64,10 +58,10 @@ const Setup = ({
   );
 };
 
-export default Setup;
+export default Fonts;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const dir = path.join(process.cwd(), "content/toolkit.md");
+  const dir = path.join(process.cwd(), "content/toolkit/fonts.md");
 
   const fileContents = matter(await fs.readFile(dir, "utf8"));
 

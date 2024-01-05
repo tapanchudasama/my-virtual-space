@@ -20,6 +20,7 @@ const SEO = ({ titleTemplate }: { titleTemplate: string }) => {
     <Head>
       <title>{siteTitle}</title>
       <meta name="description" content={seo.description} />
+      <meta name="robots" content="nofollow" />
       <meta name="image" content={seo.image} />
       {seo.url && <meta property="og:url" content={seo.url} />}
       {seo.title && <meta property="og:title" content={seo.title} />}

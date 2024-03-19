@@ -4,8 +4,8 @@ const HEADING = "contact";
 
 const SocialMedia: { [key: string]: { label: string; value: string } } = {
   twitter: {
-    label: "@tapanchudasama7",
-    value: "https://twitter.com/tapanchudasama7",
+    label: "@ironicallytapan",
+    value: "https://twitter.com/ironicallytapan",
   },
   github: {
     label: "tapanchudasama",
@@ -20,7 +20,7 @@ const SocialMedia: { [key: string]: { label: string; value: string } } = {
     value: "tapan9740@gmail.com",
   },
   linkedin: {
-    label: "Click here",
+    label: "tapanchudasama",
     value: "https://www.linkedin.com/in/tapanchudasama",
   },
 };
